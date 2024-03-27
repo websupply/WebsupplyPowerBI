@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2020 9:38:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{8CC027A3-D51D-481B-93E3-E5753D25ACE2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="dim_grupos_new"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{E4E3B237-3B40-451D-8869-691B8C851DB5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA GRUPOS DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4AD0E923-424E-4F72-B2F3-4EB753CB6DA0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA GRUPOS DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{73810AB5-84B9-4459-BBB7-3B371B2F192A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT GRUPOS DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVA GRUPOS DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_Grupos]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].Columns[Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Id_Cliente"
+                          externalMetadataColumnId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Id_Cliente]" />
+                        <inputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].Columns[Grupo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Grupo"
+                          externalMetadataColumnId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].ExternalColumns[Nome_Grupo]"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Grupo]" />
+                        <inputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].Columns[Subgrupo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Subgrupo"
+                          externalMetadataColumnId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].ExternalColumns[Nome_Subgrupo]"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Subgrupo]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          dataType="i4"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].ExternalColumns[Nome_Grupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nome_Grupo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input].ExternalColumns[Nome_Subgrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nome_Subgrupo" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER GRUPOS STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Grupos]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+*
+from [egbportal_stage_new].[dbo].[st_gb_grupos] st
+where not exists 
+(select 
+id_cliente
+from [egbportal_dw_new].[dbo].[dim_grupos] dw with (nolock)
+where dw.id_cliente = st.id_cliente
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Id_Cliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Id_Cliente]"
+                          name="Id_Cliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Grupo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Grupo]"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Grupo]"
+                          name="Grupo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Subgrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Subgrupo]"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].Columns[Subgrupo]"
+                          name="Subgrupo"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Cliente]"
+                          dataType="i4"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Grupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Grupo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Subgrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Subgrupo" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Cliente]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Cliente]"
+                          name="Id_Cliente" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[Grupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[Grupo]"
+                          name="Grupo" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[Subgrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[Subgrupo]"
+                          name="Subgrupo" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA GRUPOS DW\DFT GRUPOS DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA GRUPOS DW\LIMPA GRUPOS DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E5350748-A85E-4216-9776-F59A4BC21BA0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA GRUPOS DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{71BCF780-29E0-4304-A1EA-7FE1C3785788}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_GRUPOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA GRUPOS DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8660B32C-E502-492E-8A79-DC3510F5A70F}"
+          DTS:From="Package\CARGA GRUPOS DW\LIMPA GRUPOS DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA GRUPOS DW\DFT GRUPOS DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA GRUPOS STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D8549A9C-BE4C-42F3-85A9-438AFBBBD53F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA GRUPOS STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{70272511-8FAA-4407-8FC5-63A7463376E3}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT GRUPOS STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVAR GRUPOS STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Grupos]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].Columns[idcliente]"
+                          cachedDataType="i4"
+                          cachedName="idcliente"
+                          externalMetadataColumnId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[idcliente]" />
+                        <inputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].Columns[NomeDoGrupo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="NomeDoGrupo"
+                          externalMetadataColumnId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Grupo]"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[NomeDoGrupo]" />
+                        <inputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].Columns[NomeDoSubGrupo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="NomeDoSubGrupo"
+                          externalMetadataColumnId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Subgrupo]"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[NomeDoSubGrupo]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          dataType="i4"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Grupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Grupo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Subgrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Subgrupo" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER GRUPOS OLTP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+ 
+f.idcliente,
+coalesce(g.NomeDoGrupo, 'NÃO INFORMADO') as NomeDoGrupo,
+coalesce(b.NomeDoSubGrupo, 'NÃO INFORMADO') as NomeDoSubGrupo
+
+from 
+clientes c 
+join clientespessoasfisicas f 
+on c.idcliente = f.idcliente
+left join Clientes_GruposEmpresariais_Sub a
+on c.IdCliente = a.idcliente
+left join GruposEmpresariais_Sub b on
+a.Cod_GrupoEmpr = b.Cod_GrupoEmpr and
+a.Cod_SubGrupoEmpr = b.Cod_SubGrupoEmpr
+left join GruposEmpresariais g on
+b.Cod_GrupoEmpr = g.Cod_GrupoEmpr
+
+union
+        
+select 
+
+j.idcliente, 
+coalesce(g.NomeDoGrupo, 'NÃO INFORMADO') as NomeDoGrupo,
+coalesce(b.NomeDoSubGrupo, 'NÃO INFORMADO') as NomeDoSubGrupo
+
+from 
+clientes c
+join clientespessoasjuridicas j 
+on c.idcliente = j.idcliente
+left join Clientes_GruposEmpresariais_Sub a
+on c.IdCliente = a.idcliente
+left join GruposEmpresariais_Sub b on
+a.Cod_GrupoEmpr = b.Cod_GrupoEmpr and
+a.Cod_SubGrupoEmpr = b.Cod_SubGrupoEmpr
+left join GruposEmpresariais g on
+b.Cod_GrupoEmpr = g.Cod_GrupoEmpr</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Connections[OleDbConnection]"
+                      connectionManagerID="{907EDACB-5D52-4703-8CF0-1B43EA34500B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[idcliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[idcliente]"
+                          name="idcliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[NomeDoGrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[NomeDoGrupo]"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[NomeDoGrupo]"
+                          name="NomeDoGrupo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[NomeDoSubGrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[NomeDoSubGrupo]"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].Columns[NomeDoSubGrupo]"
+                          name="NomeDoSubGrupo"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
+                          dataType="i4"
+                          name="idcliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[NomeDoGrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NomeDoGrupo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[NomeDoSubGrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NomeDoSubGrupo" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[idcliente]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[idcliente]"
+                          name="idcliente" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[NomeDoGrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[NomeDoGrupo]"
+                          name="NomeDoGrupo" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[NomeDoSubGrupo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[NomeDoSubGrupo]"
+                          name="NomeDoSubGrupo" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA GRUPOS STAGE\LIMPA GRUPOS STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A4F6FAD7-086E-4EDC-848C-E4465D1EE2E6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA GRUPOS STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{10779405-461C-43D3-8D02-4C534A8750E2}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_GB_GRUPOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA GRUPOS STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{73375062-7490-47BB-90D6-05C402F20C8F}"
+          DTS:From="Package\CARGA GRUPOS STAGE\LIMPA GRUPOS STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{298550AE-26BA-4A10-9C72-63EB4BBFE376}"
+      DTS:From="Package\CARGA GRUPOS STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA GRUPOS DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\CARGA GRUPOS DW\DFT GRUPOS DW"
+          TopLeft="53.5,128.5" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\CARGA GRUPOS DW\LIMPA GRUPOS DW"
+          TopLeft="59,14" />
+        <EdgeLayout
+          Id="Package\CARGA GRUPOS DW.PrecedenceConstraints[Constraint]"
+          TopLeft="145,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,72.5"
+              Start="0,0"
+              End="-10.5,65">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.25"
+                    Point2="0,36.25"
+                    Point3="-4,36.25" />
+                  <mssgle:LineSegment
+                    End="-6.5,36.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,36.25"
+                    Point2="-10.5,36.25"
+                    Point3="-10.5,40.25" />
+                  <mssgle:LineSegment
+                    End="-10.5,65" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276,226"
+          Size="276,268"
+          Id="Package\CARGA GRUPOS DW"
+          TopLeft="517.5,45.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE"
+          TopLeft="9.5,113.5" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\CARGA GRUPOS STAGE\LIMPA GRUPOS STAGE"
+          TopLeft="10.5,5.5" />
+        <EdgeLayout
+          Id="Package\CARGA GRUPOS STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="100.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="213,210"
+          Size="213,253"
+          Id="Package\CARGA GRUPOS STAGE"
+          TopLeft="117.5,62.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="330.5,189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187,-9.5"
+              Start="0,0"
+              End="179.5,-9.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="89.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="89.5,0"
+                    Point2="93.5,0"
+                    Point3="93.5,-4" />
+                  <mssgle:LineSegment
+                    End="93.5,-5.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.5,-5.5"
+                    Point2="93.5,-9.5"
+                    Point3="97.5,-9.5" />
+                  <mssgle:LineSegment
+                    End="179.5,-9.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA GRUPOS DW\DFT GRUPOS DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE"
+          TopLeft="245.5,65.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW"
+          TopLeft="304,204" />
+        <EdgeLayout
+          Id="Package\CARGA GRUPOS DW\DFT GRUPOS DW.Paths[OLE DB Source Output]"
+          TopLeft="333,107.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="59,96.5"
+              Start="0,0"
+              End="59,89">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.25"
+                    Point2="0,48.25"
+                    Point3="4,48.25" />
+                  <mssgle:LineSegment
+                    End="55,48.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55,48.25"
+                    Point2="59,48.25"
+                    Point3="59,52.25" />
+                  <mssgle:LineSegment
+                    End="59,89" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA GRUPOS DW\DFT GRUPOS DW\LER GRUPOS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP"
+          TopLeft="154.5,54.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE"
+          TopLeft="121.5,154.5" />
+        <EdgeLayout
+          Id="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE.Paths[OLE DB Source Output]"
+          TopLeft="239,96.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19,58"
+              Start="0,0"
+              End="-19,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="-4,29" />
+                  <mssgle:LineSegment
+                    End="-15,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15,29"
+                    Point2="-19,29"
+                    Point3="-19,33" />
+                  <mssgle:LineSegment
+                    End="-19,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\GRAVAR GRUPOS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA GRUPOS STAGE\DFT GRUPOS STAGE\LER GRUPOS OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA GRUPOS DW\DFT GRUPOS DW\GRAVA GRUPOS DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

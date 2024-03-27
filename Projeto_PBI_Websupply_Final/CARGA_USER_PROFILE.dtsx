@@ -1,0 +1,1074 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2020 9:53:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\administrator"
+  DTS:DTSID="{11B27CD4-B420-4D1B-9AC7-A48330D975E8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{E0A972E1-2029-485F-8CC6-90D0CBB0FF2B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_ST_USER_PROFILE STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3181BADC-DD81-4063-BFA2-08959B72B443}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_ST_USER_PROFILE STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{29599E30-9938-4A4B-9BF0-69CC00CB8153}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST_LOGINS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CONEXÃO OLTP LOGINS"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+A.LOGIN,
+A.CGC AS CNPJ_MATRIZ,
+C.CGC AS CNPJ_FILIAL
+FROM LOGINS A WITH(NOLOCK)
+     INNER JOIN CENTROSCUSTO B WITH(NOLOCK)
+	       ON A.CGC           = B.CGC
+              AND A.CCUSTO    = B.CCUSTO
+              AND A.REQUISIT  = B.REQUISIT
+			  AND B.INDVALIDO = 'S'
+			  AND B.INDEXCLUI  = 'N'
+     INNER JOIN (
+					SELECT
+					EMP.CGC AS CGC_LOGIN,
+					ISNULL(MATR.CGC,EMP.CGC) AS CGC
+					FROM EMPRESAS EMP WITH(NOLOCK)
+					LEFT JOIN EMPRESAS MATR WITH(NOLOCK)
+					ON EMP.CGC = MATR.CGCMATRIZ
+				) C
+			ON A.CGC = C.CGC_LOGIN</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].ExternalColumns[LOGIN]"
+                          length="30"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[LOGIN]"
+                          name="LOGIN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_MATRIZ]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[CNPJ_MATRIZ]"
+                          name="CNPJ_MATRIZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_FILIAL]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[CNPJ_FILIAL]"
+                          name="CNPJ_FILIAL"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].ExternalColumns[LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_MATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_FILIAL" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[LOGIN]"
+                          name="LOGIN" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[CNPJ_MATRIZ]"
+                          name="CNPJ_MATRIZ" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[CNPJ_FILIAL]"
+                          name="CNPJ_FILIAL" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CONEXÃO ST_USER_PROFILE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_USER_PROFILE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].Columns[CNPJ_MATRIZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CNPJ_MATRIZ"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_MATRIZ]"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[CNPJ_MATRIZ]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].Columns[CNPJ_FILIAL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CNPJ_FILIAL"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_FILIAL]"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[CNPJ_FILIAL]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].Columns[LOGIN]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="LOGIN"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].ExternalColumns[USER_LOGIN]"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output].Columns[LOGIN]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].ExternalColumns[USER_LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="USER_LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_MATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_FILIAL" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_USER_PROFILE STAGE\TRUNCATE ST_WS_USER_PROFILE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6BE57EA4-15EE-4635-90DF-75B2A69248CA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE ST_WS_USER_PROFILE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_USER_PROFILE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_ST_USER_PROFILE STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{287237E0-1D56-4D7C-B2D9-361DF5941F4B}"
+          DTS:From="Package\CARGA_ST_USER_PROFILE STAGE\TRUNCATE ST_WS_USER_PROFILE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_ST_USER_PROFILE_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7F32543C-4183-431E-9B49-C3A22C8B799B}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_ST_USER_PROFILE_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{36D87D34-862E-42FD-AB49-8839C853C0DC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT USER PROFILE DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ST_USER_PROFILE_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+*
+FROM [WEBSUPPLY_STAGE].[DBO].[ST_WS_USER_PROFILE] ST WITH (NOLOCK)
+WHERE NOT EXISTS 
+(SELECT 
+[USER_LOGIN]
+FROM [WEBSUPPLY_DW].[DBO].[USER_PROFILE] DW WITH (NOLOCK)
+WHERE DW.USER_LOGIN = ST.USER_LOGIN
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[USER_LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].ExternalColumns[USER_LOGIN]"
+                          length="30"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[USER_LOGIN]"
+                          name="USER_LOGIN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_MATRIZ]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_MATRIZ]"
+                          name="CNPJ_MATRIZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_FILIAL]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_FILIAL]"
+                          name="CNPJ_FILIAL"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].ExternalColumns[USER_LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="USER_LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_MATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_FILIAL" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[USER_LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[USER_LOGIN]"
+                          name="USER_LOGIN" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[CNPJ_MATRIZ]"
+                          name="CNPJ_MATRIZ" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[CNPJ_FILIAL]"
+                          name="CNPJ_FILIAL" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="USER_PROFILE_DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[USER_PROFILE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].Columns[USER_LOGIN]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="USER_LOGIN"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].ExternalColumns[USER_LOGIN]"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[USER_LOGIN]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].Columns[CNPJ_MATRIZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CNPJ_MATRIZ"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_MATRIZ]"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_MATRIZ]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].Columns[CNPJ_FILIAL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CNPJ_FILIAL"
+                          externalMetadataColumnId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_FILIAL]"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_FILIAL]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].ExternalColumns[USER_LOGIN]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="USER_LOGIN" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_MATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_MATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_FILIAL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_FILIAL" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_USER_PROFILE_DW\TRUNCATE USER_PROFILE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{43BBC071-2404-41C3-A531-2CF251B69E81}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE USER_PROFILE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE USER_PROFILE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_ST_USER_PROFILE_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E9FE9921-F720-475B-ACD3-945025F15456}"
+          DTS:From="Package\CARGA_ST_USER_PROFILE_DW\TRUNCATE USER_PROFILE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5159F34-E90D-442D-B800-010A9AAC430B}"
+      DTS:From="Package\CARGA_ST_USER_PROFILE STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA_ST_USER_PROFILE_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS"
+          TopLeft="68.5,105.5" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\CARGA_ST_USER_PROFILE STAGE\TRUNCATE ST_WS_USER_PROFILE"
+          TopLeft="35.5,15.5" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_USER_PROFILE STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="158.5,57.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,48"
+              Start="0,0"
+              End="-12,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-8,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,24"
+                    Point2="-12,24"
+                    Point3="-12,28" />
+                  <mssgle:LineSegment
+                    End="-12,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="319,202"
+          Size="319,245"
+          Id="Package\CARGA_ST_USER_PROFILE STAGE"
+          TopLeft="79.5,53.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW"
+          TopLeft="47.5,106.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\CARGA_ST_USER_PROFILE_DW\TRUNCATE USER_PROFILE"
+          TopLeft="42,21" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_USER_PROFILE_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="144.25,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.5"
+              Start="0,0"
+              End="0,36">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="281,204"
+          Size="281,246"
+          Id="Package\CARGA_ST_USER_PROFILE_DW"
+          TopLeft="470.5,66.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="398.5,176">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72,13.5"
+              Start="0,0"
+              End="64.5,13.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="32,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,0"
+                    Point2="36,0"
+                    Point3="36,4" />
+                  <mssgle:LineSegment
+                    End="36,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36,9.5"
+                    Point2="36,13.5"
+                    Point3="40,13.5" />
+                  <mssgle:LineSegment
+                    End="64.5,13.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE"
+          TopLeft="199.5,177.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS"
+          TopLeft="138.5,46.5" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS.Paths[OLE DB Source Output]"
+          TopLeft="236,88.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.5,89"
+              Start="0,0"
+              End="73.5,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.5"
+                    Point2="0,44.5"
+                    Point3="4,44.5" />
+                  <mssgle:LineSegment
+                    End="69.5,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.5,44.5"
+                    Point2="73.5,44.5"
+                    Point3="73.5,48.5" />
+                  <mssgle:LineSegment
+                    End="73.5,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO OLTP LOGINS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_USER_PROFILE STAGE\DFT ST_LOGINS\CONEXÃO ST_USER_PROFILE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW"
+          TopLeft="182.5,177.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE"
+          TopLeft="191.5,66.5" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW.Paths[OLE DB Source Output]"
+          TopLeft="295,108.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.5,69"
+              Start="0,0"
+              End="-25.5,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="-4,34.5" />
+                  <mssgle:LineSegment
+                    End="-21.5,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,34.5"
+                    Point2="-25.5,34.5"
+                    Point3="-25.5,38.5" />
+                  <mssgle:LineSegment
+                    End="-25.5,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\ST_USER_PROFILE_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_USER_PROFILE_DW\DFT USER PROFILE DW\USER_PROFILE_DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

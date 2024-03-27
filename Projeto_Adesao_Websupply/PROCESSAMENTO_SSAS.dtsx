@@ -1,0 +1,75 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/31/2022 10:42:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{DD6D2128-01FA-4BC7-8E36-85E9579B72B1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PROCESSAMENTO_SSAS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{AC1A354D-B2AA-4B20-8976-EDC9699BE6DA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SGISQL01.Projeto_Adesao_Websupply_SSAS]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{29246D08-5489-43D0-8088-61B717CB2FD8}"
+      DTS:ObjectName="SGISQL01.Projeto_Adesao_Websupply_SSAS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Data Source=SGISQL01;Initial Catalog=Projeto_Adesao_Websupply_SSAS;Provider=MSOLAP.8;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Analysis Services Processing Task"
+      DTS:CreationName="Microsoft.DTSProcessingTask"
+      DTS:Description="Analysis Services Processing Task"
+      DTS:DTSID="{86EC3FF2-6349-428B-BA65-DD9FEAC8CA71}"
+      DTS:ExecutableType="Microsoft.DTSProcessingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Analysis Services Processing Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ASProcessingData
+          ConnectionName="SGISQL01.Projeto_Adesao_Websupply_SSAS"
+          ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;STATUS PEDIDO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;STATUS ADESAO&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_STATUS_ADESAO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;FILIAL&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_FILIAL&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;PEDIDOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;CALENDARIO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;STATUS ADESAO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;ASSINATURAS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;CLIENTES&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_CLIENTES&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;BEM&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;FORMAS PAGTO&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_FORMAS_PAGTO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;PAGTOS&quot;,&#xA;              &quot;partition&quot;: &quot;FT_PAGTOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;STATUS PEDIDO&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_STATUS_PEDIDO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;PAGTOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;VENDEDORES&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_VENDEDORES&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;TIPO DE BEM&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;PEDIDOS&quot;,&#xA;              &quot;partition&quot;: &quot;FT_PEDIDOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;TIPO DE BEM&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_TIPO_BEM&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;METRICAS&quot;,&#xA;              &quot;partition&quot;: &quot;CalculatedTable 1&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;BEM&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_BEM&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;FILIAL&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;CALENDARIO&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_TEMPO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;METRICAS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;FORMAS PAGTO&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;ASSINATURAS&quot;,&#xA;              &quot;partition&quot;: &quot;FT_ASSINATURAS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;PLANOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;VENDEDORES&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;PLANOS&quot;,&#xA;              &quot;partition&quot;: &quot;DIM_PLANOS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto_Adesao_Websupply_SSAS&quot;,&#xA;              &quot;table&quot;: &quot;CLIENTES&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Analysis Services Processing Task"
+          TopLeft="113.5,114.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[SGISQL01.Projeto_Adesao_Websupply_SSAS]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

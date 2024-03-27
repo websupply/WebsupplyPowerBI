@@ -1,0 +1,2770 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2022 10:13:45 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{40E95DF9-29B9-4FA9-9128-045DDB072879}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TIPO_BEM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{423354D8-780B-4F62-9D15-55DC2EEF8918}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TIPO_BEM_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8410E7FB-B2F1-470D-A193-B6F1ADEE9B61}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TIPO_BEM_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{c6e78595-76c7-464d-ab1e-0dc717797c71}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM_TIPO_BEM_DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_TIPO_BEM"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_TIPO_BEM]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Connections[OleDbConnection]"
+                      connectionManagerID="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_DW.websupply3]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          externalMetadataColumnId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRIÇÃO"
+                          externalMetadataColumnId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="CATEGORIA"
+                          externalMetadataColumnId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[SK_TIPO_BEM]"
+                          dataType="i4"
+                          name="SK_TIPO_BEM" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="DIM_TIPO_BEM_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIM_TIPO_BEM_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          name="CATEGORIA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW.Paths[OLE DB Source Output]"
+                  endId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_DW\TRUNCATE DIM_TIPO_BEM_DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c7d0c123-adc0-4352-9b0f-96618237fdac}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_TIPO_BEM_DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_TIPO_BEM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TIPO_BEM_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7d45e79e-4984-423e-8d94-acd015edd63a}"
+          DTS:From="Package\TIPO_BEM_DW\TRUNCATE DIM_TIPO_BEM_DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TIPO_BEM_ORA_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{27C76179-9C72-4895-95A9-3035913DF6E9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TIPO_BEM_ORA_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8741e7aa-bd54-42f7-80cc-31492189a780}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_TIPO_BEM_ORA_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="TIPO_BEM_ORAREMPROD"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct
+
+substr(ksade_bem, 1,2) as cod_especie ,
+
+case 
+    when substr(ksade_bem, 1,2) = 'IM' then 'Imovel'
+    when substr(ksade_bem, 1,2) = 'MO' then 'Moto'
+    when substr(ksade_bem, 1,2) = 'AU' then 'Auto Nacional'
+    when substr(ksade_bem, 1,2) = 'AI' then 'Auto Importado'
+    when substr(ksade_bem, 1,2) = 'UT' then 'Utilitario'
+    else 'Não Informado' 
+end as descrição,
+
+Case
+	When substr(ksade_bem, 1,2) = 'IM' Then 'Imoveis'
+	When substr(ksade_bem, 1,2) = 'MO' Then 'Motos'
+	When substr(ksade_bem, 1,2) = 'AU' Then 'Autos'
+	When substr(ksade_bem, 1,2) = 'AI' Then 'Autos'
+	When substr(ksade_bem, 1,2) = 'UT' Then 'Autos'
+	Else 'Nao Informado'
+End As CATEGORIA
+
+
+from     ksade,ksgru12,ksrsv,ksplan,kscon b,ksven, kscon f, ksreu 
+where (ksade_idvenda is null and substr(ksade_datade, length(ksade_datade)-1, 2)  between 18 and 60) and
+         ksgru_grupo = ksade_grupo and
+         ksrsv_nade = ksade_nade and
+         ksplan_codigo = ksade_plan and
+         substr(b.kscon_chave, 1,6) = 'KSAB10' and
+        substr(b.kscon_chave, 7,4) = substr(ksade_bem, 5,4) and
+        ksven_codigo = ksade_vend and
+        substr(f.kscon_chave, 1,6) = 'KSAB27' and
+        substr(f.kscon_chave, 7,2) =  substr(ksade_ccusto, length(ksade_ccusto)-4, 2) and
+        substr(ksreu_reu, 1,4) = ksade_grupo and
+        substr(ksreu_reu, 5,3) = ksade_idade</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Connections[OleDbConnection]"
+                      connectionManagerID="{FCB42EA4-B3E4-448E-8E88-F5957260B0F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORAREMPROD.dwuser_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          length="14"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          length="13"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          name="CATEGORIA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="TIPO_BEM_ORA_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TIPO_BEM_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[COD_ESPECIE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          externalMetadataColumnId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="DESCRIÇÃO"
+                          externalMetadataColumnId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="13"
+                          cachedName="CATEGORIA"
+                          externalMetadataColumnId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CATEGORIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_ORA_STAGE\TRUNCATE TIPO_BEM_ORA_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2f1d9321-0d32-4a34-ac33-1e84df4e805c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE TIPO_BEM_ORA_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE TIPO_BEM_ORA_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TIPO_BEM_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{fefbecfb-3a1c-48ec-a8f1-f43a794521b1}"
+          DTS:From="Package\TIPO_BEM_ORA_STAGE\TRUNCATE TIPO_BEM_ORA_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TIPO_BEM_SQL_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3B2A2CEA-D4AF-491C-B6ED-EED3F949DC77}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TIPO_BEM_SQL_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{eaad23c8-6e0e-4bd8-849b-e624603654bd}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_TIPO_BEM_SQL_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CARGA_TIPO_BEM_SQL"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select Distinct 
+Case
+	When ESPECIE Is Null Then 'NI'
+	Else ESPECIE
+End As COD_ESPECIE ,
+Case
+	When ESPECIE = 'IM' Then 'Imovel'
+	When ESPECIE = 'MO' Then 'Moto'
+	When ESPECIE = 'AU' Then 'Auto Nacional'
+	When ESPECIE = 'AI' Then 'Auto Importado'
+	When ESPECIE = 'UT' Then 'Utilitario'
+	Else 'Nao Informado'
+End As DESCRIÇÃO,
+
+Case
+	When ESPECIE = 'IM' Then 'Imoveis'
+	When ESPECIE = 'MO' Then 'Motos'
+	When ESPECIE = 'AU' Then 'Autos'
+	When ESPECIE = 'AI' Then 'Autos'
+	When ESPECIE = 'UT' Then 'Autos'
+	Else 'Nao Informado'
+End As CATEGORIA
+
+From PEDIDO</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Connections[OleDbConnection]"
+                      connectionManagerID="{b713392e-6b85-45bf-aa3f-c181e65606a8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLPROD02_SGISQL02,1433.RemazaAdesao]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          length="14"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          length="13"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          name="CATEGORIA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="13"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="14"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="TIPO_BEM_SQL_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[TIPO_BEM_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          externalMetadataColumnId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="14"
+                          cachedName="DESCRIÇÃO"
+                          externalMetadataColumnId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="13"
+                          cachedName="CATEGORIA"
+                          externalMetadataColumnId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output].Columns[CATEGORIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_SQL_STAGE\TRUNCATE TIPO_BEM_SQL_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{ffe1f50f-a0bf-4f84-af89-f4f1b5e3d79d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE TIPO_BEM_SQL_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE TIPO_BEM_SQL_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TIPO_BEM_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{fd7e6280-e870-4ef0-9308-58bbe5aa01c1}"
+          DTS:From="Package\TIPO_BEM_SQL_STAGE\TRUNCATE TIPO_BEM_SQL_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TIPO_BEM_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D6D594B1-7DA2-4337-9357-2C5B3D225DAE}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TIPO_BEM_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{5b8cb405-394a-47c8-83de-9ebe859a222c}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM_TIPO_BEM_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Inputs[Data Conversion Input].Columns[COD_ESPECIE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_ESPECIE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_ESPECIE]"
+                          name="Copy of COD_ESPECIE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_TIPO_BEM_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_TIPO_BEM_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[COD_ESPECIE]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRIÇÃO"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[DESCRIÇÃO]" />
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="CATEGORIA"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[CATEGORIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Inputs[Sort Input].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_ESPECIE]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Inputs[Sort Input].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRIÇÃO"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCRIÇÃO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Inputs[Sort Input].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="CATEGORIA"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[CATEGORIA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_ESPECIE]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCRIÇÃO]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output].Columns[CATEGORIA]"
+                          name="CATEGORIA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[CATEGORIA]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="TIPO_BEM_ORA_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TIPO_BEM_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          name="CATEGORIA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="TIPO_BEM_SQL_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TIPO_BEM_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          name="CATEGORIA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRIÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 1].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_ESPECIE]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 1].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="CATEGORIA"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[CATEGORIA]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 1].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRIÇÃO"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCRIÇÃO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 3]"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 3].Columns[Copy of COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="Copy of COD_ESPECIE"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_ESPECIE]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_ESPECIE]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 3].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="CATEGORIA"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[CATEGORIA]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[CATEGORIA]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 3].Columns[DESCRIÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRIÇÃO"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output].Columns[DESCRIÇÃO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCRIÇÃO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 2]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                        <outputColumn
+                          refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCRIÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCRIÇÃO]"
+                          name="DESCRIÇÃO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[Data Conversion Output]"
+                  endId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 3]"
+                  name="Data Conversion Output"
+                  startId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Inputs[Union All Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[OLE DB Source Output1]"
+                  endId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[Sort Output]"
+                  endId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Outputs[Sort Output]" />
+                <path
+                  refId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[Union All Output 1]"
+                  endId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1.Inputs[Sort Input]"
+                  name="Union All Output 1"
+                  startId="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\TIPO_BEM_STAGE\TRUNCATE DIM_TIPO_BEM_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{21a071a7-77fa-4bf0-9e1a-23b742986cb5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_TIPO_BEM_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_TIPO_BEM_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\TIPO_BEM_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{e639338a-ad83-4149-be93-53b6b95ee0df}"
+          DTS:From="Package\TIPO_BEM_STAGE\TRUNCATE DIM_TIPO_BEM_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{85670CDA-B7F6-4BE6-84F4-1F29FE7B7ED2}"
+      DTS:From="Package\TIPO_BEM_ORA_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\TIPO_BEM_SQL_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C8E53D15-209F-4BF5-A197-8F3614DD9473}"
+      DTS:From="Package\TIPO_BEM_SQL_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TIPO_BEM_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{82C5A359-80C7-45B6-B403-137F1BE60C32}"
+      DTS:From="Package\TIPO_BEM_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\TIPO_BEM_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW"
+          TopLeft="50,87" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\TIPO_BEM_DW\TRUNCATE DIM_TIPO_BEM_DW"
+          TopLeft="20,12" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="137.25,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="258,163"
+          Size="258,206"
+          Id="Package\TIPO_BEM_DW"
+          TopLeft="1010,172.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE"
+          TopLeft="37,106" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\TIPO_BEM_ORA_STAGE\TRUNCATE TIPO_BEM_ORA_STAGE"
+          TopLeft="28,12" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="152.5,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="313,168"
+          Size="313,211"
+          Id="Package\TIPO_BEM_ORA_STAGE"
+          TopLeft="14.5,170" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE"
+          TopLeft="41,87" />
+        <NodeLayout
+          Size="246,42"
+          Id="Package\TIPO_BEM_SQL_STAGE\TRUNCATE TIPO_BEM_SQL_STAGE"
+          TopLeft="33,14" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="156,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="322,157"
+          Size="322,200"
+          Id="Package\TIPO_BEM_SQL_STAGE"
+          TopLeft="351.5,173.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE"
+          TopLeft="44,86" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\TIPO_BEM_STAGE\TRUNCATE DIM_TIPO_BEM_STAGE"
+          TopLeft="26,12" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="149.5,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,32"
+              Start="0,0"
+              End="-9.5,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="-4,16" />
+                  <mssgle:LineSegment
+                    End="-5.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,16"
+                    Point2="-9.5,16"
+                    Point3="-9.5,20" />
+                  <mssgle:LineSegment
+                    End="-9.5,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="285,160"
+          Size="285,203"
+          Id="Package\TIPO_BEM_STAGE"
+          TopLeft="696.5,174.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="327.5,274.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24,0"
+              Start="0,0"
+              End="16.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="16.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="673.5,274.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,0"
+              Start="0,0"
+              End="15.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="981.5,275.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.5,0"
+              Start="0,0"
+              End="21,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="21,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE"
+          TopLeft="283.5,88.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM"
+          TopLeft="297.5,237.5" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW.Paths[OLE DB Source Output]"
+          TopLeft="377,130.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,107"
+              Start="0,0"
+              End="0,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_DW\DIM_TIPO_BEM_DW\DIM_TIPO_BEM_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE"
+          TopLeft="216,256" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD"
+          TopLeft="188,92" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="289.5,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,122"
+              Start="0,0"
+              End="23,114.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57"
+                    Point2="0,61"
+                    Point3="4,61" />
+                  <mssgle:LineSegment
+                    End="19,61" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,61"
+                    Point2="23,61"
+                    Point3="23,65" />
+                  <mssgle:LineSegment
+                    End="23,114.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORAREMPROD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_ORA_STAGE\CARGA_TIPO_BEM_ORA_STAGE\TIPO_BEM_ORA_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE"
+          TopLeft="152.5,192.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL"
+          TopLeft="144.5,58.5" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="244.25,100.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92"
+              Start="0,0"
+              End="0,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_SQL_STAGE\CARGA_TIPO_BEM_SQL_STAGE\TIPO_BEM_SQL_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="107,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Sort 1"
+          TopLeft="526,397" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE"
+          TopLeft="592.5,117.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE"
+          TopLeft="505,516" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Union All"
+          TopLeft="515,297" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\Data Conversion"
+          TopLeft="610,200" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE"
+          TopLeft="348.5,117.5" />
+        <EdgeLayout
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[Union All Output 1]"
+          TopLeft="577.5,339">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[Sort Output]"
+          TopLeft="579.5,439">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5,77"
+              Start="0,0"
+              End="21.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="17.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5,38.5"
+                    Point2="21.5,38.5"
+                    Point3="21.5,42.5" />
+                  <mssgle:LineSegment
+                    End="21.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[OLE DB Source Output1]"
+          TopLeft="688.5,159.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.5"
+              Start="0,0"
+              End="0,33">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="444,159.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="112.666666666667,137.5"
+              Start="0,0"
+              End="112.666666666667,130">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.4233278955955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.4233278955955"
+                    Point2="0,81.4233278955955"
+                    Point3="4,81.4233278955955" />
+                  <mssgle:LineSegment
+                    End="108.666666666667,81.4233278955955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="108.666666666667,81.4233278955955"
+                    Point2="112.666666666667,81.4233278955955"
+                    Point3="112.666666666667,85.4233278955955" />
+                  <mssgle:LineSegment
+                    End="112.666666666667,130" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE.Paths[Data Conversion Output]"
+          TopLeft="688,242">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93.6666666666666,55"
+              Start="0,0"
+              End="-93.6666666666666,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5693311582382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5693311582382"
+                    Point2="0,32.5693311582382"
+                    Point3="-4,32.5693311582382" />
+                  <mssgle:LineSegment
+                    End="-89.6666666666666,32.5693311582382" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.6666666666666,32.5693311582382"
+                    Point2="-93.6666666666666,32.5693311582382"
+                    Point3="-93.6666666666666,36.5693311582382" />
+                  <mssgle:LineSegment
+                    End="-93.6666666666666,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_ORA_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TIPO_BEM_STAGE\DIM_TIPO_BEM_STAGE\TIPO_BEM_SQL_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

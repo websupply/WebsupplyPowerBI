@@ -1,0 +1,774 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "WEBSUPPLY_DW_PROD",
+        "connectionString": "Provider=SQLNCLI11;Data Source=WEBSQLPROD02\\SGISQL02,1433;Integrated Security=SSPI;Persist Security Info=false;Initial Catalog=WEBSUPPLY_DW",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "CENTROS DE CUSTO",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDCENTROS_CUSTO",
+            "dataType": "string",
+            "sourceColumn": "IDCENTROS_CUSTO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CGC",
+            "dataType": "string",
+            "sourceColumn": "CGC",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CGCMATRIZ",
+            "dataType": "string",
+            "sourceColumn": "CGCMATRIZ",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "EMPRESA",
+            "dataType": "string",
+            "sourceColumn": "EMPRESA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DESCRICAO",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NOMEREQUISITANTE",
+            "dataType": "string",
+            "sourceColumn": "NOMEREQUISITANTE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CODSTATUS",
+            "dataType": "int64",
+            "sourceColumn": "CODSTATUS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "STATUS_CENTROCUSTO",
+            "dataType": "string",
+            "sourceColumn": "STATUS_CENTROCUSTO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "COMPRACONTRATO",
+            "dataType": "string",
+            "sourceColumn": "COMPRACONTRATO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "COTACAO",
+            "dataType": "string",
+            "sourceColumn": "COTACAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "LEILAO",
+            "dataType": "string",
+            "sourceColumn": "LEILAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "INICIO",
+            "dataType": "dateTime",
+            "sourceColumn": "INICIO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "FIM",
+            "dataType": "dateTime",
+            "sourceColumn": "FIM",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CENTROSCUSTO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_CENTROSCUSTO].* FROM [dbo].[DIM_CENTROSCUSTO] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CENTROSCUSTO].* FROM [dbo].[DIM_CENTROSCUSTO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CENTROSCUSTO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "EMPRESAS",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDEMPRESA",
+            "dataType": "string",
+            "sourceColumn": "IDEMPRESA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CGCMATRIZ",
+            "dataType": "string",
+            "sourceColumn": "CGCMATRIZ",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "EMPRESA",
+            "dataType": "string",
+            "sourceColumn": "EMPRESA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BAIRRO",
+            "dataType": "string",
+            "sourceColumn": "BAIRRO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CIDADE",
+            "dataType": "string",
+            "sourceColumn": "CIDADE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "UF",
+            "dataType": "string",
+            "sourceColumn": "UF",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CEP",
+            "dataType": "string",
+            "sourceColumn": "CEP",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "LOCALIZAÇÃO",
+            "dataType": "string",
+            "sourceColumn": "LOCALIZAÇÃO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "INICIO",
+            "dataType": "dateTime",
+            "sourceColumn": "INICIO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "FIM",
+            "dataType": "dateTime",
+            "sourceColumn": "FIM",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_EMPRESAS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_EMPRESAS].* FROM [dbo].[DIM_EMPRESAS] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_EMPRESAS].* FROM [dbo].[DIM_EMPRESAS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_EMPRESAS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "STATUS PEDIDOS",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_STATUS",
+            "dataType": "int64",
+            "sourceColumn": "COD_STATUS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "STATUS_PEDIDO",
+            "dataType": "string",
+            "sourceColumn": "STATUS_PEDIDO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "INICIO",
+            "dataType": "dateTime",
+            "sourceColumn": "INICIO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "FIM",
+            "dataType": "dateTime",
+            "sourceColumn": "FIM",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PEDIDOS_STATUS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PEDIDOS_STATUS].* FROM [dbo].[DIM_PEDIDOS_STATUS] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PEDIDOS_STATUS].* FROM [dbo].[DIM_PEDIDOS_STATUS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PEDIDOS_STATUS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PRODUTOS",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPRODUTOS",
+            "dataType": "string",
+            "sourceColumn": "IDPRODUTOS",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DESCRICAO_PRODUTO",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO_PRODUTO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "MARCA",
+            "dataType": "string",
+            "sourceColumn": "MARCA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PRODUTO_SERVICO",
+            "dataType": "string",
+            "sourceColumn": "PRODUTO_SERVICO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRICAO_CATEGORIA",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO_CATEGORIA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "STATUS_CATEGORIA",
+            "dataType": "string",
+            "sourceColumn": "STATUS_CATEGORIA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "FORNECEDOR",
+            "dataType": "string",
+            "sourceColumn": "FORNECEDOR",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "INICIO",
+            "dataType": "dateTime",
+            "sourceColumn": "INICIO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "FIM",
+            "dataType": "dateTime",
+            "sourceColumn": "FIM",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PRODUTOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PRODUTOS].* FROM [dbo].[DIM_PRODUTOS] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PRODUTOS].* FROM [dbo].[DIM_PRODUTOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PRODUTOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CALENDARIO",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DATA",
+            "dataType": "dateTime",
+            "sourceColumn": "DATA",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "DIA",
+            "dataType": "string",
+            "sourceColumn": "DIA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DIASEMANA",
+            "dataType": "string",
+            "sourceColumn": "DIASEMANA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "MES",
+            "dataType": "string",
+            "sourceColumn": "MES",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NOMEMES",
+            "dataType": "string",
+            "sourceColumn": "NOMEMES",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TRIMESTRE",
+            "dataType": "int64",
+            "sourceColumn": "TRIMESTRE",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "NOMETRIMESTRE",
+            "dataType": "string",
+            "sourceColumn": "NOMETRIMESTRE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ANO",
+            "dataType": "string",
+            "sourceColumn": "ANO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "FIMSEMANA",
+            "dataType": "string",
+            "sourceColumn": "FIMSEMANA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DATACOMPLETA",
+            "dataType": "string",
+            "sourceColumn": "DATACOMPLETA",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_TEMPO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_TEMPO].* FROM [dbo].[DIM_TEMPO] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_TEMPO].* FROM [dbo].[DIM_TEMPO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_TEMPO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PEDIDOS",
+        "columns": [
+          {
+            "name": "IDEMPRESA",
+            "dataType": "int64",
+            "sourceColumn": "IDEMPRESA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPRODUTOS",
+            "dataType": "int64",
+            "sourceColumn": "IDPRODUTOS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDCENTROSCUSTO_SOLIC",
+            "dataType": "int64",
+            "sourceColumn": "IDCENTROSCUSTO_SOLIC",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDCENTROSCUSTO_REQUISIT",
+            "dataType": "int64",
+            "sourceColumn": "IDCENTROSCUSTO_REQUISIT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDSTATUSPEDIDO",
+            "dataType": "int64",
+            "sourceColumn": "IDSTATUSPEDIDO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDTEMPO",
+            "dataType": "int64",
+            "sourceColumn": "IDTEMPO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PRODUTOFORACONTRATO",
+            "dataType": "string",
+            "sourceColumn": "PRODUTOFORACONTRATO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DATA_PEDIDO",
+            "dataType": "dateTime",
+            "sourceColumn": "DATA_PEDIDO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "QTDE",
+            "dataType": "double",
+            "sourceColumn": "QTDE",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "PREÇO_UNITÁRIO",
+            "dataType": "decimal",
+            "sourceColumn": "PREÇO_UNITÁRIO",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FT_PEDIDOS_ITENS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FT_PEDIDOS_ITENS].* FROM [dbo].[FT_PEDIDOS_ITENS] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FT_PEDIDOS_ITENS].* FROM [dbo].[FT_PEDIDOS_ITENS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FT_PEDIDOS_ITENS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "USER_LOGIN",
+        "columns": [
+          {
+            "name": "USER_LOGIN",
+            "dataType": "string",
+            "sourceColumn": "USER_LOGIN",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "USER_LOGIN",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[USER_LOGIN].* FROM [dbo].[USER_LOGIN] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[USER_LOGIN].* FROM [dbo].[USER_LOGIN] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "USER_LOGIN"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "USER_PROFILE",
+        "columns": [
+          {
+            "name": "USER_LOGIN",
+            "dataType": "string",
+            "sourceColumn": "USER_LOGIN",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CNPJ_MATRIZ",
+            "dataType": "string",
+            "sourceColumn": "CNPJ_MATRIZ",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CNPJ_FILIAL",
+            "dataType": "string",
+            "sourceColumn": "CNPJ_FILIAL",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "USER_PROFILE",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[USER_PROFILE].* FROM [dbo].[USER_PROFILE] ",
+              "dataSource": "WEBSUPPLY_DW_PROD"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[USER_PROFILE].* FROM [dbo].[USER_PROFILE] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "USER_PROFILE"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "MEDIDAS",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "Medidas",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Medidas]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "",
+                "DATATABLE(",
+                "\"Medidas\", STRING,{",
+                "\t\t{\"a\"}",
+                "\t}",
+                ")"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Base",
+            "expression": " 0"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "838397f6-a7e3-44b3-8ee9-88e2b55a5f86",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDCENTROSCUSTO_REQUISIT",
+        "toTable": "CENTROS DE CUSTO",
+        "toColumn": "IDSK",
+        "isActive": false
+      },
+      {
+        "name": "739d531a-4c63-43ce-a671-bbe9df3f2b50",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDCENTROSCUSTO_SOLIC",
+        "toTable": "CENTROS DE CUSTO",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "0c6c0cd3-473b-42d2-afc9-8061fbda0801",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDEMPRESA",
+        "toTable": "EMPRESAS",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "733acd2d-6615-4fb3-8984-b22c0444afc1",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDSTATUSPEDIDO",
+        "toTable": "STATUS PEDIDOS",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "96872ea2-02a0-4733-9cb6-b42a6d9aa2f0",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDPRODUTOS",
+        "toTable": "PRODUTOS",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "874fa542-1f87-4082-b6d7-5b93c4b92b21",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDTEMPO",
+        "toTable": "CALENDARIO",
+        "toColumn": "IDSK"
+      }
+    ],
+    "roles": [
+      {
+        "name": "RLS_LOGIN",
+        "modelPermission": "readRefresh",
+        "members": [
+          {
+            "memberName": "REMAZAWEB\\Administrator",
+            "memberId": "S-1-5-21-4153046137-595686557-258077127-500"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "USER_LOGIN",
+            "filterExpression": "USER_LOGIN[USER_LOGIN] = CUSTOMDATA()"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

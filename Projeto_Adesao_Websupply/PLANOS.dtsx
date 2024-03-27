@@ -1,0 +1,2452 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2022 9:44:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{056C1BF9-415D-42D9-86C4-39E9FF8E7AD1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PLANOS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{A46C8B93-8B7F-4950-AE81-2A77AE6A3652}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\PLANOS_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{CE29B861-A23F-4ED4-8A44-B5C9CFE86435}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PLANOS_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_DW\DIM_PLANOS_DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{dcef96e9-8ec8-438b-94ee-8fc40da4f1de}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM_PLANOS_DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_PLANOS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_PLANOS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Connections[OleDbConnection]"
+                      connectionManagerID="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_DW.websupply3]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].Columns[IDPLANO]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          externalMetadataColumnId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]" />
+                        <inputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          externalMetadataColumnId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].ExternalColumns[SK_PLANO]"
+                          dataType="i4"
+                          name="SK_PLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="DIM_PLANOS_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIM_PLANOS_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          length="1"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          name="IDPLANO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          length="8"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          name="PLANO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          name="IDPLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          name="PLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PLANOS_DW\DIM_PLANOS_DW.Paths[OLE DB Source Output]"
+                  endId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_DW\TRUNCATE DIM_PLANOS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{277f3956-3efb-44fc-a008-689a324dee14}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_PLANOS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_PLANOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PLANOS_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1445c8e4-448f-441c-8f59-71b76563f51a}"
+          DTS:From="Package\PLANOS_DW\TRUNCATE DIM_PLANOS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PLANOS_DW\DIM_PLANOS_DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PLANOS_ORA_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5E93F38C-18C9-4044-84D0-5F06F137D330}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PLANOS_ORA_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{943f931f-98e8-4533-ad81-f67966f235f8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_PLANOS_ORA_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PLANOS_ORA"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct
+
+Case
+                    When ksplan_tbcoms = ' ' Then 'P'
+                    When ksplan_tbcoms Is Null Then 'P'
+                    Else ksplan_tbcoms
+                End As IDPLANO ,
+                Case
+                    When ksplan_tbcoms = 'A' Then 'Master A'
+                    When ksplan_tbcoms = 'B' Then 'Master B'
+                    When ksplan_tbcoms = 'C' Then 'Master C'
+                    Else 'Padrao'
+                End As PLANO
+
+from     ksade,ksgru12,ksrsv,ksplan,kscon b,ksven, kscon f, ksreu 
+where (ksade_idvenda is null and substr(ksade_datade, LENGTH(ksade_datade)-1, 2)  between 18 and 60) and
+         ksgru_grupo = ksade_grupo and
+         ksrsv_nade = ksade_nade and
+         ksplan_codigo = ksade_plan and
+         substr(b.kscon_chave, 1,6) = 'KSAB10' and
+        substr(b.kscon_chave, 7,4) = substr(ksade_bem, 5,4) and
+        ksven_codigo = ksade_vend and
+        substr(f.kscon_chave, 1,6) = 'KSAB27' and
+        substr(f.kscon_chave, 7,2) =  substr(ksade_ccusto, LENGTH(ksade_ccusto)-4, 2) and
+        substr(ksreu_reu, 1,4) = ksade_grupo and
+        substr(ksreu_reu, 5,3) = ksade_idade</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Connections[OleDbConnection]"
+                      connectionManagerID="{FCB42EA4-B3E4-448E-8E88-F5957260B0F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORAREMPROD.dwuser_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          length="1"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          name="IDPLANO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          length="8"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          name="PLANO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          name="IDPLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          name="PLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="PLANOS_ORA_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[PLANOS_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[IDPLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          externalMetadataColumnId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].Columns[IDPLANO]" />
+                        <inputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          externalMetadataColumnId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output].Columns[PLANO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_ORA_STAGE\TRUNCATE PLANOS_ORA_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0cced004-3459-4b51-9bb9-e9f3af21bdfb}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE PLANOS_ORA_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE PLANOS_ORA_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PLANOS_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{16e28b9b-8000-4c3c-9d7b-56fb3d56625f}"
+          DTS:From="Package\PLANOS_ORA_STAGE\TRUNCATE PLANOS_ORA_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PLANOS_SQL_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{08320298-0A69-4483-81FC-CF339078BD83}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PLANOS_SQL_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2d7df039-b49a-4d7b-9851-3e9e6734d7ad}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_PLANOS_SQL_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PLANOS_SQL"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select Distinct Case
+                    When TBCOMS = '' Then 'P'
+                    When TBCOMS Is Null Then 'P'
+                    Else TBCOMS
+                End As IDPLANO ,
+                Case
+                    When TBCOMS = 'A' Then 'Master A'
+                    When TBCOMS = 'B' Then 'Master B'
+                    When TBCOMS = 'C' Then 'Master C'
+                    Else 'Padrao'
+                End As PLANO
+From PEDIDO</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Connections[OleDbConnection]"
+                      connectionManagerID="{b713392e-6b85-45bf-aa3f-c181e65606a8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLPROD02_SGISQL02,1433.RemazaAdesao]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          length="1"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          name="IDPLANO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          length="8"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          name="PLANO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          name="IDPLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          name="PLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="PLANOS_SQL_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[PLANOS_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[IDPLANO]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          externalMetadataColumnId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].Columns[IDPLANO]" />
+                        <inputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          externalMetadataColumnId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output].Columns[PLANO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_SQL_STAGE\TRUNCATE PLANOS_SQL_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{00d169c6-a8a9-419a-926a-a1224a816ced}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE PLANOS_SQL_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE PLANOS_SQL_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PLANOS_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9121690f-c0fe-4ebd-92ff-dbb4bce3a250}"
+          DTS:From="Package\PLANOS_SQL_STAGE\TRUNCATE PLANOS_SQL_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PLANOS_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{448D8F85-E259-47EF-AE3B-746CB308C6F8}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PLANOS_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{553bf81e-747e-4c44-9303-6a40d697c231}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM_PLANOS_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Inputs[Data Conversion Input].Columns[IDPLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of IDPLANO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of IDPLANO]"
+                          name="Copy of IDPLANO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_PLANOS_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_PLANOS_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input].Columns[IDPLANO]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output].Columns[IDPLANO]" />
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          externalMetadataColumnId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output].Columns[PLANO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PLANOS_ORA_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PLANOS_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          name="IDPLANO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          length="8"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          name="PLANO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          name="IDPLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          name="PLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PLANOS_SQL_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PLANOS_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]"
+                          name="IDPLANO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          length="8"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]"
+                          name="PLANO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          name="IDPLANO" />
+                        <externalMetadataColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="PLANO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[IDPLANO]"
+                          name="IDPLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[PLANO]"
+                          name="PLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Inputs[Sort Input].Columns[IDPLANO]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[IDPLANO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Inputs[Sort Input].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[PLANO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output].Columns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output].Columns[IDPLANO]"
+                          name="IDPLANO"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[IDPLANO]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output].Columns[PLANO]"
+                          name="PLANO">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[PLANO]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 1].Columns[IDPLANO]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="IDPLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[IDPLANO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[IDPLANO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 1].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[PLANO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 3]"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 3].Columns[PLANO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="PLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[PLANO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[PLANO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 3].Columns[Copy of IDPLANO]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Copy of IDPLANO"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of IDPLANO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[IDPLANO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 2]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[IDPLANO]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[IDPLANO]"
+                          name="IDPLANO" />
+                        <outputColumn
+                          refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[PLANO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1].Columns[PLANO]"
+                          name="PLANO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[Data Conversion Output]"
+                  endId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 3]"
+                  name="Data Conversion Output"
+                  startId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Inputs[Union All Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[OLE DB Source Output1]"
+                  endId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[Sort Output]"
+                  endId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[Union All Output 1]"
+                  endId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort.Inputs[Sort Input]"
+                  name="Union All Output 1"
+                  startId="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PLANOS_STAGE\TRUNCATE DIM_PLANOS_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6fa2f68b-6225-4181-8bc2-f128157774f2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_PLANOS_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_PLANOS_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PLANOS_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{2ce9a1b6-1123-4f33-9998-159da9680e06}"
+          DTS:From="Package\PLANOS_STAGE\TRUNCATE DIM_PLANOS_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PLANOS_STAGE\DIM_PLANOS_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{530A8087-9B50-4CE4-AAEE-253DB6AF0E31}"
+      DTS:From="Package\PLANOS_ORA_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\PLANOS_SQL_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{99770FC8-CD32-4470-A281-35415BDADAD0}"
+      DTS:From="Package\PLANOS_SQL_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\PLANOS_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A241D526-F60C-46B8-807C-21698D964976}"
+      DTS:From="Package\PLANOS_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PLANOS_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\PLANOS_DW\DIM_PLANOS_DW"
+          TopLeft="31,105" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\PLANOS_DW\TRUNCATE DIM_PLANOS"
+          TopLeft="17,12" />
+        <EdgeLayout
+          Id="Package\PLANOS_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="114.75,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="250,178"
+          Size="250,221"
+          Id="Package\PLANOS_DW"
+          TopLeft="936.5,129.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE"
+          TopLeft="18,105" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\PLANOS_ORA_STAGE\TRUNCATE PLANOS_ORA_STAGE"
+          TopLeft="15,17" />
+        <EdgeLayout
+          Id="Package\PLANOS_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="130.5,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256,176"
+          Size="256,219"
+          Id="Package\PLANOS_ORA_STAGE"
+          TopLeft="49,132.5" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE"
+          TopLeft="11.5,102.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\PLANOS_SQL_STAGE\TRUNCATE PLANOS_SQL_STAGE"
+          TopLeft="5.5,14.5" />
+        <EdgeLayout
+          Id="Package\PLANOS_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="121.75,56.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="246,177"
+          Size="246,220"
+          Id="Package\PLANOS_SQL_STAGE"
+          TopLeft="347.5,131.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE"
+          TopLeft="40,113" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\PLANOS_STAGE\TRUNCATE DIM_PLANOS_STAGE"
+          TopLeft="26,9" />
+        <EdgeLayout
+          Id="Package\PLANOS_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="143.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.5,62"
+              Start="0,0"
+              End="-13.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-9.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.5,31"
+                    Point2="-13.5,31"
+                    Point3="-13.5,35" />
+                  <mssgle:LineSegment
+                    End="-13.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="266,172"
+          Size="266,215"
+          Id="Package\PLANOS_STAGE"
+          TopLeft="629.5,129.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="305,241.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.5,0"
+              Start="0,0"
+              End="35,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="593.5,239.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,0"
+              Start="0,0"
+              End="28.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="28.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="895.5,238.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,0"
+              Start="0,0"
+              End="33.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\PLANOS_DW\DIM_PLANOS_DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS"
+          TopLeft="290.5,197.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\PLANOS_DW\DIM_PLANOS_DW\DIM_PLANOS_STAGE"
+          TopLeft="279.5,56.5" />
+        <EdgeLayout
+          Id="Package\PLANOS_DW\DIM_PLANOS_DW.Paths[OLE DB Source Output]"
+          TopLeft="369.5,98.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,99"
+              Start="0,0"
+              End="-8,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="-4,49.5" />
+                  <mssgle:LineSegment
+                    End="-4,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,49.5"
+                    Point2="-8,49.5"
+                    Point3="-8,53.5" />
+                  <mssgle:LineSegment
+                    End="-8,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA_STAGE"
+          TopLeft="225.5,345.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA"
+          TopLeft="148.5,112.5" />
+        <EdgeLayout
+          Id="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="220.5,154.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.5,191"
+              Start="0,0"
+              End="95.5,183.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,91.5"
+                    Point2="0,95.5"
+                    Point3="4,95.5" />
+                  <mssgle:LineSegment
+                    End="91.5,95.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.5,95.5"
+                    Point2="95.5,95.5"
+                    Point3="95.5,99.5" />
+                  <mssgle:LineSegment
+                    End="95.5,183.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PLANOS_ORA_STAGE\CARGA_PLANOS_ORA_STAGE\PLANOS_ORA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="142,42"
+          Id="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL"
+          TopLeft="161.5,36.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE\PLANOS_SQL_STAGE"
+          TopLeft="156.5,200.5" />
+        <EdgeLayout
+          Id="Package\PLANOS_SQL_STAGE\CARGA_PLANOS_SQL_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="232.5,78.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,122"
+              Start="0,0"
+              End="13.5,114.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57"
+                    Point2="0,61"
+                    Point3="4,61" />
+                  <mssgle:LineSegment
+                    End="9.5,61" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,61"
+                    Point2="13.5,61"
+                    Point3="13.5,65" />
+                  <mssgle:LineSegment
+                    End="13.5,114.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\PLANOS_STAGE\DIM_PLANOS_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_ORA_STAGE"
+          TopLeft="390.5,78.5" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\DIM_PLANOS_STAGE"
+          TopLeft="327,544" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Sort"
+          TopLeft="346,446" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Union All"
+          TopLeft="325,340" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\PLANOS_SQL_STAGE"
+          TopLeft="123.5,80.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE\Data Conversion"
+          TopLeft="433,197" />
+        <EdgeLayout
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[Union All Output 1]"
+          TopLeft="385.5,382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,64"
+              Start="0,0"
+              End="9.5,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28"
+                    Point2="0,32"
+                    Point3="4,32" />
+                  <mssgle:LineSegment
+                    End="5.5,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,32"
+                    Point2="9.5,32"
+                    Point3="9.5,36" />
+                  <mssgle:LineSegment
+                    End="9.5,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[Sort Output]"
+          TopLeft="395,488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,56"
+              Start="0,0"
+              End="22,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="18,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,28"
+                    Point2="22,28"
+                    Point3="22,32" />
+                  <mssgle:LineSegment
+                    End="22,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[OLE DB Source Output1]"
+          TopLeft="481,120.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,76.5"
+              Start="0,0"
+              End="30,69">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.25"
+                    Point2="0,38.25"
+                    Point3="4,38.25" />
+                  <mssgle:LineSegment
+                    End="26,38.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,38.25"
+                    Point2="30,38.25"
+                    Point3="30,42.25" />
+                  <mssgle:LineSegment
+                    End="30,69" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="213,122.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="172.5,217.5"
+              Start="0,0"
+              End="172.5,210">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,104.75"
+                    Point2="0,108.75"
+                    Point3="4,108.75" />
+                  <mssgle:LineSegment
+                    End="168.5,108.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="168.5,108.75"
+                    Point2="172.5,108.75"
+                    Point3="172.5,112.75" />
+                  <mssgle:LineSegment
+                    End="172.5,210" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PLANOS_STAGE\DIM_PLANOS_STAGE.Paths[Data Conversion Output]"
+          TopLeft="511,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.666666666667,101"
+              Start="0,0"
+              End="-106.666666666667,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.8091353996737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.8091353996737"
+                    Point2="0,59.8091353996737"
+                    Point3="-4,59.8091353996737" />
+                  <mssgle:LineSegment
+                    End="-102.666666666667,59.8091353996737" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.666666666667,59.8091353996737"
+                    Point2="-106.666666666667,59.8091353996737"
+                    Point3="-106.666666666667,63.8091353996737" />
+                  <mssgle:LineSegment
+                    End="-106.666666666667,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

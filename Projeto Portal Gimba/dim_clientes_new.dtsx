@@ -1,0 +1,1152 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2020 9:35:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{210F60C5-F2AB-4802-A3B8-FB4B7BCCFBE9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="dim_clientes_new"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{F4A49E99-427E-4232-B0CD-0A56430E5628}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CATEGORIA DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F0F6035E-1564-4D35-B3A0-C529673AFBFA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CATEGORIA DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B84CD9B7-1FFD-4C64-9A1C-B5DDF9E71613}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT CLIENTES DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVA CLIENTES DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_Clientes]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].Columns[CNPJ_CPF]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="CNPJ_CPF"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_CPF]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_CPF]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].Columns[Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Id_Cliente"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Id_Cliente]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].Columns[Nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Nome"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Nome]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].Columns[Tipo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Tipo"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Tipo]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Sk]"
+                          dataType="i4"
+                          name="Id_Sk" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          dataType="i4"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CNPJ_CPF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Tipo" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER CLIENTES STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Clientes]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+*
+from [egbportal_stage_new].[dbo].[st_gb_clientes] st
+where not exists 
+(select 
+id_cliente
+from [egbportal_dw_new].[dbo].[dim_clientes] dw with (nolock)
+where dw.id_cliente = st.id_cliente
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_CPF]"
+                          length="45"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[CNPJ_CPF]"
+                          name="CNPJ_CPF"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Id_Cliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Id_Cliente]"
+                          name="Id_Cliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[Nome]"
+                          length="50"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Nome]"
+                          name="Nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Tipo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[Tipo]"
+                          length="1"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].Columns[Tipo]"
+                          name="Tipo"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CNPJ_CPF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Cliente]"
+                          dataType="i4"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output].ExternalColumns[Tipo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Tipo" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Cliente]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Cliente]"
+                          name="Id_Cliente" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[Nome]"
+                          name="Nome" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[CNPJ_CPF]"
+                          name="CNPJ_CPF" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[Tipo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[Tipo]"
+                          name="Tipo" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CATEGORIA DW\LIMPA CLIENTES DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DBC91A9D-B24A-4C13-9C16-2DFB68C00B15}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA CLIENTES DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{71BCF780-29E0-4304-A1EA-7FE1C3785788}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_CLIENTES" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CATEGORIA DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3340E452-F17A-487E-AE28-48241E005B2C}"
+          DTS:From="Package\CARGA CATEGORIA DW\LIMPA CLIENTES DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CATEGORIA DW\DFT CLIENTES DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CLIENTES STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A661B57A-8001-41E8-856D-117ABBAA4733}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CLIENTES STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9B1A1588-6A34-4548-84D2-3987DD35D3DD}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT CLIENTES STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVAR CLIENTES STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Clientes]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].Columns[CNPJ_CPF]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CNPJ_CPF"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_CPF]"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[CNPJ_CPF]" />
+                        <inputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].Columns[idcliente]"
+                          cachedDataType="i4"
+                          cachedName="idcliente"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[idcliente]" />
+                        <inputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].Columns[nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="nome"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[nome]" />
+                        <inputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].Columns[tipocliente]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="tipocliente"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[tipocliente]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="CNPJ_CPF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Cliente]"
+                          dataType="i4"
+                          name="Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Tipo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Tipo" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER CLIENTES OLTP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+c.tipocliente, 
+f.idcliente, 
+upper(f.nome) as nome,
+f.CPF as "CNPJ_CPF"
+from 
+clientes c 
+join clientespessoasfisicas f on c.idcliente = f.idcliente
+
+union
+        
+select 
+c.tipocliente,
+j.idcliente, 
+upper(j.razaosocial),
+j.CNPJ as "CNPJ/CPF"
+from 
+clientes c
+join clientespessoasjuridicas j on c.idcliente = j.idcliente</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Connections[OleDbConnection]"
+                      connectionManagerID="{907EDACB-5D52-4703-8CF0-1B43EA34500B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[tipocliente]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[tipocliente]"
+                          length="1"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[tipocliente]"
+                          name="tipocliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[idcliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[idcliente]"
+                          name="idcliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          length="50"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[nome]"
+                          name="nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_CPF]"
+                          length="15"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].Columns[CNPJ_CPF]"
+                          name="CNPJ_CPF"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[tipocliente]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="tipocliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[idcliente]"
+                          dataType="i4"
+                          name="idcliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output].ExternalColumns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CNPJ_CPF" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[tipocliente]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[tipocliente]"
+                          name="tipocliente" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[idcliente]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[idcliente]"
+                          name="idcliente" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[nome]"
+                          name="nome" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[CNPJ_CPF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[CNPJ_CPF]"
+                          name="CNPJ_CPF" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CLIENTES STAGE\LIMPA CLIENTES STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F0E857CC-B3E4-4382-BDF9-CDE95707C936}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA CLIENTES STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{10779405-461C-43D3-8D02-4C534A8750E2}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_GB_CLIENTES" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CLIENTES STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6A571D70-BBFA-47DF-90DB-586D28531EFD}"
+          DTS:From="Package\CARGA CLIENTES STAGE\LIMPA CLIENTES STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB74073F-199A-46BA-B967-161062611D99}"
+      DTS:From="Package\CARGA CLIENTES STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA CATEGORIA DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="169,42"
+          Id="Package\CARGA CATEGORIA DW\DFT CLIENTES DW"
+          TopLeft="20.5,138.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\CARGA CATEGORIA DW\LIMPA CLIENTES DW"
+          TopLeft="34,20" />
+        <EdgeLayout
+          Id="Package\CARGA CATEGORIA DW.PrecedenceConstraints[Constraint]"
+          TopLeft="123.5,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.5,76.5"
+              Start="0,0"
+              End="-18.5,69">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.25"
+                    Point2="0,38.25"
+                    Point3="-4,38.25" />
+                  <mssgle:LineSegment
+                    End="-14.5,38.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.5,38.25"
+                    Point2="-18.5,38.25"
+                    Point3="-18.5,42.25" />
+                  <mssgle:LineSegment
+                    End="-18.5,69" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="240,236"
+          Size="240,279"
+          Id="Package\CARGA CATEGORIA DW"
+          TopLeft="532.5,32.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE"
+          TopLeft="22.5,152" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\CARGA CLIENTES STAGE\LIMPA CLIENTES STAGE"
+          TopLeft="5.5,6" />
+        <EdgeLayout
+          Id="Package\CARGA CLIENTES STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="102.5,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.5,104"
+              Start="0,0"
+              End="11.5,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48"
+                    Point2="0,52"
+                    Point3="4,52" />
+                  <mssgle:LineSegment
+                    End="7.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,52"
+                    Point2="11.5,52"
+                    Point3="11.5,56" />
+                  <mssgle:LineSegment
+                    End="11.5,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="220,249"
+          Size="220,292"
+          Id="Package\CARGA CLIENTES STAGE"
+          TopLeft="192.5,42.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="412.5,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120,-16.5"
+              Start="0,0"
+              End="112.5,-16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="56,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56,0"
+                    Point2="60,0"
+                    Point3="60,-4" />
+                  <mssgle:LineSegment
+                    End="60,-12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="60,-12.5"
+                    Point2="60,-16.5"
+                    Point3="64,-16.5" />
+                  <mssgle:LineSegment
+                    End="112.5,-16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA CATEGORIA DW\DFT CLIENTES DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW"
+          TopLeft="392,189" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE"
+          TopLeft="375,42.4999999999999" />
+        <EdgeLayout
+          Id="Package\CARGA CATEGORIA DW\DFT CLIENTES DW.Paths[OLE DB Source Output]"
+          TopLeft="466,84.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,104.5"
+              Start="0,0"
+              End="17,97.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.2500000000001"
+                    Point2="0,52.2500000000001"
+                    Point3="4,52.2500000000001" />
+                  <mssgle:LineSegment
+                    End="13,52.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,52.2500000000001"
+                    Point2="17,52.2500000000001"
+                    Point3="17,56.2500000000001" />
+                  <mssgle:LineSegment
+                    End="17,97.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\GRAVA CLIENTES DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CATEGORIA DW\DFT CLIENTES DW\LER CLIENTES STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="175,42"
+          Id="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP"
+          TopLeft="131,90" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE"
+          TopLeft="214,265" />
+        <EdgeLayout
+          Id="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE.Paths[OLE DB Source Output]"
+          TopLeft="218.5,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="97.5,133"
+              Start="0,0"
+              End="97.5,125.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.5"
+                    Point2="0,66.5"
+                    Point3="4,66.5" />
+                  <mssgle:LineSegment
+                    End="93.5,66.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="93.5,66.5"
+                    Point2="97.5,66.5"
+                    Point3="97.5,70.5" />
+                  <mssgle:LineSegment
+                    End="97.5,125.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\GRAVAR CLIENTES STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CLIENTES STAGE\DFT CLIENTES STAGE\LER CLIENTES OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

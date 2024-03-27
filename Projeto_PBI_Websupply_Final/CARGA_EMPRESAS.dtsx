@@ -1,0 +1,1699 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2020 10:26:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\administrator"
+  DTS:DTSID="{C9FAD96F-E827-49D8-8027-DD92954530C4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CARGA_EMPRESAS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{CA5ED900-90D2-4DEC-A54C-63C3F72E907D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_ST_EMPRESAS DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{33AFA0E8-C12C-43D8-ABD2-4B1B4057C25C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_ST_EMPRESAS DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DAD621D1-8710-4D16-BCE2-FC1E72B647AB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT EMPRESAS DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DW_EMPRESAS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_EMPRESAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[IDEMPRESA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IDEMPRESA"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[IDEMPRESA]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[IDEMPRESA]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CGCMATRIZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGCMATRIZ"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[EMPRESA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="EMPRESA"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[EMPRESA]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[BAIRRO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="BAIRRO"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[BAIRRO]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[BAIRRO]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CIDADE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="CIDADE"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CIDADE]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CIDADE]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[UF]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="UF"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[UF]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[UF]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CEP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="CEP"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CEP]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CEP]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].Columns[LOCALIZAÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="LOCALIZAÇÃO"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[LOCALIZAÇÃO]"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[LOCALIZAÇÃO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[IDEMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="IDEMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="BAIRRO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CIDADE" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="UF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="CEP" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="LOCALIZAÇÃO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[SK_EMPRESA]"
+                          dataType="i4"
+                          name="SK_EMPRESA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="PESQUISA ID EMPRESA"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_EMPRESAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_EMPRESAS]) [refTable]
+where [refTable].[IDEMPRESA] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_EMPRESA" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDEMPRESA" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CGCMATRIZ" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EMPRESA" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="BAIRRO" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CIDADE" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="UF" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CEP" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LOCALIZAÇÃO" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[IDEMPRESA]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Inputs[Lookup Input].Columns[IDEMPRESA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IDEMPRESA"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[IDEMPRESA]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">IDEMPRESA</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Match Output].Columns[IDEMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Copy Column"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Match Output].Columns[IDEMPRESA]"
+                          name="IDEMPRESA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">IDEMPRESA</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ST_EMPRESAS STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_EMPRESAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+*
+FROM [WEBSUPPLY_STAGE].[DBO].[ST_WS_EMPRESAS] ST WITH (NOLOCK)
+WHERE NOT EXISTS 
+(SELECT 
+[IDEMPRESA]
+FROM [WEBSUPPLY_DW].[DBO].[DIM_EMPRESAS] DW WITH (NOLOCK)
+WHERE DW.IDEMPRESA = ST.IDEMPRESA
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[IDEMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDEMPRESA]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[IDEMPRESA]"
+                          name="IDEMPRESA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          name="EMPRESA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[BAIRRO]"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[BAIRRO]"
+                          name="BAIRRO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[CIDADE]"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CIDADE]"
+                          name="CIDADE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[UF]"
+                          length="2"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[UF]"
+                          name="UF"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[CEP]"
+                          length="8"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[CEP]"
+                          name="CEP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[LOCALIZAÇÃO]"
+                          length="100"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].Columns[LOCALIZAÇÃO]"
+                          name="LOCALIZAÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDEMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="IDEMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="BAIRRO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CIDADE" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="UF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="CEP" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="LOCALIZAÇÃO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[IDEMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[IDEMPRESA]"
+                          name="IDEMPRESA" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          name="EMPRESA" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[BAIRRO]"
+                          name="BAIRRO" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[CIDADE]"
+                          name="CIDADE" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[UF]"
+                          name="UF" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[CEP]"
+                          name="CEP" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[LOCALIZAÇÃO]"
+                          name="LOCALIZAÇÃO" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW.Paths[Lookup No Match Output]"
+                  endId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_EMPRESAS DW\TRUNCATE TABLE DIM_EMPRESAS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{395FBBAA-1146-4D20-BD4D-6534B9276209}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE TABLE DIM_EMPRESAS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_EMPRESAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_ST_EMPRESAS DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{08E9BA12-05CE-4791-89F4-6CAF8FE3C4B1}"
+          DTS:From="Package\CARGA_ST_EMPRESAS DW\TRUNCATE TABLE DIM_EMPRESAS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_ST_EMPRESAS STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F9AEFB4B-EB61-427B-B2A4-C66E37CAF6C3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_ST_EMPRESAS STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{DDED05A4-13AF-4F32-A53E-6437498367A4}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST_EMPRESAS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CONEXÃO OLTP EMPRESAS"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+E.CGC,
+	CASE 
+		WHEN E.CGCMATRIZ IS NULL 
+		THEN E.CGC 
+		ELSE E.CGCMATRIZ 
+	END AS CGCMATRIZ,
+UPPER(E.RAZSOC) AS EMPRESA,
+ISNULL(UPPER(E.BAIRRO), 'NÃO INFORMADO') AS BAIRRO,
+UPPER(E.CIDADE) AS CIDADE,
+UPPER(UF) AS UF,
+CEP,
+UPPER(CONCAT(RTRIM(E.CIDADE),', ',E.UF,', ','BRASIL')) AS LOCALIZAÇÃO
+
+FROM EMPRESAS E</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CGC]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CGC]"
+                          name="CGC"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          name="EMPRESA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[BAIRRO]"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[BAIRRO]"
+                          name="BAIRRO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CIDADE]"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CIDADE]"
+                          name="CIDADE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[UF]"
+                          length="2"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[UF]"
+                          name="UF"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CEP]"
+                          length="8"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CEP]"
+                          name="CEP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[LOCALIZAÇÃO]"
+                          length="72"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[LOCALIZAÇÃO]"
+                          name="LOCALIZAÇÃO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGC" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="BAIRRO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CIDADE" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="UF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="CEP" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].ExternalColumns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="72"
+                          name="LOCALIZAÇÃO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CGC]"
+                          name="CGC" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          name="EMPRESA" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[BAIRRO]"
+                          name="BAIRRO" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CIDADE]"
+                          name="CIDADE" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[UF]"
+                          name="UF" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[CEP]"
+                          name="CEP" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="72"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[LOCALIZAÇÃO]"
+                          name="LOCALIZAÇÃO" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CONEXÃO ST_EMPRESAS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_EMPRESAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CGCMATRIZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGCMATRIZ"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[EMPRESA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="EMPRESA"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[EMPRESA]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[BAIRRO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="BAIRRO"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[BAIRRO]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[BAIRRO]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CIDADE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="CIDADE"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CIDADE]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CIDADE]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[UF]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="UF"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[UF]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[UF]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CEP]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8"
+                          cachedName="CEP"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CEP]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CEP]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[LOCALIZAÇÃO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="72"
+                          cachedName="LOCALIZAÇÃO"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[LOCALIZAÇÃO]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[LOCALIZAÇÃO]" />
+                        <inputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].Columns[CGC]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGC"
+                          externalMetadataColumnId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[IDEMPRESA]"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output].Columns[CGC]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[IDEMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="IDEMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[BAIRRO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="BAIRRO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CIDADE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="CIDADE" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[UF]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="UF" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[CEP]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8"
+                          name="CEP" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input].ExternalColumns[LOCALIZAÇÃO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="LOCALIZAÇÃO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_ST_EMPRESAS STAGE\TRUNCATE ST_EMPRESAS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9B5B3606-4F44-49A2-A2E0-F5010ECFFE77}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE ST_EMPRESAS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_EMPRESAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_ST_EMPRESAS STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{64118BAC-98DA-45D4-8EE2-F765835E301F}"
+          DTS:From="Package\CARGA_ST_EMPRESAS STAGE\TRUNCATE ST_EMPRESAS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5A69C3CF-7B37-4396-BF30-6766B986FE60}"
+      DTS:From="Package\CARGA_ST_EMPRESAS STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA_ST_EMPRESAS DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW"
+          TopLeft="25.5,100.5" />
+        <NodeLayout
+          Size="244,42"
+          Id="Package\CARGA_ST_EMPRESAS DW\TRUNCATE TABLE DIM_EMPRESAS"
+          TopLeft="15,19" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_EMPRESAS DW.PrecedenceConstraints[Constraint]"
+          TopLeft="137,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,39.5"
+              Start="0,0"
+              End="-25,32">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.75"
+                    Point2="0,19.75"
+                    Point3="-4,19.75" />
+                  <mssgle:LineSegment
+                    End="-21,19.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,19.75"
+                    Point2="-25,19.75"
+                    Point3="-25,23.75" />
+                  <mssgle:LineSegment
+                    End="-25,32" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="289,198"
+          Size="289,240"
+          Id="Package\CARGA_ST_EMPRESAS DW"
+          TopLeft="567.5,47.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS"
+          TopLeft="36.5,137.5" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\CARGA_ST_EMPRESAS STAGE\TRUNCATE ST_EMPRESAS"
+          TopLeft="34.5,32.5" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_EMPRESAS STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="136,74.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,63"
+              Start="0,0"
+              End="-14.5,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="-4,31.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,31.5"
+                    Point2="-14.5,31.5"
+                    Point3="-14.5,35.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="264,266"
+          Size="264,309"
+          Id="Package\CARGA_ST_EMPRESAS STAGE"
+          TopLeft="133.5,46.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="397.5,201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="170,-33.5"
+              Start="0,0"
+              End="162.5,-33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81,0"
+                    Point2="85,0"
+                    Point3="85,-4" />
+                  <mssgle:LineSegment
+                    End="85,-29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85,-29.5"
+                    Point2="85,-33.5"
+                    Point3="89,-33.5" />
+                  <mssgle:LineSegment
+                    End="162.5,-33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE"
+          TopLeft="208.5,24.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS"
+          TopLeft="209.5,263.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA"
+          TopLeft="443,133" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW.Paths[OLE DB Source Output]"
+          TopLeft="300,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="238.5,66.5"
+              Start="0,0"
+              End="238.5,59">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.25"
+                    Point2="0,33.25"
+                    Point3="4,33.25" />
+                  <mssgle:LineSegment
+                    End="234.5,33.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="234.5,33.25"
+                    Point2="238.5,33.25"
+                    Point3="238.5,37.25" />
+                  <mssgle:LineSegment
+                    End="238.5,59" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW.Paths[Lookup No Match Output]"
+          TopLeft="538.5,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-252.5,88.5"
+              Start="0,0"
+              End="-252.5,81">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.25"
+                    Point2="0,44.25"
+                    Point3="-4,44.25" />
+                  <mssgle:LineSegment
+                    End="-248.5,44.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-248.5,44.25"
+                    Point2="-252.5,44.25"
+                    Point3="-252.5,48.25" />
+                  <mssgle:LineSegment
+                    End="-252.5,81" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-182.05638671875,49.25,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\ST_EMPRESAS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\DW_EMPRESAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_EMPRESAS DW\DFT EMPRESAS DW\PESQUISA ID EMPRESA">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_EMPRESAS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS"
+          TopLeft="171.5,191.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS"
+          TopLeft="180.5,48.5" />
+        <EdgeLayout
+          Id="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS.Paths[OLE DB Source Output]"
+          TopLeft="285,90.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,101"
+              Start="0,0"
+              End="-14.5,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.5"
+                    Point2="0,50.5"
+                    Point3="-4,50.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,50.5"
+                    Point2="-14.5,50.5"
+                    Point3="-14.5,54.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO OLTP EMPRESAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_ST_EMPRESAS STAGE\DFT ST_EMPRESAS\CONEXÃO ST_EMPRESAS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

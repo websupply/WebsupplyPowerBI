@@ -1,0 +1,1921 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/23/2020 10:04:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\administrator"
+  DTS:DTSID="{C681EBCA-9CF1-4D9C-AC8E-E90ED18A0241}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CARGA_CENTROSCUSTO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{E407A62E-F3A1-41DB-8C97-09A4D4415CF0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_CENTROSCUSTO DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F86FDEA6-4F73-492C-9472-D653CCBF1334}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_CENTROSCUSTO DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{095512D2-7005-4452-915C-109B24AA5F41}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_CENTROSCUSTO DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DW CENTROS CUSTO"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_CENTROSCUSTO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[IDCENTROS_CUSTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="IDCENTROS_CUSTO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[IDCENTROS_CUSTO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[CGC]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGC"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGC]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CGC]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[CGCMATRIZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGCMATRIZ"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[EMPRESA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="EMPRESA"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[EMPRESA]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[CODSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="CODSTATUS"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[CODSTATUS]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CODSTATUS]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[COMPRACONTRATO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="COMPRACONTRATO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[COMPRACONTRATO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[COMPRACONTRATO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[COTACAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="COTACAO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[COTACAO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[COTACAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[LEILAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="LEILAO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[LEILAO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[LEILAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[STATUS_CCUSTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="STATUS_CCUSTO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_CCUSTO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[STATUS_CCUSTO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].Columns[REQUISITANTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="REQUISITANTE"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[REQUISITANTE]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[REQUISITANTE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="IDCENTROS_CUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGC" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[CODSTATUS]"
+                          dataType="i4"
+                          name="CODSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COMPRACONTRATO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COTACAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="LEILAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="STATUS_CCUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[SK_CENTROSCUSTO]"
+                          dataType="i4"
+                          name="SK_CENTROSCUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input].ExternalColumns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="REQUISITANTE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="PESQUISA ID CENTROSCUSTO"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_CENTROSCUSTO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_CENTROSCUSTO]) [refTable]
+where [refTable].[IDCENTROS_CUSTO] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_CENTROSCUSTO" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDCENTROS_CUSTO" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CGC" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CGCMATRIZ" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EMPRESA" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DESCRICAO" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="REQUISITANTE" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CODSTATUS" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="COMPRACONTRATO" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="COTACAO" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LEILAO" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="STATUS_CCUSTO" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Inputs[Lookup Input].Columns[IDCENTROS_CUSTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="IDCENTROS_CUSTO"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">IDCENTROS_CUSTO</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Match Output].Columns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Copy Column"
+                          length="100"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Match Output].Columns[IDCENTROS_CUSTO]"
+                          name="IDCENTROS_CUSTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">IDCENTROS_CUSTO</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ST_CENTROSCUSTO"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_CENTROS_CUSTO_NEW]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+*
+FROM [WEBSUPPLY_STAGE].[DBO].[ST_WS_CENTROSCUSTO] ST WITH(NOLOCK)
+WHERE NOT EXISTS 
+(SELECT 
+[IDCENTROS_CUSTO]
+FROM [WEBSUPPLY_DW].[DBO].[DIM_CENTROSCUSTO] DW WITH(NOLOCK)
+WHERE DW.[IDCENTROS_CUSTO] = ST.[IDCENTROS_CUSTO]
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[IDCENTROS_CUSTO]"
+                          length="100"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]"
+                          name="IDCENTROS_CUSTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGC]"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CGC]"
+                          name="CGC"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          length="60"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          name="EMPRESA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="30"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CODSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[CODSTATUS]"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[CODSTATUS]"
+                          name="CODSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[COMPRACONTRATO]"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[COMPRACONTRATO]"
+                          name="COMPRACONTRATO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[COTACAO]"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[COTACAO]"
+                          name="COTACAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[LEILAO]"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[LEILAO]"
+                          name="LEILAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[STATUS_CCUSTO]"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[STATUS_CCUSTO]"
+                          name="STATUS_CCUSTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[REQUISITANTE]"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].Columns[REQUISITANTE]"
+                          name="REQUISITANTE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="52"
+                          name="IDCENTROS_CUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGC" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[CODSTATUS]"
+                          dataType="i4"
+                          name="CODSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COMPRACONTRATO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COTACAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="LEILAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="STATUS_CCUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output].ExternalColumns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="REQUISITANTE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="52"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[IDCENTROS_CUSTO]"
+                          name="IDCENTROS_CUSTO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[CGC]"
+                          name="CGC" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[REQUISITANTE]"
+                          name="REQUISITANTE" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          name="EMPRESA" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[STATUS_CCUSTO]"
+                          name="STATUS_CCUSTO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[CODSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[CODSTATUS]"
+                          name="CODSTATUS" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[COMPRACONTRATO]"
+                          name="COMPRACONTRATO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[COTACAO]"
+                          name="COTACAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[LEILAO]"
+                          name="LEILAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW.Paths[Lookup No Match Output]"
+                  endId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_CENTROSCUSTO DW\TRUNCATE DIM_CENTROSCUSTO"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BD98BB6C-AED8-4AEE-B8A3-C8EC49C3A22A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_CENTROSCUSTO"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_CENTROSCUSTO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_CENTROSCUSTO DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E3097B6F-B22C-4A47-A8C3-14BF8B5126D2}"
+          DTS:From="Package\CARGA_CENTROSCUSTO DW\TRUNCATE DIM_CENTROSCUSTO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_CENTROSCUSTO STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0C911D7A-C630-4212-8AA8-626F81AA3FE0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_CENTROSCUSTO STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ADE81A4A-8BA2-42E1-A76E-E96E4610AECB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST_CENTROSCUSTO"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLTP CENTROS_CUSTO"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+
+--CONCAT (C.CGC,C.CCUSTO,C.REQUISIT) AS ID_CENTROS_CUSTO,
+CONCAT (C.CGC, C.CCUSTO, C.REQUISIT,LEN(C.REQUISIT)) AS IDCENTROS_CUSTO,
+C.CGC,
+
+UPPER(C.CCUSTO) AS DESCRICAO,
+
+CASE ISNULL(C.NOMEREQUISITANTE, '') 
+WHEN '' THEN UPPER(C.REQUISIT) --'NÃO INFORMADO' 
+ELSE UPPER(C.NOMEREQUISITANTE) 
+END AS REQUISITANTE,
+
+C.CODSTATUS,
+UPPER(ISNULL(CCS.DESCRICAO, 'NÃO INFORMADO')) AS STATUS_CCUSTO,
+C.COMPRACONTRATO,
+C.COTACAO,
+C.LEILAO,
+CASE WHEN E.CGCMATRIZ IS NULL THEN E.CGC ELSE E.CGCMATRIZ END AS CGCMATRIZ,
+UPPER(E.RAZSOC) AS EMPRESA
+
+FROM CENTROSCUSTO C
+LEFT JOIN CENTROSCUSTO_STATUS CCS ON
+C.CODSTATUS = CCS.CODSTATUS
+LEFT JOIN EMPRESAS E ON
+C.CGC = E.CGC
+
+WHERE 
+EXISTS 
+       (SELECT 
+       PED.CGC 
+       FROM PEDIDOS PED WITH(NOLOCK) 
+       WHERE 
+       DATEDIFF(YEAR,PED.DTINCPED,GETDATE())&lt;=3 AND 
+       PED.CGC = C.CGC)
+OR
+EXISTS
+    (SELECT
+       J.CGC
+       FROM CL_PLANILHA J WITH(NOLOCK)
+             WHERE J.CGC = C.CGC)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGC]"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CGC]"
+                          name="CGC"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="30"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CODSTATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[CODSTATUS]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CODSTATUS]"
+                          name="CODSTATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[STATUS_CCUSTO]"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[STATUS_CCUSTO]"
+                          name="STATUS_CCUSTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[COMPRACONTRATO]"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[COMPRACONTRATO]"
+                          name="COMPRACONTRATO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[COTACAO]"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[COTACAO]"
+                          name="COTACAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[LEILAO]"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[LEILAO]"
+                          name="LEILAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          length="60"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[EMPRESA]"
+                          name="EMPRESA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[IDCENTROS_CUSTO]"
+                          length="52"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]"
+                          name="IDCENTROS_CUSTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[REQUISITANTE]"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[REQUISITANTE]"
+                          name="REQUISITANTE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGC" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[CODSTATUS]"
+                          dataType="i4"
+                          name="CODSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="STATUS_CCUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COMPRACONTRATO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COTACAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="LEILAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="52"
+                          name="IDCENTROS_CUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].ExternalColumns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="REQUISITANTE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="52"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[IDCENTROS_CUSTO]"
+                          name="IDCENTROS_CUSTO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[CGC]"
+                          name="CGC" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[REQUISITANTE]"
+                          name="REQUISITANTE" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[CODSTATUS]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[CODSTATUS]"
+                          name="CODSTATUS" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[STATUS_CCUSTO]"
+                          name="STATUS_CCUSTO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[COMPRACONTRATO]"
+                          name="COMPRACONTRATO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[COTACAO]"
+                          name="COTACAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[LEILAO]"
+                          name="LEILAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[CGCMATRIZ]"
+                          name="CGCMATRIZ" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[EMPRESA]"
+                          name="EMPRESA" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="ST_CENTROSCUSSTO"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ST_WS_CENTROS_CUSTO_NEW]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[CGC]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGC"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGC]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CGC]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[CODSTATUS]"
+                          cachedDataType="i4"
+                          cachedName="CODSTATUS"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[CODSTATUS]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CODSTATUS]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[STATUS_CCUSTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="STATUS_CCUSTO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_CCUSTO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[STATUS_CCUSTO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[COMPRACONTRATO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="COMPRACONTRATO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[COMPRACONTRATO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[COMPRACONTRATO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[COTACAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="COTACAO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[COTACAO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[COTACAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[LEILAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="LEILAO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[LEILAO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[LEILAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[CGCMATRIZ]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="CGCMATRIZ"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[CGCMATRIZ]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[EMPRESA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="EMPRESA"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[EMPRESA]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[IDCENTROS_CUSTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="52"
+                          cachedName="IDCENTROS_CUSTO"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[IDCENTROS_CUSTO]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[IDCENTROS_CUSTO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].Columns[REQUISITANTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="REQUISITANTE"
+                          externalMetadataColumnId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[REQUISITANTE]"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output].Columns[REQUISITANTE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGC]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGC" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[REQUISITANTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="REQUISITANTE" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[CODSTATUS]"
+                          dataType="i4"
+                          name="CODSTATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_CCUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="STATUS_CCUSTO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[COMPRACONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COMPRACONTRATO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[COTACAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="COTACAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[LEILAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="LEILAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[CGCMATRIZ]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="CGCMATRIZ" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[EMPRESA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="EMPRESA" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input].ExternalColumns[IDCENTROS_CUSTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="52"
+                          name="IDCENTROS_CUSTO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_CENTROSCUSTO STAGE\TRUNCATE ST_CENTROSCUSTO"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BA87EB96-7010-4FE8-88AD-2863BB7AFC04}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE ST_CENTROSCUSTO"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_CENTROS_CUSTO_NEW" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_CENTROSCUSTO STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{882EBAAF-38F7-43E7-B920-1D6E5C99EDA9}"
+          DTS:From="Package\CARGA_CENTROSCUSTO STAGE\TRUNCATE ST_CENTROSCUSTO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EF562528-5014-49F2-8222-884B3F83D5A8}"
+      DTS:From="Package\CARGA_CENTROSCUSTO STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA_CENTROSCUSTO DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW"
+          TopLeft="65.5,132.5" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\CARGA_CENTROSCUSTO DW\TRUNCATE DIM_CENTROSCUSTO"
+          TopLeft="47,17" />
+        <EdgeLayout
+          Id="Package\CARGA_CENTROSCUSTO DW.PrecedenceConstraints[Constraint]"
+          TopLeft="166.75,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73.5"
+              Start="0,0"
+              End="0,66">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="321,235"
+          Size="321,278"
+          Id="Package\CARGA_CENTROSCUSTO DW"
+          TopLeft="552.5,62.5" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO"
+          TopLeft="34.5,108.5" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\CARGA_CENTROSCUSTO STAGE\TRUNCATE ST_CENTROSCUSTO"
+          TopLeft="34.5,14.5" />
+        <EdgeLayout
+          Id="Package\CARGA_CENTROSCUSTO STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="150,56.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.5,52"
+              Start="0,0"
+              End="-16.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-12.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.5,26"
+                    Point2="-16.5,26"
+                    Point3="-16.5,30" />
+                  <mssgle:LineSegment
+                    End="-16.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="301,185"
+          Size="301,228"
+          Id="Package\CARGA_CENTROSCUSTO STAGE"
+          TopLeft="136.5,53.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="437.5,167.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115,34"
+              Start="0,0"
+              End="107.5,34">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.5,0"
+                    Point2="57.5,0"
+                    Point3="57.5,4" />
+                  <mssgle:LineSegment
+                    End="57.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.5,30"
+                    Point2="57.5,34"
+                    Point3="61.5,34" />
+                  <mssgle:LineSegment
+                    End="107.5,34" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO"
+          TopLeft="224.5,42.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO"
+          TopLeft="205.5,219.5" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO"
+          TopLeft="402,135" />
+        <EdgeLayout
+          Id="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW.Paths[OLE DB Source Output]"
+          TopLeft="312.5,84.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202,50.5"
+              Start="0,0"
+              End="202,43">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.25"
+                    Point2="0,25.25"
+                    Point3="4,25.25" />
+                  <mssgle:LineSegment
+                    End="198,25.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="198,25.25"
+                    Point2="202,25.25"
+                    Point3="202,29.25" />
+                  <mssgle:LineSegment
+                    End="202,43" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW.Paths[Lookup No Match Output]"
+          TopLeft="514.5,177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-218.5,42.5"
+              Start="0,0"
+              End="-218.5,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.25"
+                    Point2="0,21.25"
+                    Point3="-4,21.25" />
+                  <mssgle:LineSegment
+                    End="-214.5,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-214.5,21.25"
+                    Point2="-218.5,21.25"
+                    Point3="-218.5,25.25" />
+                  <mssgle:LineSegment
+                    End="-218.5,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-165.05638671875,26.25,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\ST_CENTROSCUSTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\DW CENTROS CUSTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CENTROSCUSTO DW\DFT_CENTROSCUSTO DW\PESQUISA ID CENTROSCUSTO">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_CENTROSCUSTO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO"
+          TopLeft="186.5,41.5" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO"
+          TopLeft="238,193" />
+        <EdgeLayout
+          Id="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO.Paths[OLE DB Source Output]"
+          TopLeft="282.5,83.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.5,109.5"
+              Start="0,0"
+              End="46.5,102">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.75"
+                    Point2="0,54.75"
+                    Point3="4,54.75" />
+                  <mssgle:LineSegment
+                    End="42.5,54.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.5,54.75"
+                    Point2="46.5,54.75"
+                    Point3="46.5,58.75" />
+                  <mssgle:LineSegment
+                    End="46.5,102" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\OLTP CENTROS_CUSTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CENTROSCUSTO STAGE\DFT ST_CENTROSCUSTO\ST_CENTROSCUSSTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

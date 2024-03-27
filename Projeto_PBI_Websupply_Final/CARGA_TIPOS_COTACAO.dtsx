@@ -1,0 +1,1182 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/5/2021 12:02:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{BE1E6090-4EEB-4D3B-93B3-D78A09C51ECA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{5B43A7F9-002D-4EC0-ADA8-736942D3B9DB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA ST TIPO COTACAO"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BD51AFAB-59EF-4D07-847E-2EEFC3FBFDA1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA ST TIPO COTACAO">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{84DB41FE-73C5-40D0-816F-C35CC68FB711}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST TIPOS COTACAO"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CONEXÃO OLTP TIPO COTACAO"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+TIPO AS TIPO,
+UPPER(DESCRICAO) AS DESCRICAO
+FROM CL_NUMEROS_TIPOS</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].Columns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].ExternalColumns[TIPO]"
+                          length="2"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].Columns[TIPO]"
+                          name="TIPO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="20"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].ExternalColumns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="TIPO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[TIPO]"
+                          name="TIPO" />
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CONEXÃO ST TIPO COTACAO"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_TIPO_COTACAO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input].Columns[TIPO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="TIPO"
+                          externalMetadataColumnId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input].ExternalColumns[TIPO]"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].Columns[TIPO]" />
+                        <inputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input].ExternalColumns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="TIPO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA ST TIPO COTACAO\TRUNCATE ST TIPOS COTACAO"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{250DE1AA-59A6-44C9-9510-9DB91D6A0942}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE ST TIPOS COTACAO"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_TIPO_COTACAO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA ST TIPO COTACAO.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{35270816-0061-4040-A5B3-389A99E96FE0}"
+          DTS:From="Package\CARGA ST TIPO COTACAO\TRUNCATE ST TIPOS COTACAO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA TIPO COTACAO DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6108909B-530B-44C5-B490-A579F5FA26FF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA TIPO COTACAO DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2E78108B-2326-41EF-A2A4-D6539ED7F894}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT TIPO COTACAO DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [DIM_TIPO_COTACAO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [DIM_TIPO_COTACAO]) [refTable]
+where [refTable].[TIPO] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_TIPOCOTACAO" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TIPO" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DESCRICAO" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[TIPO]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Inputs[Lookup Input].Columns[TIPO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="TIPO"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[TIPO]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">TIPO</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="TIPO COTACAO DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_TIPO_COTACAO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].Columns[TIPO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="2"
+                          cachedName="TIPO"
+                          externalMetadataColumnId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].ExternalColumns[TIPO]"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[TIPO]" />
+                        <inputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].ExternalColumns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="TIPO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input].ExternalColumns[SK_TIPOCOTACAO]"
+                          dataType="i4"
+                          name="SK_TIPOCOTACAO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="TIPO COTACAO STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_TIPO_COTACAO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].ExternalColumns[TIPO]"
+                          length="2"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[TIPO]"
+                          name="TIPO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="20"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].ExternalColumns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          name="TIPO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[TIPO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="2"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[TIPO]"
+                          name="TIPO" />
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW.Paths[Lookup No Match Output]"
+                  endId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA TIPO COTACAO DW\TRUNCATE DIM_TIPO_COTACAO"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{376AECBD-D4FB-439E-B246-F87FBAED0293}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_TIPO_COTACAO"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_TIPO_COTACAO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA TIPO COTACAO DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{183E7577-56A2-4643-9808-238EA054A01C}"
+          DTS:From="Package\CARGA TIPO COTACAO DW\TRUNCATE DIM_TIPO_COTACAO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B52729C4-39B0-4B3A-A3E8-4FC6FDE35815}"
+      DTS:From="Package\CARGA ST TIPO COTACAO"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA TIPO COTACAO DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="197,42"
+          Id="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO"
+          TopLeft="22,107.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\CARGA ST TIPO COTACAO\TRUNCATE ST TIPOS COTACAO"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\CARGA ST TIPO COTACAO.PrecedenceConstraints[Constraint]"
+          TopLeft="120.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="241,204"
+          Size="241,247"
+          Id="Package\CARGA ST TIPO COTACAO"
+          TopLeft="123.5,29.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW"
+          TopLeft="6.5,93.5" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\CARGA TIPO COTACAO DW\TRUNCATE DIM_TIPO_COTACAO"
+          TopLeft="28,14" />
+        <EdgeLayout
+          Id="Package\CARGA TIPO COTACAO DW.PrecedenceConstraints[Constraint]"
+          TopLeft="146,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-42,37.5"
+              Start="0,0"
+              End="-42,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.75"
+                    Point2="0,18.75"
+                    Point3="-4,18.75" />
+                  <mssgle:LineSegment
+                    End="-38,18.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-38,18.75"
+                    Point2="-42,18.75"
+                    Point3="-42,22.75" />
+                  <mssgle:LineSegment
+                    End="-42,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="269,190"
+          Size="269,234"
+          Id="Package\CARGA TIPO COTACAO DW"
+          TopLeft="488.5,56.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="364.5,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,20.5"
+              Start="0,0"
+              End="116.5,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="58,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58,0"
+                    Point2="62,0"
+                    Point3="62,4" />
+                  <mssgle:LineSegment
+                    End="62,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="62,16.5"
+                    Point2="62,20.5"
+                    Point3="66,20.5" />
+                  <mssgle:LineSegment
+                    End="116.5,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="219,42"
+          Id="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO"
+          TopLeft="168.5,145.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO"
+          TopLeft="157.5,52.5" />
+        <EdgeLayout
+          Id="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO.Paths[OLE DB Source Output]"
+          TopLeft="275.75,94.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO OLTP TIPO COTACAO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA ST TIPO COTACAO\DFT ST TIPOS COTACAO\CONEXÃO ST TIPO COTACAO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE"
+          TopLeft="164.5,60.5" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup"
+          TopLeft="265,190" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW"
+          TopLeft="409.5,274.5" />
+        <EdgeLayout
+          Id="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW.Paths[Lookup No Match Output]"
+          TopLeft="321.5,232">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.5,42.5"
+              Start="0,0"
+              End="174.5,35">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.25"
+                    Point2="0,21.25"
+                    Point3="4,21.25" />
+                  <mssgle:LineSegment
+                    End="170.5,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="170.5,21.25"
+                    Point2="174.5,21.25"
+                    Point3="174.5,25.25" />
+                  <mssgle:LineSegment
+                    End="174.5,35" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.44361328125,26.25,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW.Paths[OLE DB Source Output]"
+          TopLeft="258.5,102.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,87.5"
+              Start="0,0"
+              End="63,80">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.75"
+                    Point2="0,43.75"
+                    Point3="4,43.75" />
+                  <mssgle:LineSegment
+                    End="59,43.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,43.75"
+                    Point2="63,43.75"
+                    Point3="63,47.75" />
+                  <mssgle:LineSegment
+                    End="63,80" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\TIPO COTACAO DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA TIPO COTACAO DW\DFT TIPO COTACAO DW\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DIM_TIPO_COTACAO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

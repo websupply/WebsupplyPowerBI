@@ -1,0 +1,1206 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/5/2021 10:01:46 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{D4C23BCC-0973-45C9-A390-0C90376DC548}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{40599C51-89E1-40A5-94FA-A07688719A93}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA FORNECEDOR DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2BB11056-078F-4510-8EFE-95E4CAE3224E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA FORNECEDOR DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{911320F2-0E76-4124-BB5A-C24761B5DED7}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT FORNECEDOR DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="FORNECEDOR DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_FORNECEDOR]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].Columns[ID_FORNECEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8000"
+                          cachedName="ID_FORNECEDOR"
+                          externalMetadataColumnId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].ExternalColumns[ID_FORNECEDOR]"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]" />
+                        <inputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].Columns[FORNECEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="FORNECEDOR"
+                          externalMetadataColumnId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].ExternalColumns[FORNECEDOR]"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[FORNECEDOR]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].ExternalColumns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8000"
+                          name="ID_FORNECEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].ExternalColumns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="FORNECEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input].ExternalColumns[SK_FORNECEDOR]"
+                          dataType="i4"
+                          name="SK_FORNECEDOR" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FORNECEDOR STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_FORNECEDOR]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].ExternalColumns[ID_FORNECEDOR]"
+                          length="8000"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]"
+                          name="ID_FORNECEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].ExternalColumns[FORNECEDOR]"
+                          length="60"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[FORNECEDOR]"
+                          name="FORNECEDOR"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].ExternalColumns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8000"
+                          name="ID_FORNECEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].ExternalColumns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="FORNECEDOR" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8000"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[ID_FORNECEDOR]"
+                          name="ID_FORNECEDOR" />
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[FORNECEDOR]"
+                          name="FORNECEDOR" />
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="PESQUISA IDFORNECEDOR"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [DIM_FORNECEDOR]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [DIM_FORNECEDOR]) [refTable]
+where [refTable].[ID_FORNECEDOR] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_FORNECEDOR" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_FORNECEDOR" dataType="DT_STR" length="8000" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FORNECEDOR" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Inputs[Lookup Input].Columns[ID_FORNECEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8000"
+                          cachedName="ID_FORNECEDOR"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ID_FORNECEDOR</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Match Output].Columns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Copy Column"
+                          length="8000"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Match Output].Columns[ID_FORNECEDOR]"
+                          name="ID_FORNECEDOR"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ID_FORNECEDOR</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW.Paths[Lookup No Match Output]"
+                  endId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA FORNECEDOR DW\TRUNCATE TABLE DIM_FORNECEDOR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A2C9B2A5-E0DC-4037-89FD-FDFA1DA2AA7D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE TABLE DIM_FORNECEDOR"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_FORNECEDOR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA FORNECEDOR DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3CA5D660-4546-42D4-82AD-DBFC16739ABF}"
+          DTS:From="Package\CARGA FORNECEDOR DW\TRUNCATE TABLE DIM_FORNECEDOR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA ST FORNECEDOR"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0B5236B7-20FE-49F3-880B-1874D87A0B54}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA ST FORNECEDOR">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F2EC2788-1E63-4F45-AA7C-253EE83B735E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST FORNECEDOR"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CONEXÃO OLTP FORNECEDOR"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+CONCAT(REPLACE(CGC,' ','_'),REPLACE(CGCF, ' ','_')) AS ID_FORNECEDOR,
+UPPER(RAZSOC) AS FORNECEDOR
+FROM CL_FORNECEDOR A
+WHERE EXISTS (SELECT * FROM CL_PROCESSOF B 
+INNER JOIN CL_PROCESSO C
+        ON B.CL_CDG = C.CL_CDG
+WHERE A.CGC        = B.CGC
+AND A.CGCF   = B.CGCF
+AND DATEDIFF(YEAR,ISNULL(C.DATA_ENVIO,C.DataInclusao),GETDATE())&lt;=3)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].ExternalColumns[ID_FORNECEDOR]"
+                          length="8000"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]"
+                          name="ID_FORNECEDOR"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].Columns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].ExternalColumns[FORNECEDOR]"
+                          length="60"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].Columns[FORNECEDOR]"
+                          name="FORNECEDOR"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].ExternalColumns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8000"
+                          name="ID_FORNECEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].ExternalColumns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="FORNECEDOR" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8000"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[ID_FORNECEDOR]"
+                          name="ID_FORNECEDOR" />
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[FORNECEDOR]"
+                          name="FORNECEDOR" />
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CONEXÃO STAGE FORNECEDOR"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ST_WS_FORNECEDOR]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input].Columns[ID_FORNECEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="8000"
+                          cachedName="ID_FORNECEDOR"
+                          externalMetadataColumnId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input].ExternalColumns[ID_FORNECEDOR]"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].Columns[ID_FORNECEDOR]" />
+                        <inputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input].Columns[FORNECEDOR]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="FORNECEDOR"
+                          externalMetadataColumnId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input].ExternalColumns[FORNECEDOR]"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output].Columns[FORNECEDOR]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input].ExternalColumns[ID_FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="8000"
+                          name="ID_FORNECEDOR" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input].ExternalColumns[FORNECEDOR]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="FORNECEDOR" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA ST FORNECEDOR\TRUNCATE ST FORNECEDOR"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8A14F422-9C9B-4070-B95C-F8B03FF73A0B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE ST FORNECEDOR"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_FORNECEDOR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA ST FORNECEDOR.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B2A0743F-25C6-4283-9C5A-F90A47DD4F8B}"
+          DTS:From="Package\CARGA ST FORNECEDOR\TRUNCATE ST FORNECEDOR"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D4E02101-D129-4318-AD0A-711476D7C111}"
+      DTS:From="Package\CARGA ST FORNECEDOR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA FORNECEDOR DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW"
+          TopLeft="53.5,108.5" />
+        <NodeLayout
+          Size="260,42"
+          Id="Package\CARGA FORNECEDOR DW\TRUNCATE TABLE DIM_FORNECEDOR"
+          TopLeft="26,13" />
+        <EdgeLayout
+          Id="Package\CARGA FORNECEDOR DW.PrecedenceConstraints[Constraint]"
+          TopLeft="156,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,53.5"
+              Start="0,0"
+              End="-8.5,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="-4,26.75" />
+                  <mssgle:LineSegment
+                    End="-4.5,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,26.75"
+                    Point2="-8.5,26.75"
+                    Point3="-8.5,30.75" />
+                  <mssgle:LineSegment
+                    End="-8.5,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="318,205"
+          Size="318,248"
+          Id="Package\CARGA FORNECEDOR DW"
+          TopLeft="575,105" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR"
+          TopLeft="22,107.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\CARGA ST FORNECEDOR\TRUNCATE ST FORNECEDOR"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package\CARGA ST FORNECEDOR.PrecedenceConstraints[Constraint]"
+          TopLeft="113.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="227,204"
+          Size="227,247"
+          Id="Package\CARGA ST FORNECEDOR"
+          TopLeft="220.5,74.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="447.5,198">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.5,31"
+              Start="0,0"
+              End="120,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="59.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.75,0"
+                    Point2="63.75,0"
+                    Point3="63.75,4" />
+                  <mssgle:LineSegment
+                    End="63.75,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63.75,27"
+                    Point2="63.75,31"
+                    Point3="67.75,31" />
+                  <mssgle:LineSegment
+                    End="120,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE"
+          TopLeft="218.5,43.5" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW"
+          TopLeft="246.5,355.5" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR"
+          TopLeft="380.5,211.5" />
+        <EdgeLayout
+          Id="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW.Paths[OLE DB Source Output]"
+          TopLeft="309,85.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176,126"
+              Start="0,0"
+              End="176,118.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59"
+                    Point2="0,63"
+                    Point3="4,63" />
+                  <mssgle:LineSegment
+                    End="172,63" />
+                  <mssgle:CubicBezierSegment
+                    Point1="172,63"
+                    Point2="176,63"
+                    Point3="176,67" />
+                  <mssgle:LineSegment
+                    End="176,118.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW.Paths[Lookup No Match Output]"
+          TopLeft="485,253.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155.5,102"
+              Start="0,0"
+              End="-155.5,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="-4,51" />
+                  <mssgle:LineSegment
+                    End="-151.5,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-151.5,51"
+                    Point2="-155.5,51"
+                    Point3="-155.5,55" />
+                  <mssgle:LineSegment
+                    End="-155.5,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-133.55638671875,56,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\FORNECEDOR DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA FORNECEDOR DW\DFT FORNECEDOR DW\PESQUISA IDFORNECEDOR">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DIM_FORNECEDOR]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR"
+          TopLeft="165.5,185.5" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR"
+          TopLeft="167.5,62.5" />
+        <EdgeLayout
+          Id="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR.Paths[OLE DB Source Output]"
+          TopLeft="280.25,104.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,81"
+              Start="0,0"
+              End="0,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO OLTP FORNECEDOR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA ST FORNECEDOR\DFT ST FORNECEDOR\CONEXÃO STAGE FORNECEDOR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

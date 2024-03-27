@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Projeto_Adesao_Websupply", "Projeto_Adesao_Websupply.dtproj", "{6E92A331-9E7C-45FF-A066-F0ABA9218403}"
+EndProject
+Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "Projeto_Adesao_Websupply_SSAS", "..\Projeto_Adesao_Websupply_SSAS\Projeto_Adesao_Websupply_SSAS.smproj", "{8CE414BB-95B2-4C99-9E03-51BA72086E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|x86 = Development|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E92A331-9E7C-45FF-A066-F0ABA9218403}.Development|x86.ActiveCfg = Development
+		{6E92A331-9E7C-45FF-A066-F0ABA9218403}.Development|x86.Build.0 = Development
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.ActiveCfg = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Build.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Deploy.0 = Development|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59FF44EC-B407-45A3-B1E6-544555D1C361}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://srv-des2:8080/tfs/remaza
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Projeto_Adesao_Websupply.dtproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\Projeto_Adesao_Websupply_SSAS\\Projeto_Adesao_Websupply_SSAS.smproj
+		SccProjectName2 = ../Projeto_Adesao_Websupply_SSAS
+		SccLocalPath2 = ..\\Projeto_Adesao_Websupply_SSAS
+	EndGlobalSection
+EndGlobal

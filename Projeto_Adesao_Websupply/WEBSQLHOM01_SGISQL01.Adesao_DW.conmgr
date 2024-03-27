@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="WEBSQLHOM01_SGISQL01.Adesao_DW.websupply3"
+  DTS:DTSID="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::CON_DW_HOM01_SGISQL01]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::PW_HOM01_SGISQL01]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=WEBSQLHOM01\SGISQL01;User ID=websupply3;Initial Catalog=Adesao_DW;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0aT5zu55tUuRAwROd51G6AAAAAACAAAAAAADZgAAwAAAABAAAADXP4dwHtrtsdITfx95nP7wAAAAAASAAACgAAAAEAAAADOGvFMaggw23GKC26S3NuJ4AAAAnQAhcVtmIZ8/ZQgV6F7MiIxqBmoehaUUrPfIz5hwArqpHbRHDYSMNq6Zr0ZXhTX9riSvNl96N/4ERRo5RLNeSUgpVLsWlDR6q8idLM9FD05WLxdJGnbCow1L4r6l2VQtG0HvL+1DnNEfCJSlB8J1+mUHNMvp+9fKFAAAANiKNyzcZDAeW+6B3hZsYb0IKYPU</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

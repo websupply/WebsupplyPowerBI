@@ -1,0 +1,2341 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2022 9:38:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{5421E9A2-77FA-486E-951B-73FCA27C9F90}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FORMAS_PAGTO"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{DA152D33-4DD7-49F6-BD71-A681D1ACEC44}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FORMAS_PAGTO_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F8081B85-9D05-4431-A7F0-3995061A3E09}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FORMAS_PAGTO_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3881a540-44dd-4c01-b862-2f2e07e9ab74}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM_FORMAS_PAGTO_DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_FORMAS_PAGTO"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_FORMAS_PAGTO]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Connections[OleDbConnection]"
+                      connectionManagerID="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_DW.websupply3]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="IDFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]" />
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].ExternalColumns[SK_FORMAS_PAGTO]"
+                          dataType="i4"
+                          name="SK_FORMAS_PAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="DIM_FORMAS_PAGTO_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIM_FORMAS_PAGTO_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW.Paths[OLE DB Source Output]"
+                  endId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_DW\TRUNCATE DIM_FORMAS_PAGTO_DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1eedfc79-13cf-47da-8cb3-48508d106e74}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_FORMAS_PAGTO_DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_FORMAS_PAGTO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FORMAS_PAGTO_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{dff91bac-cbdc-4f6e-b190-54675a790372}"
+          DTS:From="Package\FORMAS_PAGTO_DW\TRUNCATE DIM_FORMAS_PAGTO_DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FORMAS_PAGTO_ORA_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{6D6A3631-C0DD-4A9A-AE47-C0B54720258C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FORMAS_PAGTO_ORA_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{2bfc98c5-d602-42c4-a828-581aace9cc18}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_FORMAS_PAGTO_ORA_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FORMAS_PAGTO_ORAREMPROD"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct 
+CASE kspga_meiopagamento
+    WHEN 'Boleto' THEN '3'
+    WHEN 'Credito' THEN '1'
+    WHEN 'Link' THEN '5'
+    ELSE '99999'
+  END as IdFormaPagto,
+kspga_meiopagamento as DescFormaPagto
+from 
+ksade,
+kspga  
+where (ksade_idvenda is null and  substr(ksade_datade, LENGTH(ksade_datade)-1, 2)  between 18 and 60) and 
+substr(KSPGA_NRADESAOSEQ, 1,6) =  ksade_nade</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Connections[OleDbConnection]"
+                      connectionManagerID="{FCB42EA4-B3E4-448E-8E88-F5957260B0F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORAREMPROD.dwuser_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          length="5"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="FORMAS_PAGTO_ORA_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[FORMAS_PAGTO_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="IDFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]" />
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_ORA_STAGE\TRUNCATE FORMAS_PAGTO_ORA_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{594ec706-e564-44db-b4b7-89c529c3f383}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE FORMAS_PAGTO_ORA_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE FORMAS_PAGTO_ORA_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FORMAS_PAGTO_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{edd15d4a-d5c1-43bf-a4c6-740ab6414063}"
+          DTS:From="Package\FORMAS_PAGTO_ORA_STAGE\TRUNCATE FORMAS_PAGTO_ORA_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FORMAS_PAGTO_SQL_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0F8EE2C2-DAE6-47F2-98A1-9BAC7262B1B8}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FORMAS_PAGTO_SQL_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{55c62c35-7d70-45b4-9082-6cec38a1f56a}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_FORMAS_PAGTO_SQL_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FORMAS_PAGTO_SQL"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select Distinct CONVERT(VARCHAR, FORMAPAGAMENTO) As IDFORMAPAGTO ,
+                Case
+                    When FORMAPAGAMENTO = 1 Then 'Credito'
+                    When FORMAPAGAMENTO = 2 Then 'Débito'
+                    When FORMAPAGAMENTO = 3 Then 'Boleto'
+                    When FORMAPAGAMENTO = 4 Then 'Cheque'
+                    When FORMAPAGAMENTO = 5 Then 'Link'
+                    When FORMAPAGAMENTO = 6 Then 'Dinheiro'
+                    When FORMAPAGAMENTO = 7 Then 'Pix'
+                    When FORMAPAGAMENTO = 8 Then 'Cartão de débito'
+                    When FORMAPAGAMENTO = 9 Then 'Cartão de crédito'
+                    When FORMAPAGAMENTO = 10 Then 'Cartão de crédito parc'
+                    Else 'Não Informado'
+                End As DESCFORMAPAGTO
+From PAGAMENTOS</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Connections[OleDbConnection]"
+                      connectionManagerID="{b713392e-6b85-45bf-aa3f-c181e65606a8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLPROD02_SGISQL02,1433.RemazaAdesao]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          length="22"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="22"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="22"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="FORMAS_PAGTO_SQL_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[FORMAS_PAGTO_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="IDFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]" />
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="22"
+                          cachedName="DESCFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="22"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_SQL_STAGE\TRUNCATE FORMAS_PAGTO_SQL_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{04925f7d-8931-47ac-b7eb-b09b13d10204}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE FORMAS_PAGTO_SQL_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE FORMAS_PAGTO_SQL_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FORMAS_PAGTO_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1cfc6cb1-4739-4107-a240-cdd19e57d8eb}"
+          DTS:From="Package\FORMAS_PAGTO_SQL_STAGE\TRUNCATE FORMAS_PAGTO_SQL_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FORMAS_PAGTO_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{0A6F8639-E183-4B46-B700-2F4A7B8FD5F1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FORMAS_PAGTO_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{a3aca96c-59fe-4cfe-90df-18e9f46019ed}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DIM_FORMAS_PAGTO_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_FORMAS_PAGTO_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_FORMAS_PAGTO_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="IDFORMAPAGTO"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output].Columns[IDFORMAPAGTO]" />
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCFORMAPAGTO"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output].Columns[DESCFORMAPAGTO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FORMAS_PAGTO_ORA_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FORMAS_PAGTO_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          length="5"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FORMAS_PAGTO_SQL_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FORMAS_PAGTO_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          length="22"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="IDFORMAPAGTO" />
+                        <externalMetadataColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="22"
+                          name="DESCFORMAPAGTO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="22"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Inputs[Sort Input].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="IDFORMAPAGTO"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[IDFORMAPAGTO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Inputs[Sort Input].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCFORMAPAGTO"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCFORMAPAGTO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[IDFORMAPAGTO]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCFORMAPAGTO]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 1].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="IDFORMAPAGTO"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[IDFORMAPAGTO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 1].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="22"
+                          cachedName="DESCFORMAPAGTO"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCFORMAPAGTO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 2].Columns[IDFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="IDFORMAPAGTO"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].Columns[IDFORMAPAGTO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[IDFORMAPAGTO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 2].Columns[DESCFORMAPAGTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCFORMAPAGTO"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output].Columns[DESCFORMAPAGTO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCFORMAPAGTO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[IDFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[IDFORMAPAGTO]"
+                          name="IDFORMAPAGTO" />
+                        <outputColumn
+                          refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCFORMAPAGTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1].Columns[DESCFORMAPAGTO]"
+                          name="DESCFORMAPAGTO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 1]"
+                  name="OLE DB Source Output"
+                  startId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[OLE DB Source Output1]"
+                  endId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Source Output"
+                  startId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[Sort Output]"
+                  endId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[Union All Output 1]"
+                  endId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort.Inputs[Sort Input]"
+                  name="Union All Output 1"
+                  startId="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FORMAS_PAGTO_STAGE\TRUNCATE DIM_FORMAS_PAGTO_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b1d35c3c-faa1-4265-9171-a44f29089908}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_FORMAS_PAGTO_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_FORMAS_PAGTO_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FORMAS_PAGTO_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{bf074857-4b2f-4f9f-a382-12c606298b7b}"
+          DTS:From="Package\FORMAS_PAGTO_STAGE\TRUNCATE DIM_FORMAS_PAGTO_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0182C237-0586-47A3-BF6F-83526589B72A}"
+      DTS:From="Package\FORMAS_PAGTO_ORA_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FORMAS_PAGTO_SQL_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F88FE89-4F08-4F4B-8692-E1A31135652C}"
+      DTS:From="Package\FORMAS_PAGTO_SQL_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FORMAS_PAGTO_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F74F12A2-1660-4C36-A118-CA2CD4288314}"
+      DTS:From="Package\FORMAS_PAGTO_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\FORMAS_PAGTO_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW"
+          TopLeft="36,92" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\FORMAS_PAGTO_DW\TRUNCATE DIM_FORMAS_PAGTO_DW"
+          TopLeft="10,12" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="140,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="278,175"
+          Size="278,218"
+          Id="Package\FORMAS_PAGTO_DW"
+          TopLeft="732,383.5" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE"
+          TopLeft="21,101" />
+        <NodeLayout
+          Size="277,42"
+          Id="Package\FORMAS_PAGTO_ORA_STAGE\TRUNCATE FORMAS_PAGTO_ORA_STAGE"
+          TopLeft="19,10" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="154.5,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="327,164"
+          Size="327,207"
+          Id="Package\FORMAS_PAGTO_ORA_STAGE"
+          TopLeft="27.5,140.5" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE"
+          TopLeft="12,101" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\FORMAS_PAGTO_SQL_STAGE\TRUNCATE FORMAS_PAGTO_SQL_STAGE"
+          TopLeft="10,10" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="144.75,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="310,168"
+          Size="310,211"
+          Id="Package\FORMAS_PAGTO_SQL_STAGE"
+          TopLeft="387.5,139.5" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE"
+          TopLeft="33,108" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\FORMAS_PAGTO_STAGE\TRUNCATE DIM_FORMAS_PAGTO_STAGE"
+          TopLeft="20,13" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="158,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,53"
+              Start="0,0"
+              End="-14.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,26.5"
+                    Point2="-14.5,26.5"
+                    Point3="-14.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-14.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="305,166"
+          Size="305,209"
+          Id="Package\FORMAS_PAGTO_STAGE"
+          TopLeft="723.5,136.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="354.5,244.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33,0"
+              Start="0,0"
+              End="25.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="697.5,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,0"
+              Start="0,0"
+              End="18.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="18.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="873.5,345.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO"
+          TopLeft="329.5,232.5" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_STAGE"
+          TopLeft="292.5,83.5" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_DW\DIM_FORMAS_PAGTO_DW.Paths[OLE DB Source Output]"
+          TopLeft="403,125.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.5,107"
+              Start="0,0"
+              End="18.5,99.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.5"
+                    Point2="0,53.5"
+                    Point3="4,53.5" />
+                  <mssgle:LineSegment
+                    End="14.5,53.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.5,53.5"
+                    Point2="18.5,53.5"
+                    Point3="18.5,57.5" />
+                  <mssgle:LineSegment
+                    End="18.5,99.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORA_STAGE"
+          TopLeft="96.5,146.5" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD"
+          TopLeft="66.5,27.5" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="183,69.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.5,77"
+              Start="0,0"
+              End="24.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="20.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,38.5"
+                    Point2="24.5,38.5"
+                    Point3="24.5,42.5" />
+                  <mssgle:LineSegment
+                    End="24.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FORMAS_PAGTO_ORA_STAGE\CARGA_FORMAS_PAGTO_ORA_STAGE\FORMAS_PAGTO_ORAREMPROD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL"
+          TopLeft="150.5,70.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE\FORMAS_PAGTO_SQL_STAGE"
+          TopLeft="147.5,221.5" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_SQL_STAGE\CARGA_FORMAS_PAGTO_SQL_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="242,112.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,109"
+              Start="0,0"
+              End="15.5,101.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,50.5"
+                    Point2="0,54.5"
+                    Point3="4,54.5" />
+                  <mssgle:LineSegment
+                    End="11.5,54.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,54.5"
+                    Point2="15.5,54.5"
+                    Point3="15.5,58.5" />
+                  <mssgle:LineSegment
+                    End="15.5,101.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_SQL_STAGE"
+          TopLeft="171.5,86.5" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Sort"
+          TopLeft="379,378" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\Union All"
+          TopLeft="361,272" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\FORMAS_PAGTO_ORA_STAGE"
+          TopLeft="441.5,83.5" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE"
+          TopLeft="337,491" />
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[Sort Output]"
+          TopLeft="428,420">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.5,71"
+              Start="0,0"
+              End="19.5,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="4,35.5" />
+                  <mssgle:LineSegment
+                    End="15.5,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.5,35.5"
+                    Point2="19.5,35.5"
+                    Point3="19.5,39.5" />
+                  <mssgle:LineSegment
+                    End="19.5,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[OLE DB Source Output1]"
+          TopLeft="552.5,125.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-112.166666666667,146.5"
+              Start="0,0"
+              End="-112.166666666667,139">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.752854812398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,82.752854812398"
+                    Point2="0,86.752854812398"
+                    Point3="-4,86.752854812398" />
+                  <mssgle:LineSegment
+                    End="-108.166666666667,86.752854812398" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-108.166666666667,86.752854812398"
+                    Point2="-112.166666666667,86.752854812398"
+                    Point3="-112.166666666667,90.752854812398" />
+                  <mssgle:LineSegment
+                    End="-112.166666666667,139" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="281.5,128.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140,143.5"
+              Start="0,0"
+              End="140,136">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,67.75"
+                    Point2="0,71.75"
+                    Point3="4,71.75" />
+                  <mssgle:LineSegment
+                    End="136,71.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136,71.75"
+                    Point2="140,71.75"
+                    Point3="140,75.75" />
+                  <mssgle:LineSegment
+                    End="140,136" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FORMAS_PAGTO_STAGE\DIM_FORMAS_PAGTO_STAGE.Paths[Union All Output 1]"
+          TopLeft="424.75,314">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

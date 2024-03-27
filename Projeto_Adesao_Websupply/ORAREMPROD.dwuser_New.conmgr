@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ORAREMPROD.dwuser_New"
+  DTS:DTSID="{FCB42EA4-B3E4-448E-8E88-F5957260B0F4}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::CON_ORAREMPROD]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::PW_ORAREMPROD]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ORAREMPROD;User ID=dwuser;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0aT5zu55tUuRAwROd51G6AAAAAACAAAAAAADZgAAwAAAABAAAAAoziPydcH0edbBICUIxw3UAAAAAASAAACgAAAAEAAAAKFK18xkqVEAEVav0RRktU14AAAA3ghlEcYGZ5086+P0RRf3gdgPo9BV0XuNj5oZvsjikDjoOGDlNoU8PTLdw7jB3mTvwRxZiTjyPEjm6xT6Jr41FuZ5wAHDLK4dHbYMq24SoUJeo0IXsAdKooGkPb+ZBl4P4LuGjX7FcbvvhP3xxg4i98dBhsfk6sLKFAAAADkFQDm6wEGTqvlwW+JIqpDK0nNg</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

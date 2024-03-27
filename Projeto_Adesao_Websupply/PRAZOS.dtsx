@@ -1,0 +1,2974 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/4/2022 5:32:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{E56DF36F-0AB0-498E-B51A-6BB52903D4E5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PRAZOS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{ED573F8B-9B09-4719-A8F2-2A349931A76C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\PRAZOS_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{00FE0733-77D6-4DDA-96AC-D41F0B0F4EA1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRAZOS_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_DW\PRAZOS_DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{EE84060B-9CA9-4EF5-8DC9-2D7446726299}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PRAZOS_DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_PRAZOS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_PRAZOS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Connections[OleDbConnection]"
+                      connectionManagerID="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_DW.websupply3]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="i8"
+                          cachedName="CLASSIF_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[SK_PRAZO]"
+                          dataType="i4"
+                          name="SK_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PRAZOS_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIM_PRAZOS_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          length="5"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          length="15"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PRAZOS_DW\PRAZOS_DW.Paths[OLE DB Source Output]"
+                  endId="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_DW\TRUNCATE DIM_ PRAZOS_DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{32527b2e-c0d7-4e69-98a8-1dbb8603562c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_ PRAZOS_DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_PRAZOS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PRAZOS_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6754EE2A-9AFA-445F-BEB9-102ED00C4ACC}"
+          DTS:From="Package\PRAZOS_DW\TRUNCATE DIM_ PRAZOS_DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PRAZOS_DW\PRAZOS_DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PRAZOS_ORA_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D0A2B0C4-5D9E-4CFF-988F-272B0B7F5D2D}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRAZOS_ORA_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{92FE3EBB-6237-4919-94FA-9938EFC66B61}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PRAZOS_ORAREMPROD"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Inputs[Data Conversion Input].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="wstr"
+                          cachedLength="38"
+                          cachedName="CLASSIF_PRAZO"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CLASSIF_PRAZO]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CLASSIF_PRAZO]"
+                          name="Copy of CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PRAZOS_ORAREMPROD"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct
+
+case 
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 36 and substr(ksade_bem, 1,2) = 'MO' then '1'
+    when ksade_dur &gt;= 37 and ksade_dur &lt;= 42 and substr(ksade_bem, 1,2) = 'MO' then '2'
+    when ksade_dur &gt;= 43 and ksade_dur &lt;= 50 and substr(ksade_bem, 1,2) = 'MO' then '3'
+    when ksade_dur &gt;= 51 and ksade_dur &lt;= 72 and substr(ksade_bem, 1,2) = 'MO' then '4'
+    
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 70 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then '5'
+    when ksade_dur &gt;= 71 and ksade_dur &lt;= 80 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then '6'
+    when ksade_dur &gt;= 81 and ksade_dur &lt;= 96 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then '7'
+    
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 80 and substr(ksade_bem, 1,2) = 'IM' then '8'
+    when ksade_dur &gt;= 81 and ksade_dur &lt;= 99 and substr(ksade_bem, 1,2) = 'IM' then '9'
+    when ksade_dur &gt;= 100 and ksade_dur &lt;= 179 and substr(ksade_bem, 1,2) = 'IM' then '10'
+    when ksade_dur &gt;= 180 and ksade_dur &lt;= 240 and substr(ksade_bem, 1,2) = 'IM' then '11'
+    else '99999'
+end as COD_PRAZO,
+
+case 
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 36 and substr(ksade_bem, 1,2) = 'MO' then '12 a 36 meses'
+    when ksade_dur &gt;= 37 and ksade_dur &lt;= 42 and substr(ksade_bem, 1,2) = 'MO' then '37 a 42 meses'
+    when ksade_dur &gt;= 43 and ksade_dur &lt;= 50 and substr(ksade_bem, 1,2) = 'MO' then '43 a 50 meses'
+    when ksade_dur &gt;= 51 and ksade_dur &lt;= 72 and substr(ksade_bem, 1,2) = 'MO' then '51 a 72 meses'
+    
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 70 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then '12 a 70 meses'
+    when ksade_dur &gt;= 71 and ksade_dur &lt;= 80 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then '71 a 80 meses'
+    when ksade_dur &gt;= 81 and ksade_dur &lt;= 96 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then '81 a 96 meses'
+    
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 80 and substr(ksade_bem, 1,2) = 'IM' then '12 a 80 meses'
+    when ksade_dur &gt;= 81 and ksade_dur &lt;= 99 and substr(ksade_bem, 1,2) = 'IM' then '81 a 99 meses'
+    when ksade_dur &gt;= 100 and ksade_dur &lt;= 179 and substr(ksade_bem, 1,2) = 'IM' then '100 a 179 meses'
+    when ksade_dur &gt;= 180 and ksade_dur &lt;= 240 and substr(ksade_bem, 1,2) = 'IM' then '180 a 240 meses'
+    else 'Nao Informado'
+end as FAIXA_PRAZO,
+
+case 
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 36 and substr(ksade_bem, 1,2) = 'MO' then 1
+    when ksade_dur &gt;= 37 and ksade_dur &lt;= 42 and substr(ksade_bem, 1,2) = 'MO' then 2
+    when ksade_dur &gt;= 43 and ksade_dur &lt;= 50 and substr(ksade_bem, 1,2) = 'MO' then 3
+    when ksade_dur &gt;= 51 and ksade_dur &lt;= 72 and substr(ksade_bem, 1,2) = 'MO' then 4
+    
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 70 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then 5
+    when ksade_dur &gt;= 71 and ksade_dur &lt;= 80 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then 6
+    when ksade_dur &gt;= 81 and ksade_dur &lt;= 96 and substr(ksade_bem, 1,2) = 'AU' or substr(ksade_bem, 1,2) = 'AI' or substr(ksade_bem, 1,2) = 'UT' then 7
+    
+    when ksade_dur &gt;= 12 and ksade_dur &lt;= 80 and substr(ksade_bem, 1,2) = 'IM' then 8
+    when ksade_dur &gt;= 81 and ksade_dur &lt;= 99 and substr(ksade_bem, 1,2) = 'IM' then 9
+    when ksade_dur &gt;= 100 and ksade_dur &lt;= 179 and substr(ksade_bem, 1,2) = 'IM' then 10
+    when ksade_dur &gt;= 180 and ksade_dur &lt;= 240 and substr(ksade_bem, 1,2) = 'IM' then 11
+    else 99999
+end as CLASSIF_PRAZO
+
+
+from     ksade,ksgru12,ksrsv,ksplan,kscon b,ksven, kscon f, ksreu 
+where (ksade_idvenda is null and  substr(ksade_datpre, 5,6)  between 18 and 60) and
+         ksgru_grupo = ksade_grupo and
+         ksrsv_nade = ksade_nade and
+         ksplan_codigo = ksade_plan and
+         substr(b.kscon_chave, 1,6) = 'KSAB10' and
+        substr(b.kscon_chave, 7,4) = substr(ksade_bem, 5,4) and
+        ksven_codigo = ksade_vend and
+        substr(f.kscon_chave, 1,6) = 'KSAB27' and
+        substr(f.kscon_chave, 7,2) = substr(ksade_ccusto, LENGTH(ksade_ccusto)-4, 2) and
+        substr(ksreu_reu, 1,4) = ksade_grupo and
+        substr(ksreu_reu, 5,3) = ksade_idade</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Connections[OleDbConnection]"
+                      connectionManagerID="{FCB42EA4-B3E4-448E-8E88-F5957260B0F4}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ORAREMPROD.dwuser_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          length="5"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          length="15"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          length="38"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="wstr"
+                          length="38"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          dataType="wstr"
+                          length="38"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="PRAZOS_ORA_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[PRAZOS_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[COD_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].Columns[Copy of CLASSIF_PRAZO]"
+                          cachedDataType="i8"
+                          cachedName="Copy of CLASSIF_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CLASSIF_PRAZO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD.Paths[Data Conversion Output]"
+                  endId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD.Paths[OLE DB Source Output]"
+                  endId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_ORA_STAGE\TRUNCATE PRAZOS_ORA_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{52002056-d6e9-42fb-a593-20e27680afb7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE PRAZOS_ORA_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE PRAZOS_ORA_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PRAZOS_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{861AA409-2F7B-4710-A2BC-0AB838D4330D}"
+          DTS:From="Package\PRAZOS_ORA_STAGE\TRUNCATE PRAZOS_ORA_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PRAZOS_SQL_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A0FD166B-A007-4FB8-8E4C-74D0494F3886}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRAZOS_SQL_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{29B076A7-8FA0-4F4A-8CA8-025451395D88}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PRAZOS_SQL"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PRAZOS_SQL"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select distinct
+	   	case 
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 36 and p.Especie = 'MO' then '1'
+			when P.PRAZO &gt;= 37 and P.PRAZO &lt;= 42 and p.Especie = 'MO' then '2'
+			when P.PRAZO &gt;= 43 and P.PRAZO &lt;= 50 and p.Especie = 'MO' then '3'
+			when P.PRAZO &gt;= 51 and P.PRAZO &lt;= 72 and p.Especie = 'MO' then '4'
+
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 70 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then '5'
+			when P.PRAZO &gt;= 71 and P.PRAZO &lt;= 80 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then '6'
+			when P.PRAZO &gt;= 81 and P.PRAZO &lt;= 96 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then '7'
+
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 80 and p.Especie = 'IM' then '8'
+			when P.PRAZO &gt;= 81 and P.PRAZO &lt;= 99 and p.Especie = 'IM' then '9'
+			when P.PRAZO &gt;= 100 and P.PRAZO &lt;= 179 and p.Especie = 'IM' then '10'
+			when P.PRAZO &gt;= 180 and P.PRAZO &lt;= 240 and p.Especie = 'IM' then '11'
+			else '99999'
+		end as COD_PRAZO,
+	   	   
+		case 
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 36 and p.Especie = 'MO' then '12 a 36 meses'
+			when P.PRAZO &gt;= 37 and P.PRAZO &lt;= 42 and p.Especie = 'MO' then '37 a 42 meses'
+			when P.PRAZO &gt;= 43 and P.PRAZO &lt;= 50 and p.Especie = 'MO' then '43 a 50 meses'
+			when P.PRAZO &gt;= 51 and P.PRAZO &lt;= 72 and p.Especie = 'MO' then '51 a 72 meses'
+
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 70 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then '12 a 70 meses'
+			when P.PRAZO &gt;= 71 and P.PRAZO &lt;= 80 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then '71 a 80 meses'
+			when P.PRAZO &gt;= 81 and P.PRAZO &lt;= 96 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then '81 a 96 meses'
+
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 80 and p.Especie = 'IM' then '12 a 80 meses'
+			when P.PRAZO &gt;= 81 and P.PRAZO &lt;= 99 and p.Especie = 'IM' then '81 a 99 meses'
+			when P.PRAZO &gt;= 100 and P.PRAZO &lt;= 179 and p.Especie = 'IM' then '100 a 179 meses'
+			when P.PRAZO &gt;= 180 and P.PRAZO &lt;= 240 and p.Especie = 'IM' then '180 a 240 meses'
+			else 'Nao Informado'
+		end as FAIXA_PRAZO,
+
+			   	case 
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 36 and p.Especie = 'MO' then 1
+			when P.PRAZO &gt;= 37 and P.PRAZO &lt;= 42 and p.Especie = 'MO' then 2
+			when P.PRAZO &gt;= 43 and P.PRAZO &lt;= 50 and p.Especie = 'MO' then 3
+			when P.PRAZO &gt;= 51 and P.PRAZO &lt;= 72 and p.Especie = 'MO' then 4
+
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 70 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then 5
+			when P.PRAZO &gt;= 71 and P.PRAZO &lt;= 80 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then 6
+			when P.PRAZO &gt;= 81 and P.PRAZO &lt;= 96 and p.Especie = 'AU' or p.Especie = 'AI' or p.Especie = 'UT' then 7
+
+			when P.PRAZO &gt;= 12 and P.PRAZO &lt;= 80 and p.Especie = 'IM' then 8
+			when P.PRAZO &gt;= 81 and P.PRAZO &lt;= 99 and p.Especie = 'IM' then 9
+			when P.PRAZO &gt;= 100 and P.PRAZO &lt;= 179 and p.Especie = 'IM' then 10
+			when P.PRAZO &gt;= 180 and P.PRAZO &lt;= 240 and p.Especie = 'IM' then 11
+			else 99999
+			end as CLASSIF_PRAZO
+       
+From PEDIDO P</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Connections[OleDbConnection]"
+                      connectionManagerID="{b713392e-6b85-45bf-aa3f-c181e65606a8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLPROD02_SGISQL02,1433.RemazaAdesao]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          length="5"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          length="15"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="PRAZOS_SQL_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[PRAZOS_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[COD_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="i4"
+                          cachedName="CLASSIF_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL.Paths[OLE DB Source Output]"
+                  endId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_SQL_STAGE\TRUNCATE PRAZOS_SQL_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c91db898-e5e0-4edf-94e5-4af6ce16681d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE PRAZOS_SQL_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE PRAZOS_SQL_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PRAZOS_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C81F9763-75DA-4403-8E7E-0AFE504E935F}"
+          DTS:From="Package\PRAZOS_SQL_STAGE\TRUNCATE PRAZOS_SQL_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PRAZOS_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{85A46B56-ECA0-44DF-B24F-5BC02CEB272F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRAZOS_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_STAGE\PRAZOS_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{0ACB2799-9452-4E5C-94C6-233780BBFE08}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PRAZOS_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Inputs[Data Conversion Input].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="i4"
+                          cachedName="CLASSIF_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CLASSIF_PRAZO]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CLASSIF_PRAZO]"
+                          name="Copy of CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DIM_PRAZOS_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_PRAZOS_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[COD_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[FAIXA_PRAZO]" />
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="i8"
+                          cachedName="CLASSIF_PRAZO"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[CLASSIF_PRAZO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PRAZOS_ORA_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PRAZOS_ORA_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          length="5"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          length="15"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PRAZOS_SQL_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[PRAZOS_SQL_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          length="5"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          length="15"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          name="COD_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="FAIXA_PRAZO" />
+                        <externalMetadataColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          name="CLASSIF_PRAZO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Inputs[Sort Input].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_PRAZO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Inputs[Sort Input].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[FAIXA_PRAZO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Inputs[Sort Input].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="i8"
+                          cachedName="CLASSIF_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[CLASSIF_PRAZO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[COD_PRAZO]"
+                          name="COD_PRAZO"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_PRAZO]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[FAIXA_PRAZO]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[CLASSIF_PRAZO]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 2].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_PRAZO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 2].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[FAIXA_PRAZO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 2].Columns[CLASSIF_PRAZO]"
+                          cachedDataType="i8"
+                          cachedName="CLASSIF_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output].Columns[CLASSIF_PRAZO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[CLASSIF_PRAZO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 3]"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 3].Columns[COD_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="5"
+                          cachedName="COD_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[COD_PRAZO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_PRAZO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 3].Columns[FAIXA_PRAZO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="FAIXA_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output].Columns[FAIXA_PRAZO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[FAIXA_PRAZO]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 3].Columns[Copy of CLASSIF_PRAZO]"
+                          cachedDataType="i8"
+                          cachedName="Copy of CLASSIF_PRAZO"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CLASSIF_PRAZO]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[CLASSIF_PRAZO]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 1]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="5"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[COD_PRAZO]"
+                          name="COD_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[FAIXA_PRAZO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[FAIXA_PRAZO]"
+                          name="FAIXA_PRAZO" />
+                        <outputColumn
+                          refId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[CLASSIF_PRAZO]"
+                          dataType="i8"
+                          lineageId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1].Columns[CLASSIF_PRAZO]"
+                          name="CLASSIF_PRAZO" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[Data Conversion Output]"
+                  endId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 3]"
+                  name="Data Conversion Output"
+                  startId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Inputs[Union All Input 2]"
+                  name="OLE DB Source Output"
+                  startId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[OLE DB Source Output1]"
+                  endId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[Sort Output]"
+                  endId="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE.Inputs[OLE DB Destination Input]"
+                  name="Sort Output"
+                  startId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[Union All Output 1]"
+                  endId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort.Inputs[Sort Input]"
+                  name="Union All Output 1"
+                  startId="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PRAZOS_STAGE\TRUNCATE DIM_ PRAZOS_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6570e94e-55be-495e-972f-3418083e2404}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_ PRAZOS_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_PRAZOS_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PRAZOS_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{89E612D3-468C-4418-BA35-43CA974B88B5}"
+          DTS:From="Package\PRAZOS_STAGE\TRUNCATE DIM_ PRAZOS_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PRAZOS_STAGE\PRAZOS_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2F1713DF-A684-4FB6-8766-E32DDFA26A86}"
+      DTS:From="Package\PRAZOS_ORA_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\PRAZOS_SQL_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{95719BB5-B948-4404-AACE-EFEFF3291517}"
+      DTS:From="Package\PRAZOS_SQL_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\PRAZOS_STAGE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{31AABF6A-26DF-4B31-9BC0-3A0C6A8F0788}"
+      DTS:From="Package\PRAZOS_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\PRAZOS_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\PRAZOS_DW\PRAZOS_DW"
+          TopLeft="61,125" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\PRAZOS_DW\TRUNCATE DIM_ PRAZOS_DW"
+          TopLeft="8,17" />
+        <EdgeLayout
+          Id="Package\PRAZOS_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="120,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,66"
+              Start="0,0"
+              End="11,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="7,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,33"
+                    Point2="11,33"
+                    Point3="11,37" />
+                  <mssgle:LineSegment
+                    End="11,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="242,220"
+          Size="242,263"
+          Id="Package\PRAZOS_DW"
+          TopLeft="1099,32" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD"
+          TopLeft="14,135.5" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\PRAZOS_ORA_STAGE\TRUNCATE PRAZOS_ORA_STAGE"
+          TopLeft="10,31" />
+        <EdgeLayout
+          Id="Package\PRAZOS_ORA_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="128.5,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18.5,62.5"
+              Start="0,0"
+              End="-18.5,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.25"
+                    Point2="0,31.25"
+                    Point3="-4,31.25" />
+                  <mssgle:LineSegment
+                    End="-14.5,31.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14.5,31.25"
+                    Point2="-18.5,31.25"
+                    Point3="-18.5,35.25" />
+                  <mssgle:LineSegment
+                    End="-18.5,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="256,236"
+          Size="256,279"
+          Id="Package\PRAZOS_ORA_STAGE"
+          TopLeft="34,37" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL"
+          TopLeft="83,130" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\PRAZOS_SQL_STAGE\TRUNCATE PRAZOS_SQL_STAGE"
+          TopLeft="24,26" />
+        <EdgeLayout
+          Id="Package\PRAZOS_SQL_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="141.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5,62"
+              Start="0,0"
+              End="12.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="8.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.5,31"
+                    Point2="12.5,31"
+                    Point3="12.5,35" />
+                  <mssgle:LineSegment
+                    End="12.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="291,232"
+          Size="291,275"
+          Id="Package\PRAZOS_SQL_STAGE"
+          TopLeft="373,32" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE"
+          TopLeft="43,125" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\PRAZOS_STAGE\TRUNCATE DIM_ PRAZOS_STAGE"
+          TopLeft="21,16" />
+        <EdgeLayout
+          Id="Package\PRAZOS_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="140.5,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20,67"
+              Start="0,0"
+              End="-20,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="-4,33.5" />
+                  <mssgle:LineSegment
+                    End="-16,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,33.5"
+                    Point2="-20,33.5"
+                    Point3="-20,37.5" />
+                  <mssgle:LineSegment
+                    End="-20,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="272,230"
+          Size="272,273"
+          Id="Package\PRAZOS_STAGE"
+          TopLeft="743,36" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="290,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83,0"
+              Start="0,0"
+              End="75.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="75.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="664,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,0"
+              Start="0,0"
+              End="71.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1015,172.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84,-9"
+              Start="0,0"
+              End="76.5,-9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="38,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38,0"
+                    Point2="42,0"
+                    Point3="42,-4" />
+                  <mssgle:LineSegment
+                    End="42,-5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42,-5"
+                    Point2="42,-9"
+                    Point3="46,-9" />
+                  <mssgle:LineSegment
+                    End="76.5,-9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\PRAZOS_DW\PRAZOS_DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE"
+          TopLeft="355.5,50.5" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS"
+          TopLeft="363.5,174.5" />
+        <EdgeLayout
+          Id="Package\PRAZOS_DW\PRAZOS_DW.Paths[OLE DB Source Output]"
+          TopLeft="434,92.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82"
+              Start="0,0"
+              End="0,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_DW\PRAZOS_DW\DIM_PRAZOS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_DW\PRAZOS_DW\PRAZOS_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE"
+          TopLeft="223,302" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD"
+          TopLeft="136.5,94.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\Data Conversion"
+          TopLeft="337.5,206.5" />
+        <EdgeLayout
+          Id="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD.Paths[OLE DB Source Output]"
+          TopLeft="232.5,136.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183,70"
+              Start="0,0"
+              End="183,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="179,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="179,35"
+                    Point2="183,35"
+                    Point3="183,39" />
+                  <mssgle:LineSegment
+                    End="183,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD.Paths[Data Conversion Output]"
+          TopLeft="415.5,248.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-102,53.5"
+              Start="0,0"
+              End="-102,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.75"
+                    Point2="0,26.75"
+                    Point3="-4,26.75" />
+                  <mssgle:LineSegment
+                    End="-98,26.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-98,26.75"
+                    Point2="-102,26.75"
+                    Point3="-102,30.75" />
+                  <mssgle:LineSegment
+                    End="-102,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORAREMPROD">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_ORA_STAGE\PRAZOS_ORAREMPROD\PRAZOS_ORA_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE"
+          TopLeft="257.5,212.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL"
+          TopLeft="271.5,76.5" />
+        <EdgeLayout
+          Id="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL.Paths[OLE DB Source Output]"
+          TopLeft="344.75,118.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94"
+              Start="0,0"
+              End="0,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_SQL_STAGE\PRAZOS_SQL\PRAZOS_SQL_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PRAZOS_STAGE\PRAZOS_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="98,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE\Sort"
+          TopLeft="356,371" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE\Union All"
+          TopLeft="350,283" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE"
+          TopLeft="180,118" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE"
+          TopLeft="444,116" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE"
+          TopLeft="323,462" />
+        <EdgeLayout
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[Sort Output]"
+          TopLeft="405,413">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8,49"
+              Start="0,0"
+              End="8,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="4,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,24.5"
+                    Point2="8,24.5"
+                    Point3="8,28.5" />
+                  <mssgle:LineSegment
+                    End="8,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="534.5,158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-124,125"
+              Start="0,0"
+              End="-124,117.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.5"
+                    Point2="0,62.5"
+                    Point3="-4,62.5" />
+                  <mssgle:LineSegment
+                    End="-120,62.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-120,62.5"
+                    Point2="-124,62.5"
+                    Point3="-124,66.5" />
+                  <mssgle:LineSegment
+                    End="-124,117.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[Union All Output 1]"
+          TopLeft="407.75,325">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE\Data Conversion"
+          TopLeft="167,193" />
+        <EdgeLayout
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[OLE DB Source Output1]"
+          TopLeft="269.5,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.5,33"
+              Start="0,0"
+              End="-24.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="-4,16.5" />
+                  <mssgle:LineSegment
+                    End="-20.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5,16.5"
+                    Point2="-24.5,16.5"
+                    Point3="-24.5,20.5" />
+                  <mssgle:LineSegment
+                    End="-24.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PRAZOS_STAGE\PRAZOS_STAGE.Paths[Data Conversion Output]"
+          TopLeft="245,235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.666666666667,48"
+              Start="0,0"
+              End="146.666666666667,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4241435562806" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4241435562806"
+                    Point2="0,28.4241435562806"
+                    Point3="4,28.4241435562806" />
+                  <mssgle:LineSegment
+                    End="142.666666666667,28.4241435562806" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142.666666666667,28.4241435562806"
+                    Point2="146.666666666667,28.4241435562806"
+                    Point3="146.666666666667,32.4241435562806" />
+                  <mssgle:LineSegment
+                    End="146.666666666667,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_SQL_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_STAGE\PRAZOS_STAGE\PRAZOS_ORA_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRAZOS_STAGE\PRAZOS_STAGE\DIM_PRAZOS_STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

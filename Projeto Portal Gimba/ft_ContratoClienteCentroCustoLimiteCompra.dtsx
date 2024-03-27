@@ -1,0 +1,2577 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/29/2022 9:22:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{1FE79901-5E83-46D5-9A41-27BB4D5C22A3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ft_ContratoClienteCentroCustoLimiteCompra"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{EBA07834-B716-4D6B-9EFC-883F563A5EF5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3783CEF0-72A0-4877-B638-3AF11F86506A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ContratoClienteCentroCustoLimiteCompra_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{04D43E7A-C5DE-4971-AFE3-A65AC997A1C9}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ContratoClienteCentroCustoLimiteCompra_DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Output].Columns[Sk_Id_Cliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Output].Columns[Sk_Id_Cliente]"
+                          name="Sk_Id_Cliente"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">-1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">-1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Output].Columns[Sk_Id_CentroCusto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Output].Columns[Sk_Id_CentroCusto]"
+                          name="Sk_Id_CentroCusto"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">-1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">-1</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Ft_CentroCustoLimiteCompra"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Ft_CentroCustoLimiteCompra]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[ValorLimiteCompra]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteCompra"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteCompra]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteCompra]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[ValorLimiteUtilizado]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteUtilizado"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteUtilizado]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[Sk_Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_Cliente"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Sk_Id_Cliente]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[Sk_Id_CentroCusto]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_CentroCusto"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Sk_Id_CentroCusto]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_CentroCusto]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[Id_Data_Limite]"
+                          cachedDataType="i4"
+                          cachedName="Id_Data_Limite"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Sk_Id_Data_Limite]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Id_Data_Limite]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Id_Login]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdLogin]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Sk_Id_Data_Limite]"
+                          dataType="i4"
+                          name="Sk_Id_Data_Limite" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Sk_Id_Cliente]"
+                          dataType="i4"
+                          name="Sk_Id_Cliente" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Sk_Id_CentroCusto]"
+                          dataType="i4"
+                          name="Sk_Id_CentroCusto" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteCompra]"
+                          dataType="cy"
+                          name="ValorLimiteCompra" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          name="ValorLimiteUtilizado" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[Id_Login]"
+                          dataType="i4"
+                          name="Id_Login" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Ler ContratoClienteCentroCustoLimiteCompra_Stage"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+       [IdLogin]
+      ,[IdCliente]
+      ,[IdCentroCusto]
+      ,[ValorLimiteCompra]
+      ,[ValorLimiteUtilizado]
+     -- ,[DataInclusao]
+	  ,CAST(FORMAT([DataInclusao], 'yyyMMdd') as INT) as Id_Data_Limite
+  FROM [eGbPortal_Stage_New].[dbo].[St_Gb_ContratoClienteCentroCustoLimiteCompra]</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          name="IdCliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[IdCentroCusto]"
+                          length="15"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCentroCusto]"
+                          name="IdCentroCusto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteCompra]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]"
+                          name="ValorLimiteCompra"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteUtilizado]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]"
+                          name="ValorLimiteUtilizado"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[Id_Data_Limite]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[Id_Data_Limite]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[Id_Data_Limite]"
+                          name="Id_Data_Limite"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          name="IdLogin"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="IdCentroCusto" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteCompra]"
+                          dataType="cy"
+                          name="ValorLimiteCompra" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          name="ValorLimiteUtilizado" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[Id_Data_Limite]"
+                          dataType="i4"
+                          name="Id_Data_Limite" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          name="IdLogin" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          name="IdCliente" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[IdCentroCusto]"
+                          name="IdCentroCusto" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ValorLimiteCompra]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ValorLimiteCompra]"
+                          name="ValorLimiteCompra" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ValorLimiteUtilizado]"
+                          name="ValorLimiteUtilizado" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[Id_Data_Limite]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[Id_Data_Limite]"
+                          name="Id_Data_Limite" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup Sk_Id_CentroCusto"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Centros_Custo]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Centros_Custo]) [refTable]
+where [refTable].[CentroCusto] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id_Sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IdContratoClienteCentroCusto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CentroCusto" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Descricao" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Inputs[Lookup Input].Columns[IdCentroCusto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IdCentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CentroCusto</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Match Output].Columns[Sk_Id_CentroCusto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Match Output].Columns[Sk_Id_CentroCusto]"
+                          name="Sk_Id_CentroCusto"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">Id_Sk</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup Sk_Id_Cliente"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Clientes]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Clientes]) [refTable]
+where [refTable].[Id_Cliente] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id_Sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id_Cliente" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nome" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CNPJ_CPF" dataType="DT_STR" length="45" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Tipo" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCliente]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Inputs[Lookup Input].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCliente]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">Id_Cliente</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Match Output].Columns[Sk_Id_Cliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Match Output].Columns[Sk_Id_Cliente]"
+                          name="Sk_Id_Cliente"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">Id_Sk</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[IdCentroCusto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IdCentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCentroCusto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[ValorLimiteCompra]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteCompra"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteCompra]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[ValorLimiteUtilizado]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteUtilizado"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[Id_Data_Limite]"
+                          cachedDataType="i4"
+                          cachedName="Id_Data_Limite"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[Id_Data_Limite]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Id_Data_Limite]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[Sk_Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_Cliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Match Output].Columns[Sk_Id_Cliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdLogin]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdLogin]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[IdCentroCusto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IdCentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdCentroCusto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[ValorLimiteCompra]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteCompra"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteCompra]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[ValorLimiteUtilizado]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteUtilizado"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[Id_Data_Limite]"
+                          cachedDataType="i4"
+                          cachedName="Id_Data_Limite"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[Id_Data_Limite]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Id_Data_Limite]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[Sk_Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_Cliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Output].Columns[Sk_Id_Cliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output].Columns[IdLogin]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdLogin]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCliente]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCliente]"
+                          name="IdCliente" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]"
+                          name="IdCentroCusto" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteCompra]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteCompra]"
+                          name="ValorLimiteCompra" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]"
+                          name="ValorLimiteUtilizado" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Id_Data_Limite]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Id_Data_Limite]"
+                          name="Id_Data_Limite" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]"
+                          name="Sk_Id_Cliente" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdLogin]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdLogin]"
+                          name="IdLogin" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1"
+                  componentClassID="Microsoft.UnionAll"
+                  contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+                  name="Union All 1"
+                  version="1">
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1]"
+                      name="Union All Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[IdCentroCusto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IdCentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCentroCusto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[ValorLimiteCompra]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteCompra"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteCompra]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteCompra]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[ValorLimiteUtilizado]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteUtilizado"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[Id_Data_Limite]"
+                          cachedDataType="i4"
+                          cachedName="Id_Data_Limite"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Id_Data_Limite]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Id_Data_Limite]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[Sk_Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_Cliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[Sk_Id_CentroCusto]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_CentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Output].Columns[Sk_Id_CentroCusto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_CentroCusto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdLogin]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdLogin]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2]"
+                      hasSideEffects="true"
+                      name="Union All Input 2">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[IdCentroCusto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IdCentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdCentroCusto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCentroCusto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[ValorLimiteCompra]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteCompra"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteCompra]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteCompra]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[ValorLimiteUtilizado]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteUtilizado"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[Id_Data_Limite]"
+                          cachedDataType="i4"
+                          cachedName="Id_Data_Limite"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Id_Data_Limite]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Id_Data_Limite]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[Sk_Id_Cliente]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_Cliente"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[Sk_Id_CentroCusto]"
+                          cachedDataType="i4"
+                          cachedName="Sk_Id_CentroCusto"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Match Output].Columns[Sk_Id_CentroCusto]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_CentroCusto]}</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1].Columns[IdLogin]">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Output column lineage ID"
+                              name="OutputColumnLineageID">#{Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdLogin]}</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 3]"
+                      dangling="true"
+                      hasSideEffects="true"
+                      name="Union All Input 3">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1]"
+                      name="Union All Output 1">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCliente]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCliente]"
+                          name="IdCliente" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdCentroCusto]"
+                          name="IdCentroCusto" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteCompra]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteCompra]"
+                          name="ValorLimiteCompra" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[ValorLimiteUtilizado]"
+                          name="ValorLimiteUtilizado" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Id_Data_Limite]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Id_Data_Limite]"
+                          name="Id_Data_Limite" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_Cliente]"
+                          name="Sk_Id_Cliente" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_CentroCusto]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[Sk_Id_CentroCusto]"
+                          name="Sk_Id_CentroCusto" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdLogin]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1].Columns[IdLogin]"
+                          name="IdLogin" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Derived Column Output]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 2]"
+                  name="Derived Column Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Derived Column Output1]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup Match Output]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Inputs[Union All Input 1]"
+                  name="Lookup Match Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup Match Output1]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Inputs[Union All Input 2]"
+                  name="Lookup Match Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup Match Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup No Match Output]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup No Match Output1]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[OLE DB Source Output]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Union All Output 1]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto.Inputs[Lookup Input]"
+                  name="Union All Output 1"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All.Outputs[Union All Output 1]" />
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Union All Output 11]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra.Inputs[OLE DB Destination Input]"
+                  name="Union All Output 1"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1.Outputs[Union All Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_DW\Trunc Ft_CentroCustoLimiteCompra"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{383bc06a-343d-411c-b0e2-bad30ee68117}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Trunc Ft_CentroCustoLimiteCompra"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{71BCF780-29E0-4304-A1EA-7FE1C3785788}"
+              SQLTask:SqlStatementSource="Truncate Table Ft_CentroCustoLimiteCompra" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F22EDCEC-89A7-45F4-8482-02386CCF4D1B}"
+          DTS:From="Package\ContratoClienteCentroCustoLimiteCompra_DW\Trunc Ft_CentroCustoLimiteCompra"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{716EE27D-30BE-4D4B-9787-5633868D19CD}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ContratoClienteCentroCustoLimiteCompra_Stage">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A6F6CBED-094A-4454-A626-478C5D6B3740}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ContratoClienteCentroCustoLimiteCompra_Stage"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ContratoClienteCentroCustoLimiteCompra"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--St_Gb_ContratoClienteCentroCustoLimiteCompra
+
+select
+
+c.IdLogin,
+b.IdCliente,
+b.CentroCusto as IdCentroCusto,
+a.ValorLimiteCompra,
+coalesce(a.ValorLimiteUtilizado,0) as ValorLimiteUtilizado,
+a.DataInclusao
+from 
+ContratoClienteCentroCustoLimiteCompra a
+left join ContratoClienteCentroCusto b on
+a.IdContratoClienteCentroCusto = b.IdContratoClienteCentroCusto
+left join Usuarios c on
+c.IdLogin = b.IdLoginAtualizacao
+where a.IdContratoClienteCentroCustoLimiteCompra in 
+(
+	select 
+	max(IdContratoClienteCentroCustoLimiteCompra)  
+	from ContratoClienteCentroCustoLimiteCompra  
+	where ValorLimiteCompra &gt; 0
+	group by IdContratoClienteCentroCusto, datepart(year,DataInclusao),datepart(MONTH,DataInclusao)
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Connections[OleDbConnection]"
+                      connectionManagerID="{907EDACB-5D52-4703-8CF0-1B43EA34500B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteCompra]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]"
+                          name="ValorLimiteCompra"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteUtilizado]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]"
+                          name="ValorLimiteUtilizado"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[DataInclusao]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[DataInclusao]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[DataInclusao]"
+                          name="DataInclusao"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          name="IdCliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[IdCentroCusto]"
+                          length="15"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdCentroCusto]"
+                          name="IdCentroCusto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          name="IdLogin"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteCompra]"
+                          dataType="cy"
+                          name="ValorLimiteCompra" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          name="ValorLimiteUtilizado" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[DataInclusao]"
+                          dataType="dbTimeStamp"
+                          name="DataInclusao" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="IdCentroCusto" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          name="IdLogin" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          name="IdCliente" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[IdCentroCusto]"
+                          name="IdCentroCusto" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ValorLimiteCompra]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ValorLimiteCompra]"
+                          name="ValorLimiteCompra" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ValorLimiteUtilizado]"
+                          name="ValorLimiteUtilizado" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[DataInclusao]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[DataInclusao]"
+                          name="DataInclusao" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="St_Gb_ContratoClienteCentroCustoLimiteCompra"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[St_Gb_ContratoClienteCentroCustoLimiteCompra]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[ValorLimiteCompra]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteCompra"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteCompra]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[ValorLimiteCompra]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[ValorLimiteUtilizado]"
+                          cachedDataType="cy"
+                          cachedName="ValorLimiteUtilizado"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteUtilizado]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[ValorLimiteUtilizado]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[DataInclusao]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="DataInclusao"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[DataInclusao]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[DataInclusao]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdCliente]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[IdCentroCusto]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="15"
+                          cachedName="IdCentroCusto"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[IdCentroCusto]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdCentroCusto]" />
+                        <inputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          externalMetadataColumnId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[IdLogin]"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output].Columns[IdLogin]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[IdCentroCusto]"
+                          codePage="1252"
+                          dataType="str"
+                          length="15"
+                          name="IdCentroCusto" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteCompra]"
+                          dataType="cy"
+                          name="ValorLimiteCompra" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[ValorLimiteUtilizado]"
+                          dataType="cy"
+                          name="ValorLimiteUtilizado" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[DataInclusao]"
+                          dataType="dbTimeStamp"
+                          name="DataInclusao" />
+                        <externalMetadataColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage.Paths[OLE DB Source Output]"
+                  endId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage\Trunc ContratoClienteCentroCustoLimiteCompra_Stage"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{a354f9ee-3c65-4f41-8d24-4675a26acc29}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Trunc ContratoClienteCentroCustoLimiteCompra_Stage"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{10779405-461C-43D3-8D02-4C534A8750E2}"
+              SQLTask:SqlStatementSource="Truncate Table St_Gb_ContratoClienteCentroCustoLimiteCompra" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ContratoClienteCentroCustoLimiteCompra_Stage.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{3845B440-0622-4081-95B1-85B399AACBC2}"
+          DTS:From="Package\ContratoClienteCentroCustoLimiteCompra_Stage\Trunc ContratoClienteCentroCustoLimiteCompra_Stage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{0B5E4246-77F3-4560-9EDC-94E080CC0468}"
+      DTS:From="Package\ContratoClienteCentroCustoLimiteCompra_Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ContratoClienteCentroCustoLimiteCompra_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="319,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW"
+          TopLeft="38,134" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\Trunc Ft_CentroCustoLimiteCompra"
+          TopLeft="78.5,24" />
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="199.75,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="395,231"
+          Size="395,274"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW"
+          TopLeft="525,37" />
+        <NodeLayout
+          Size="329,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage"
+          TopLeft="28.5,107.5" />
+        <NodeLayout
+          Size="337,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage\Trunc ContratoClienteCentroCustoLimiteCompra_Stage"
+          TopLeft="26.5,24.5" />
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage.PrecedenceConstraints[Constraint]"
+          TopLeft="194,66.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="392,205"
+          Size="392,248"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage"
+          TopLeft="81.5,48.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="473.5,173.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="51.5,0"
+              Start="0,0"
+              End="44,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="44,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="325,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage"
+          TopLeft="150.5,30.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto"
+          TopLeft="274,304" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All"
+          TopLeft="106.5,232.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column 1"
+          TopLeft="492,387" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Union All 1"
+          TopLeft="115,384" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente"
+          TopLeft="252.5,115.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra"
+          TopLeft="230.5,453.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Derived Column"
+          TopLeft="348.5,215.5" />
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup Match Output1]"
+          TopLeft="344.333333333333,346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-164.333333333333,38"
+              Start="0,0"
+              End="-164.333333333333,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.3748801534036" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.3748801534036"
+                    Point2="0,15.3748801534036"
+                    Point3="-4,15.3748801534036" />
+                  <mssgle:LineSegment
+                    End="-160.333333333333,15.3748801534036" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160.333333333333,15.3748801534036"
+                    Point2="-164.333333333333,15.3748801534036"
+                    Point3="-164.333333333333,19.3748801534036" />
+                  <mssgle:LineSegment
+                    End="-164.333333333333,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-130.358053385416,20.3748801534036,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup Match Output]"
+          TopLeft="314.166666666667,157.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.166666666667,75"
+              Start="0,0"
+              End="-147.166666666667,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.39430449069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.39430449069"
+                    Point2="0,30.39430449069"
+                    Point3="-4,30.39430449069" />
+                  <mssgle:LineSegment
+                    End="-143.166666666667,30.39430449069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.166666666667,30.39430449069"
+                    Point2="-147.166666666667,30.39430449069"
+                    Point3="-147.166666666667,34.39430449069" />
+                  <mssgle:LineSegment
+                    End="-147.166666666667,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.774720052083,35.39430449069,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Derived Column Output1]"
+          TopLeft="492,406.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-247,0"
+              Start="0,0"
+              End="-239.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-239.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Derived Column Output]"
+          TopLeft="348.5,236.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-121,17"
+              Start="0,0"
+              End="-113.5,17">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-56.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-56.5,0"
+                    Point2="-60.5,0"
+                    Point3="-60.5,4" />
+                  <mssgle:LineSegment
+                    End="-60.5,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.5,13"
+                    Point2="-60.5,17"
+                    Point3="-64.5,17" />
+                  <mssgle:LineSegment
+                    End="-113.5,17" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Union All Output 11]"
+          TopLeft="180,426">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="158.5,27.5"
+              Start="0,0"
+              End="158.5,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.75"
+                    Point2="0,13.75"
+                    Point3="4,13.75" />
+                  <mssgle:LineSegment
+                    End="154.5,13.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="154.5,13.75"
+                    Point2="158.5,13.75"
+                    Point3="158.5,17.75" />
+                  <mssgle:LineSegment
+                    End="158.5,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Union All Output 1]"
+          TopLeft="167,274.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.5,29.5"
+              Start="0,0"
+              End="210.5,22">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.75"
+                    Point2="0,14.75"
+                    Point3="4,14.75" />
+                  <mssgle:LineSegment
+                    End="206.5,14.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.5,14.75"
+                    Point2="210.5,14.75"
+                    Point3="210.5,18.75" />
+                  <mssgle:LineSegment
+                    End="210.5,22" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[OLE DB Source Output]"
+          TopLeft="313,72.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30,43"
+              Start="0,0"
+              End="30,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="26,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26,21.5"
+                    Point2="30,21.5"
+                    Point3="30,25.5" />
+                  <mssgle:LineSegment
+                    End="30,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup No Match Output1]"
+          TopLeft="410.666666666667,346">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="162.833333333333,41"
+              Start="0,0"
+              End="162.833333333333,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5886864813039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5886864813039"
+                    Point2="0,16.5886864813039"
+                    Point3="4,16.5886864813039" />
+                  <mssgle:LineSegment
+                    End="158.833333333333,16.5886864813039" />
+                  <mssgle:CubicBezierSegment
+                    Point1="158.833333333333,16.5886864813039"
+                    Point2="162.833333333333,16.5886864813039"
+                    Point3="162.833333333333,20.5886864813039" />
+                  <mssgle:LineSegment
+                    End="162.833333333333,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="25.6102799479165,21.5886864813039,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW.Paths[Lookup No Match Output]"
+          TopLeft="371.833333333333,157.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.6666666666667,58"
+              Start="0,0"
+              End="53.6666666666667,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5049288061336" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5049288061336"
+                    Point2="0,23.5049288061336"
+                    Point3="4,23.5049288061336" />
+                  <mssgle:LineSegment
+                    End="49.6666666666667,23.5049288061336" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.6666666666667,23.5049288061336"
+                    Point2="53.6666666666667,23.5049288061336"
+                    Point3="53.6666666666667,27.5049288061336" />
+                  <mssgle:LineSegment
+                    End="53.6666666666667,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.9730533854166,28.5049288061336,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ler ContratoClienteCentroCustoLimiteCompra_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_CentroCusto">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Centros_Custo]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Lookup Sk_Id_Cliente">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Clientes]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_DW\DFT ContratoClienteCentroCustoLimiteCompra_DW\Ft_CentroCustoLimiteCompra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="274,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra"
+          TopLeft="92.5,26.5" />
+        <NodeLayout
+          Size="308,42"
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra"
+          TopLeft="166.5,154.5" />
+        <EdgeLayout
+          Id="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage.Paths[OLE DB Source Output]"
+          TopLeft="229.5,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91,86"
+              Start="0,0"
+              End="91,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39"
+                    Point2="0,43"
+                    Point3="4,43" />
+                  <mssgle:LineSegment
+                    End="87,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87,43"
+                    Point2="91,43"
+                    Point3="91,47" />
+                  <mssgle:LineSegment
+                    End="91,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\ContratoClienteCentroCustoLimiteCompra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ContratoClienteCentroCustoLimiteCompra_Stage\DFT ContratoClienteCentroCustoLimiteCompra_Stage\St_Gb_ContratoClienteCentroCustoLimiteCompra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

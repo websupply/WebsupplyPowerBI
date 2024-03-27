@@ -1,0 +1,1758 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "EGBPORTAL_DW",
+        "connectionString": "Provider=SQLNCLI11;Data Source=WEBSQLHOM01\\SGISQL01;Initial Catalog=EGBPORTAL_DW;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "CATEGORIAS",
+        "columns": [
+          {
+            "name": "IDPRODUTO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPRODUTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CATEGORIA",
+            "dataType": "string",
+            "sourceColumn": "CATEGORIA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SUBCATEGORIA",
+            "dataType": "string",
+            "sourceColumn": "SUBCATEGORIA",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CATEGORIAS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_CATEGORIAS].* FROM [dbo].[DIM_CATEGORIAS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CATEGORIAS].* FROM [dbo].[DIM_CATEGORIAS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CATEGORIAS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CLIENTES",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDCLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NOME",
+            "dataType": "string",
+            "sourceColumn": "NOME",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CNPJ_CPF",
+            "dataType": "string",
+            "sourceColumn": "CNPJ_CPF",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TIPOCLIENTE",
+            "dataType": "string",
+            "sourceColumn": "TIPOCLIENTE",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CLIENTES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CLIENTES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DEPTOS",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDLOGIN",
+            "dataType": "int64",
+            "sourceColumn": "IDLOGIN",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NOMEDEPARTAMENTO",
+            "dataType": "string",
+            "sourceColumn": "NOMEDEPARTAMENTO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_DEPTOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_DEPTOS].* FROM [dbo].[DIM_DEPTOS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_DEPTOS].* FROM [dbo].[DIM_DEPTOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_DEPTOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "GRUPOS",
+        "columns": [
+          {
+            "name": "IDCLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NOMEDOGRUPO",
+            "dataType": "string",
+            "sourceColumn": "NOMEDOGRUPO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NOMEDOSUBGRUPO",
+            "dataType": "string",
+            "sourceColumn": "NOMEDOSUBGRUPO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_GRUPOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_GRUPOS].* FROM [dbo].[DIM_GRUPOS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_GRUPOS].* FROM [dbo].[DIM_GRUPOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_GRUPOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PEDIDOS_STATUS",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPEDIDOS_STATUS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPEDIDOS_STATUS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DESCRICAO",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PEDIDOS_STATUS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PEDIDOS_STATUS].* FROM [dbo].[DIM_PEDIDOS_STATUS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PEDIDOS_STATUS].* FROM [dbo].[DIM_PEDIDOS_STATUS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PEDIDOS_STATUS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PRODUTOS",
+        "columns": [
+          {
+            "name": "IDSK",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPRODUTO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPRODUTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DESCRICAORESUMIDA",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAORESUMIDA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "FABRICANTE",
+            "dataType": "string",
+            "sourceColumn": "FABRICANTE",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PRODUTOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PRODUTOS].* FROM [dbo].[DIM_PRODUTOS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PRODUTOS].* FROM [dbo].[DIM_PRODUTOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PRODUTOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "MEDIDAS",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "Medidas",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Medidas]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "",
+                "DATATABLE(",
+                "\"Medidas\", STRING,{",
+                "\t\t{\"a\"}",
+                "\t}",
+                ")"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "CALENDARIO",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "TMPO_ID_TEMPO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_ID_TEMPO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DT_DATA",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isKey": true,
+            "sourceColumn": "TMPO_DT_DATA",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "DATA",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_DATA",
+            "sortByColumn": "TMPO_ID_TEMPO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_DIA_SEMANA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_DIA_SEMANA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DS_DIA_SEMANA",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_DIA_SEMANA",
+            "sortByColumn": "TMPO_NR_DIA_SEMANA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_NR_DIA_SEMANA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_NR_DIA_SEMANA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_CD_DIA_UTIL",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_DIA_UTIL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DS_DIA_UTIL",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_DIA_UTIL",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_FERIADO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_FERIADO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DS_FERIADO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_FERIADO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_MES_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_MES_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MMM/AAAA",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_MES_CALENDARIO",
+            "sortByColumn": "TMPO_CD_MES_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_BIMESTRE_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_BIMESTRE_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BIMESTRE",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_BIMESTRE_CALENDARIO",
+            "sortByColumn": "TMPO_CD_BIMESTRE_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_TRIMESTRE_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_TRIMESTRE_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TRIMESTRE",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_TRIMESTRE_CALENDARIO",
+            "sortByColumn": "TMPO_CD_TRIMESTRE_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_SEMESTRE_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_SEMESTRE_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SEMESTRE",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_SEMESTRE_CALENDARIO",
+            "sortByColumn": "TMPO_CD_SEMESTRE_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ANO",
+            "dataType": "int64",
+            "sourceColumn": "TMPO_CD_ANO_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DESC ANO",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_ANO_CALENDARIO",
+            "sortByColumn": "ANO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_MESNUM_CALENDARIO",
+            "dataType": "int64",
+            "sourceColumn": "TMPO_CD_MESNUM_CALENDARIO"
+          },
+          {
+            "name": "MM/AAAA",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_MESNUM_CALENDARIO",
+            "sortByColumn": "TMPO_CD_MESNUM_CALENDARIO"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CALENDARIO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_CALENDARIO].* FROM [dbo].[DIM_CALENDARIO] ",
+              "dataSource": "EGBPORTAL_DW"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_ID_TEMPO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>115</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DT_DATA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>110</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_DATA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>110</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_DIA_SEMANA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>149</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_DIA_SEMANA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>148</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_NR_DIA_SEMANA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>149</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_DIA_UTIL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>130</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_DIA_UTIL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>129</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_FERIADO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>129</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_FERIADO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>128</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_MES_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>175</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_MES_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>174</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_MESNUM_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>197</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_MESNUM_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>196</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_BIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>204</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_BIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>203</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_TRIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>211</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_TRIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>210</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_SEMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>206</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_SEMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>205</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_ANO_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>177</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_ANO_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>176</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_ID_TEMPO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DT_DATA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_DATA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_DIA_SEMANA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_DIA_SEMANA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_NR_DIA_SEMANA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_DIA_UTIL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_DIA_UTIL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_FERIADO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_FERIADO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_MES_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_MES_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_MESNUM_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_MESNUM_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_BIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_BIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>15</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_TRIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>16</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_TRIMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>17</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_SEMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>18</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_SEMESTRE_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>19</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_ANO_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_ANO_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>21</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_CD_MESNUM_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TMPO_DS_MESNUM_CALENDARIO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CALENDARIO].* FROM [dbo].[DIM_CALENDARIO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CALENDARIO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_ID_TEMPO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>115</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DT_DATA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>110</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_DATA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>110</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_DIA_SEMANA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>149</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_DIA_SEMANA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>148</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_NR_DIA_SEMANA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>149</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_DIA_UTIL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>130</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_DIA_UTIL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>129</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_FERIADO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>129</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_FERIADO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>128</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_MES_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>175</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_MES_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>174</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_MESNUM_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>197</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_MESNUM_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>196</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_BIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>204</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_BIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>203</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_TRIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>211</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_TRIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>210</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_SEMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>206</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_SEMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>205</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_ANO_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>177</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_ANO_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>176</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_ID_TEMPO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DT_DATA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_DATA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_DIA_SEMANA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_DIA_SEMANA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_NR_DIA_SEMANA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_DIA_UTIL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_DIA_UTIL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_FERIADO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_FERIADO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_MES_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_MES_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_MESNUM_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_MESNUM_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_BIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>14</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_BIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>15</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_TRIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>16</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_TRIMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>17</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_SEMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>18</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_SEMESTRE_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>19</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_ANO_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_ANO_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>21</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_CD_MESNUM_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TMPO_DS_MESNUM_CALENDARIO</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "LIMITES",
+        "columns": [
+          {
+            "name": "IDCLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDDATA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDDATA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DATAINCLUSAO",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DATAINCLUSAO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "VALORLIMITECOMPRA",
+            "dataType": "decimal",
+            "sourceColumn": "VALORLIMITECOMPRA",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "VALORLIMITEUTILIZADO",
+            "dataType": "decimal",
+            "sourceColumn": "VALORLIMITEUTILIZADO",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "LIMITES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FT_LIMITES].* FROM [dbo].[FT_LIMITES] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FT_LIMITES].* FROM [dbo].[FT_LIMITES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FT_LIMITES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "USUARIOS",
+        "columns": [
+          {
+            "name": "IDCLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EMAIL",
+            "dataType": "string",
+            "sourceColumn": "EMAIL",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NOME",
+            "dataType": "string",
+            "sourceColumn": "NOME",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ATIVO",
+            "dataType": "string",
+            "sourceColumn": "ATIVO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IDCONTRATO",
+            "dataType": "int64",
+            "sourceColumn": "IDCONTRATO",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_USUARIOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_USUARIOS].* FROM [dbo].[DIM_USUARIOS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_USUARIOS].* FROM [dbo].[DIM_USUARIOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_USUARIOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PEDIDOS",
+        "columns": [
+          {
+            "name": "IDPEDIDOITEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPEDIDOITEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPEDIDO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPEDIDO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDDATA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDDATA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDCLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CODIGOBUSCAPRODUTO",
+            "dataType": "string",
+            "sourceColumn": "CODIGOBUSCAPRODUTO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IDCONTRATO",
+            "dataType": "int64",
+            "sourceColumn": "IDCONTRATO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDLOGIN",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDLOGIN",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPEDIDOSTATUS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPEDIDOSTATUS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPRODUTO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDPRODUTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TIPOCATALOGO",
+            "dataType": "string",
+            "sourceColumn": "TIPOCATALOGO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CIDADE",
+            "dataType": "string",
+            "sourceColumn": "CIDADE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ESTADO",
+            "dataType": "string",
+            "sourceColumn": "ESTADO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "UF",
+            "dataType": "string",
+            "sourceColumn": "UF",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "LOCALIZACAO",
+            "dataType": "string",
+            "sourceColumn": "LOCALIZACAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BUSCAPRODUTO",
+            "dataType": "string",
+            "sourceColumn": "BUSCAPRODUTO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DATA_PEDIDO",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DATA_PEDIDO",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "QTDE",
+            "dataType": "int64",
+            "sourceColumn": "QTDE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PRECOUNITARIO",
+            "dataType": "decimal",
+            "sourceColumn": "PRECOUNITARIO",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "TOTAL_ITENS",
+            "dataType": "decimal",
+            "sourceColumn": "TOTAL_ITENS",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "TOTAL_CUSTO",
+            "dataType": "decimal",
+            "sourceColumn": "TOTAL_CUSTO",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PEDIDOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FT_PEDIDOSITENS].* FROM [dbo].[FT_PEDIDOSITENS] ",
+              "dataSource": "EGBPORTAL_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FT_PEDIDOSITENS].* FROM [dbo].[FT_PEDIDOSITENS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FT_PEDIDOSITENS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "2ee54da3-8fa5-4653-850b-ffe051512891",
+        "fromTable": "CATEGORIAS",
+        "fromColumn": "IDPRODUTO",
+        "toTable": "PRODUTOS",
+        "toColumn": "IDPRODUTO",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "1b2771be-18ba-4196-90e1-da2ca40331cc",
+        "fromTable": "GRUPOS",
+        "fromColumn": "IDCLIENTE",
+        "toTable": "CLIENTES",
+        "toColumn": "IDCLIENTE",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "31762a7a-8f2e-4d8b-9b8e-c4f9860114ab",
+        "fromTable": "LIMITES",
+        "fromColumn": "IDDATA",
+        "toTable": "CALENDARIO",
+        "toColumn": "TMPO_ID_TEMPO"
+      },
+      {
+        "name": "4d824a63-e3d0-4e7c-95bd-1fa945f1ed48",
+        "fromTable": "LIMITES",
+        "fromColumn": "IDCLIENTE",
+        "toTable": "CLIENTES",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "094a37a0-8310-439e-baa9-8c1d2dc178dd",
+        "fromTable": "USUARIOS",
+        "fromColumn": "IDCLIENTE",
+        "toTable": "CLIENTES",
+        "toColumn": "IDCLIENTE",
+        "crossFilteringBehavior": "bothDirections",
+        "securityFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "d05eaf6b-be9a-47ba-8637-4d526f005f0f",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDDATA",
+        "toTable": "CALENDARIO",
+        "toColumn": "TMPO_ID_TEMPO"
+      },
+      {
+        "name": "110edf99-3d73-4f9c-94b5-90b0974b6fe5",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDCLIENTE",
+        "toTable": "CLIENTES",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "069f2539-68cc-48e9-b825-c7893ebeb6d2",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDPEDIDOSTATUS",
+        "toTable": "PEDIDOS_STATUS",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "eabd09d0-1de0-43ce-a99c-75712ede9f86",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDPRODUTO",
+        "toTable": "PRODUTOS",
+        "toColumn": "IDSK"
+      },
+      {
+        "name": "7ff3097e-acc7-4f9d-b7f6-33f5849ed960",
+        "fromTable": "PEDIDOS",
+        "fromColumn": "IDLOGIN",
+        "toTable": "DEPTOS",
+        "toColumn": "IDSK"
+      }
+    ],
+    "roles": [
+      {
+        "name": "RLS_LOGIN",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "REMAZAWEB\\administrator",
+            "memberId": "S-1-5-21-4153046137-595686557-258077127-500"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "USUARIOS",
+            "filterExpression": "USUARIOS[EMAIL] = CUSTOMDATA()"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/29/2020 11:58:57 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\administrator"
+  DTS:DTSID="{13E561BB-8D49-434C-B922-B7DA98B9527B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{6CF93A36-23FC-4F52-88E7-2EBD02C37923}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Projeto eGbPortal SSAS New]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{2677C629-A7D2-4340-9636-BA29377E18B9}"
+      DTS:ObjectName="Projeto eGbPortal SSAS New">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::ProjetoEGbPortalSSASNew_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SGISQL01;User ID=remazaweb\administrator;Initial Catalog=Projeto eGbPortal SSAS New;Provider=MSOLAP.8;Persist Security Info=True;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SGISQL01]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{D9F04033-D5E1-4A63-AB41-6CBDCC571C0A}"
+      DTS:ObjectName="SGISQL01">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SGISQL01;User ID=REMAZAWEB\Administrator;Provider=MSOLAP.8;Impersonation Level=Impersonate;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7Bz5pkKVC0qALJpsY4eZPAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAClvL7NbxJMGu8p+wuLbOfUAAAAAASAAACgAAAAEAAAAAWnEJXLsWx3OSz/Gifx7WwYAAAAKmIGlhciWvApUTK/FKViQXq0KGwnRNO4FAAAAG7HeNVyzQyJ3sLZBKsN594vThSG</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C86F82BC-18DD-4F1E-ACA0-5D6383265198}"
+      DTS:ObjectName="ProjetoEGbPortalSSASNew_ConnectionString"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=SGISQL01;User ID=remazaweb\administrator;Initial Catalog=Projeto eGbPortal SSAS New;Provider=MSOLAP.8;Persist Security Info=True;Impersonation Level=Impersonate;</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\carga_eGb_SSAS_New Analysis Services Processing Task"
+      DTS:CreationName="Microsoft.DTSProcessingTask"
+      DTS:Description="Analysis Services Processing Task"
+      DTS:DTSID="{EEBD43EC-3E33-4BCC-AB37-71C383DBD715}"
+      DTS:ExecutableType="Microsoft.DTSProcessingTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="carga_eGb_SSAS_New Analysis Services Processing Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ASProcessingData
+          ConnectionName="Projeto eGbPortal SSAS New"
+          ProcessingCommands="{&#xA;  &quot;sequence&quot;: {&#xA;    &quot;operations&quot;: [&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Medidas&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Calendario&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Produtos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Limites&quot;,&#xA;              &quot;partition&quot;: &quot;Limites&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;PedidosStatus&quot;,&#xA;              &quot;partition&quot;: &quot;PedidosStatus&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Clientes&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Grupos&quot;,&#xA;              &quot;partition&quot;: &quot;Grupos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Usuarios&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Categorias&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Pedidos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Deptos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Deptos&quot;,&#xA;              &quot;partition&quot;: &quot;Deptos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Calendario&quot;,&#xA;              &quot;partition&quot;: &quot;Calendario&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Medidas&quot;,&#xA;              &quot;partition&quot;: &quot;CalculatedTable 1&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Produtos&quot;,&#xA;              &quot;partition&quot;: &quot;Produtos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Pedidos&quot;,&#xA;              &quot;partition&quot;: &quot;Pedidos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Clientes&quot;,&#xA;              &quot;partition&quot;: &quot;Clientes&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Grupos&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Limites&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;PedidosStatus&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Usuarios&quot;,&#xA;              &quot;partition&quot;: &quot;Usuarios&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      },&#xA;      {&#xA;        &quot;refresh&quot;: {&#xA;          &quot;type&quot;: &quot;full&quot;,&#xA;          &quot;objects&quot;: [&#xA;            {&#xA;              &quot;database&quot;: &quot;Projeto eGbPortal SSAS New&quot;,&#xA;              &quot;table&quot;: &quot;Categorias&quot;,&#xA;              &quot;partition&quot;: &quot;Categorias&quot;&#xA;            }&#xA;          ]&#xA;        }&#xA;      }&#xA;    ]&#xA;  }&#xA;}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="347,42"
+          Id="Package\carga_eGb_SSAS_New Analysis Services Processing Task"
+          TopLeft="128.5,101.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[Projeto eGbPortal SSAS New]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[SGISQL01]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

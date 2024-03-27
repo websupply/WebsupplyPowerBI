@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="WEBSQLPROD02_SGISQL02,1433.RemazaAdesao"
+  DTS:DTSID="{b713392e-6b85-45bf-aa3f-c181e65606a8}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::CON_REMAZA_ADESAO_PROD02_SGISQL02]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::PW_PROD02_SGISQL02]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=WEBSQLPROD02\SGISQL02,1433;User ID=websupply3;Initial Catalog=RemazaAdesao;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0aT5zu55tUuRAwROd51G6AAAAAACAAAAAAADZgAAwAAAABAAAACvwB37Y9LGb17W1cmhtkn1AAAAAASAAACgAAAAEAAAAK0sZ66WzfZyeQQ+qPDMa3R4AAAAf4F2Ne7w6p7GWgi5AkyzHB2ZzvMfFbr/POc1X4uCL0DO7gEpNFdkeiaa4rhNQCtp+G8L4sETZqx4AnqfbEgDCNyAh/I/vxYUgmwzZUvFYsMYzHHz/nOUwzk8pKYuQyn2XKWDjGBMAr2wBlUWcJRGLl2sYtSGTFQCFAAAAAUiO+In+++WRyq8CL7SWZ/IQw1H</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

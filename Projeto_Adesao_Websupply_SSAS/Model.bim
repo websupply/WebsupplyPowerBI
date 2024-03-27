@@ -1,0 +1,5028 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "Conexao_Adesao_DW_SSAS",
+        "connectionString": "Provider=SQLNCLI11;Data Source=WEBSQLHOM01\\SGISQL01;Initial Catalog=Adesao_DW;User ID=websupply3;Persist Security Info=true",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "BEM",
+        "columns": [
+          {
+            "name": "SK_BEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_BEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_BEM",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "COD_BEM",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRICAO_BEM",
+            "dataType": "string",
+            "sourceColumn": "DESCRICAO_BEM",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_BEM",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_BEM].* FROM [dbo].[DIM_BEM] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>68</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>85</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DESCRICAO_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>171</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DESCRICAO_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_BEM].* FROM [dbo].[DIM_BEM] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_BEM"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>68</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>85</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DESCRICAO_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>171</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DESCRICAO_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked />",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "CLIENTES",
+        "columns": [
+          {
+            "name": "SK_CLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_CLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NR_ADESAO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "NR_ADESAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SEXO",
+            "dataType": "string",
+            "sourceColumn": "SEXO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ESTCIVIL",
+            "dataType": "string",
+            "sourceColumn": "ESTCIVIL",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "FAIXARENDA",
+            "dataType": "string",
+            "sourceColumn": "FAIXARENDA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CLASSIF_FAIXAETARIA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CLASSIF_FAIXAETARIA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FAIXAETARIA",
+            "dataType": "string",
+            "sourceColumn": "FAIXAETARIA",
+            "sortByColumn": "CLASSIF_FAIXAETARIA",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "PROFISSAO",
+            "dataType": "string",
+            "sourceColumn": "PROFISSAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CEP",
+            "dataType": "string",
+            "sourceColumn": "CEP",
+            "sourceProviderType": "Char",
+            "dataCategory": "PostalCode"
+          },
+          {
+            "name": "CIDADE",
+            "dataType": "string",
+            "sourceColumn": "CIDADE",
+            "sourceProviderType": "Char",
+            "dataCategory": "City"
+          },
+          {
+            "name": "UF",
+            "dataType": "string",
+            "sourceColumn": "UF",
+            "sourceProviderType": "Char",
+            "dataCategory": "StateOrProvince"
+          },
+          {
+            "name": "LOCALIZACAO",
+            "dataType": "string",
+            "sourceColumn": "LOCALIZACAO",
+            "sourceProviderType": "Char",
+            "dataCategory": "Place"
+          },
+          {
+            "name": "REGIAO",
+            "dataType": "string",
+            "sourceColumn": "REGIAO"
+          },
+          {
+            "name": "CLASSIF_FAIXARENDA",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CLASSIF_FAIXARENDA"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_CLIENTES",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_CLIENTE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>NR_ADESAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>91</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SEXO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>56</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ESTCIVIL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>74</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FAIXARENDA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>94</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_FAIXARENDA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>141</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_FAIXAETARIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>144</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FAIXAETARIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>97</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>PROFISSAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CEP</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>49</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CIDADE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>68</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UF</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>43</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>LOCALIZACAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>101</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>REGIAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>69</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_CLIENTE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>NR_ADESAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SEXO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ESTCIVIL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FAIXARENDA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_FAIXARENDA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_FAIXAETARIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FAIXAETARIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>PROFISSAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CEP</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CIDADE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UF</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>LOCALIZACAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>REGIAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>REGIAO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_FAIXARENDA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_CLIENTES].* FROM [dbo].[DIM_CLIENTES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_CLIENTES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_CLIENTE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>NR_ADESAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>91</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SEXO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>56</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ESTCIVIL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>74</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FAIXARENDA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>94</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_FAIXARENDA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>141</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_FAIXAETARIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>144</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FAIXAETARIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>97</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>PROFISSAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CEP</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>49</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CIDADE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>68</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>UF</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>43</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>LOCALIZACAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>101</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>REGIAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>69</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_CLIENTE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>NR_ADESAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SEXO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ESTCIVIL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FAIXARENDA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_FAIXARENDA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_FAIXAETARIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FAIXAETARIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>PROFISSAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CEP</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CIDADE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>UF</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>LOCALIZACAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>REGIAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>REGIAO</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_FAIXARENDA</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FILIAL",
+        "columns": [
+          {
+            "name": "SK_FILIAL",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_FILIAL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "FILIAL",
+            "dataType": "string",
+            "sourceColumn": "FILIAL",
+            "sortByColumn": "ORDEM",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ORDEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ORDEM"
+          },
+          {
+            "name": "COD_FILIAL",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "COD_FILIAL"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_FILIAL",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_FILIAIS].* FROM [dbo].[DIM_FILIAIS] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>79</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>61</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ORDEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>66</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ORDEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_FILIAL</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ORDEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_FILIAIS].* FROM [dbo].[DIM_FILIAIS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_FILIAIS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>79</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>61</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ORDEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>66</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ORDEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_FILIAL</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ORDEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "FORMAS PAGTO",
+        "columns": [
+          {
+            "name": "SK_FORMAS_PAGTO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_FORMAS_PAGTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDFORMAPAGTO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IDFORMAPAGTO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DESCFORMAPAGTO",
+            "dataType": "string",
+            "sourceColumn": "DESCFORMAPAGTO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_FORMAS_PAGTO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_FORMAS_PAGTO].* FROM [dbo].[DIM_FORMAS_PAGTO] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_FORMAS_PAGTO].* FROM [dbo].[DIM_FORMAS_PAGTO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_FORMAS_PAGTO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PLANOS",
+        "columns": [
+          {
+            "name": "SK_PLANO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_PLANO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDPLANO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IDPLANO",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "PLANO",
+            "dataType": "string",
+            "sourceColumn": "PLANO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PLANOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PLANOS].* FROM [dbo].[DIM_PLANOS] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PLANOS].* FROM [dbo].[DIM_PLANOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PLANOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "STATUS ADESAO",
+        "columns": [
+          {
+            "name": "SK_STATUS_ADESAO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_STATUS_ADESAO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "STATUS ADESAO",
+            "dataType": "string",
+            "sourceColumn": "DESC_STATUS_ADESAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ID_STATUS_ADESAO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ID_STATUS_ADESAO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_STATUS_ADESAO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_STATUS_ADESAO].* FROM [dbo].[DIM_STATUS_ADESAO] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_STATUS_ADESAO].* FROM [dbo].[DIM_STATUS_ADESAO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_STATUS_ADESAO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "STATUS PEDIDO",
+        "columns": [
+          {
+            "name": "ETAPA",
+            "dataType": "string",
+            "sourceColumn": "ETAPA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ID_STATUS_PEDIDO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "ID_STATUS_PEDIDO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SK_STATUS_PEDIDO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_STATUS_PEDIDO"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_STATUS_PEDIDO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_STATUS_PEDIDO].* FROM [dbo].[DIM_STATUS_PEDIDO] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_STATUS_PEDIDO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>130</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ETAPA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>154</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ID_STATUS_PEDIDO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>183</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_STATUS_PEDIDO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ETAPA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ID_STATUS_PEDIDO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_STATUS_PEDIDO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_STATUS_PEDIDO].* FROM [dbo].[DIM_STATUS_PEDIDO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_STATUS_PEDIDO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_STATUS_PEDIDO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>130</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ETAPA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>154</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ID_STATUS_PEDIDO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>183</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_STATUS_PEDIDO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ETAPA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ID_STATUS_PEDIDO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_STATUS_PEDIDO</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "CALENDARIO",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "SKData",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SKData",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DataId",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Data",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Ano",
+            "dataType": "int64",
+            "sourceColumn": "Ano",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SemestreNum",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SemestreNum",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Semestre",
+            "dataType": "string",
+            "sourceColumn": "Semestre",
+            "sortByColumn": "SemestreNum",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TrimestreNum",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TrimestreNum",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Trimestre",
+            "dataType": "string",
+            "sourceColumn": "Trimestre",
+            "sortByColumn": "TrimestreNum",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "MesNum",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "MesNum",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mês",
+            "dataType": "string",
+            "sourceColumn": "Mes",
+            "sortByColumn": "MesNum",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Dia",
+            "dataType": "int64",
+            "sourceColumn": "Dia",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DiaSemanaNum",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DiaSemanaNum",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DiaSemana",
+            "dataType": "string",
+            "sourceColumn": "DiaSemana",
+            "sortByColumn": "DiaSemanaNum",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SemanaAnoNum",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SemanaAnoNum",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SemanaAno",
+            "dataType": "string",
+            "sourceColumn": "SemanaAno",
+            "sortByColumn": "SemanaAnoNum",
+            "sourceProviderType": "Char"
+          },
+          {
+            "type": "calculated",
+            "name": "MesAno",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "FORMAT([DataId],\"MMM-YYYY\")",
+            "sortByColumn": "ClassifMesAno"
+          },
+          {
+            "type": "calculated",
+            "name": "MesCurto",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "FORMAT([DataId],\"mmm\")",
+            "sortByColumn": "MesNum"
+          },
+          {
+            "type": "calculated",
+            "name": "Mês/Ano",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "CONCATENATE(CONCATENATE(CALENDARIO[MesNum],\"/\"),CALENDARIO[Ano])",
+            "sortByColumn": "ClassifMesAno"
+          },
+          {
+            "type": "calculated",
+            "name": "ClassifMesAno",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": "CALENDARIO[Ano]*100+CALENDARIO[MesNum]",
+            "formatString": "0"
+          },
+          {
+            "name": "AnoAtual",
+            "dataType": "string",
+            "sourceColumn": "AnoAtual",
+            "sortByColumn": "Ano"
+          },
+          {
+            "type": "calculated",
+            "name": "Possui_Vendas?",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "expression": " CALENDARIO[SKData] <= MAX(ADESOES[SK_DATA_PROD])",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "Data Acum",
+            "dataType": "boolean",
+            "isDataTypeInferred": true,
+            "expression": " CALENDARIO[SKData] <= MAX(ADESOES[SK_DATA_PROD])",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\""
+          },
+          {
+            "type": "calculated",
+            "name": "MesProdNum",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "",
+              "IF(",
+              "CALENDARIO[DataId] <= RELATED(PERIODOS_PROD[DT_FIM_PROD]),",
+              "MONTH(RELATED(PERIODOS_PROD[DT_FIM_PROD])),",
+              "IF(MONTH(RELATED(PERIODOS_PROD[DT_FIM_PROD])) = 12, 1,",
+              "MONTH(RELATED(PERIODOS_PROD[DT_FIM_PROD]))+1",
+              "))"
+            ],
+            "formatString": "0",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "AnoProd",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": [
+              "IF(",
+              "CALENDARIO[DataId] > RELATED(PERIODOS_PROD[DT_FIM_PROD]) && ",
+              "MONTH(CALENDARIO[DataId]) = 12,",
+              "YEAR(CALENDARIO[DataId]) + 1,",
+              "YEAR(RELATED(PERIODOS_PROD[DT_FIM_PROD]))",
+              ")"
+            ],
+            "formatString": "0",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "MesProd",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": [
+              "SWITCH(TRUE(),",
+              "CALENDARIO[MesProdNum] = 1,\"Jan\",",
+              "CALENDARIO[MesProdNum] = 2,\"Fev\",",
+              "CALENDARIO[MesProdNum] = 3,\"Mar\",",
+              "CALENDARIO[MesProdNum] = 4,\"Abr\",",
+              "CALENDARIO[MesProdNum] = 5,\"Mai\",",
+              "CALENDARIO[MesProdNum] = 6,\"Jun\",",
+              "CALENDARIO[MesProdNum] = 7,\"Jul\",",
+              "CALENDARIO[MesProdNum] = 8,\"Ago\",",
+              "CALENDARIO[MesProdNum] = 9,\"Set\",",
+              "CALENDARIO[MesProdNum] = 10,\"Out\",",
+              "CALENDARIO[MesProdNum] = 11,\"Nov\",",
+              "CALENDARIO[MesProdNum] = 12,\"Dez\"",
+              ")"
+            ],
+            "sortByColumn": "MesProdNum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_TEMPO",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_TEMPO].* FROM [dbo].[DIM_TEMPO] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SKData</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>65</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Data</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>53</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Ano</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>49</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SemestreNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>75</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TrimestreNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Trimestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>75</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MesNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>70</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mes</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>49</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Dia</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>45</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DiaSemanaNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>104</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DiaSemana</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>83</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SemanaAnoNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>108</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SemanaAno</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>87</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>AnoAtual</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>74</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SKData</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Data</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Ano</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SemestreNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Semestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TrimestreNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Trimestre</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MesNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Mes</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Dia</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DiaSemanaNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DiaSemana</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SemanaAnoNum</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SemanaAno</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>AnoAtual</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>AnoAtual</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarquia Datas",
+            "levels": [
+              {
+                "name": "Ano",
+                "ordinal": 0,
+                "column": "Ano"
+              },
+              {
+                "name": "Mês",
+                "ordinal": 1,
+                "column": "Mês"
+              },
+              {
+                "name": "Dia",
+                "ordinal": 2,
+                "column": "Dia"
+              }
+            ]
+          },
+          {
+            "name": "AnoMesProd",
+            "levels": [
+              {
+                "name": "AnoProd",
+                "ordinal": 0,
+                "column": "AnoProd"
+              },
+              {
+                "name": "MesProd",
+                "ordinal": 1,
+                "column": "MesProd"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_TEMPO].* FROM [dbo].[DIM_TEMPO] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_TEMPO"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SKData</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>65</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Data</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>53</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Ano</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>49</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SemestreNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>75</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TrimestreNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Trimestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>75</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MesNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>70</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mes</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>49</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Dia</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>45</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DiaSemanaNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>104</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DiaSemana</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>83</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SemanaAnoNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>108</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SemanaAno</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>87</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>AnoAtual</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>74</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SKData</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Data</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Ano</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SemestreNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Semestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TrimestreNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Trimestre</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MesNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Mes</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Dia</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DiaSemanaNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DiaSemana</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SemanaAnoNum</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>SemanaAno</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>AnoAtual</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>14</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>AnoAtual</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TIPO DE BEM",
+        "columns": [
+          {
+            "name": "SK_TIPO_BEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_TIPO_BEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_ESPECIE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "COD_ESPECIE",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DESCRIÇÃO",
+            "dataType": "string",
+            "sourceColumn": "DESCRIÇÃO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CATEGORIA",
+            "dataType": "string",
+            "sourceColumn": "CATEGORIA"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_TIPO_BEM",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_TIPO_BEM].* FROM [dbo].[DIM_TIPO_BEM] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_TIPO_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>98</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_ESPECIE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>99</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DESCRIÇÃO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CATEGORIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_TIPO_BEM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_ESPECIE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DESCRIÇÃO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CATEGORIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CATEGORIA</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_TIPO_BEM].* FROM [dbo].[DIM_TIPO_BEM] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_TIPO_BEM"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_TIPO_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>98</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_ESPECIE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>99</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DESCRIÇÃO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CATEGORIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_TIPO_BEM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_ESPECIE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DESCRIÇÃO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CATEGORIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>CATEGORIA</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "VENDEDORES",
+        "columns": [
+          {
+            "name": "SK_VENDEDOR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_VENDEDOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDVENDEDOR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IDVENDEDOR",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "VENDEDOR",
+            "dataType": "string",
+            "sourceColumn": "VENDEDOR",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_VENDEDORES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_VENDEDORES].* FROM [dbo].[DIM_VENDEDORES] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_VENDEDORES].* FROM [dbo].[DIM_VENDEDORES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_VENDEDORES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "ASSINATURAS",
+        "columns": [
+          {
+            "name": "CONTRADO_UUID",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "CONTRADO_UUID",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "COD_ESPECIE",
+            "dataType": "string",
+            "sourceColumn": "COD_ESPECIE",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DURACAO_PROCESS",
+            "dataType": "int64",
+            "sourceColumn": "DURACAO_PROCESS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DATA_BASE",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DATA_BASE",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FT_ASSINATURAS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FT_ASSINATURAS].* FROM [dbo].[FT_ASSINATURAS] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CONTRADO_UUID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>118</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_ESPECIE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>99</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DURACAO_PROCESS</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>132</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DATA_BASE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CONTRADO_UUID</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_ESPECIE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DURACAO_PROCESS</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DATA_BASE</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FT_ASSINATURAS].* FROM [dbo].[FT_ASSINATURAS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FT_ASSINATURAS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>CONTRADO_UUID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>118</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_ESPECIE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>99</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DURACAO_PROCESS</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>132</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DATA_BASE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>CONTRADO_UUID</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_ESPECIE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DURACAO_PROCESS</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DATA_BASE</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked />",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PAGTOS",
+        "columns": [
+          {
+            "name": "SK_DATA_PAGTO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_DATA_PAGTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_FORMAS_PAGTO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_FORMAS_PAGTO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_FILIAL",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_FILIAL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_BEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_BEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_PLANO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_PLANO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_TIPO_BEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_TIPO_BEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_STATUS_ADESAO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_STATUS_ADESAO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_STATUS_PEDIDOS",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_STATUS_PEDIDOS",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_VENDEDOR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_VENDEDOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VALOR",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "VALOR",
+            "sourceProviderType": "Double"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FT_PAGTOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FT_PAGTOS].* FROM [dbo].[FT_PAGTOS] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FT_PAGTOS].* FROM [dbo].[FT_PAGTOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FT_PAGTOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "METRICAS",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "Metricas",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "sourceColumn": "[Metricas]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "",
+                "DATATABLE(",
+                "\"Metricas\", STRING,{",
+                "\t\t{\"a\"}",
+                "\t}",
+                ")"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "% Andamento",
+            "expression": " DIVIDE([Em Andamento], [Adesões Por Data de Produção])",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "% Cancelamento",
+            "expression": " DIVIDE([Canceladas],[Adesões Por Data de Produção])",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "Em Andamento",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "Canceladas",
+            "expression": [
+              " ",
+              "CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "% Conclusão",
+            "expression": " DIVIDE([Concluídas], [Adesões Por Data de Produção])",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "% Não Concluídas",
+            "expression": " DIVIDE([Não Concluídas],[Adesões Por Data de Produção])",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "$ Adesões Acum",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    TOTALYTD([$ Adesões Tempo], CALENDARIO[DataId]),",
+              "    CALENDARIO[Data Acum] = TRUE()",
+              ")"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Adesões Acum MPAA",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    [$ Adesões Acum],",
+              "    SAMEPERIODLASTYEAR(CALENDARIO[DataId])",
+              ")"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Adesões MPAA",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    [$ Adesões Tempo],",
+              "    CALCULATETABLE(",
+              "        SAMEPERIODLASTYEAR(CALENDARIO[DataId]),",
+              "        CALENDARIO[Data Acum] = TRUE()",
+              "    )        ",
+              ")"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Adesões Tempo",
+            "expression": " SUM ( ADESOES[Valor] )",
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Canceladas",
+            "expression": [
+              " CALCULATE (",
+              "    [$ Adesões],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Concluídas",
+            "expression": [
+              " CALCULATE (",
+              "    [$ Adesões],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Em Andamento",
+            "expression": [
+              " CALCULATE (",
+              "    [$ Adesões],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Adesões",
+            "expression": "  SUM ( ADESOES[Valor] )",
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "$ Não Concluídas",
+            "expression": [
+              " CALCULATE (",
+              "    [$ Adesões],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Adesões Acum",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    TOTALYTD([Adesões Por Data de Produção], CALENDARIO[DataId]),",
+              "    CALENDARIO[Data Acum] = TRUE()",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "Adesões Acum MPAA",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    [Adesões Acum],",
+              "    SAMEPERIODLASTYEAR(CALENDARIO[DataId])",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "Adesões Por Data de Produção",
+            "expression": " COUNTROWS ( ADESOES )",
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "Canceladas Master A",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\",",
+              "    PLANOS[IdPlano] = \"A\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões canceladas"
+          },
+          {
+            "name": "Canceladas Master B",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\",",
+              "    PLANOS[IdPlano] = \"B\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões canceladas"
+          },
+          {
+            "name": "Canceladas Master C",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\",",
+              "    PLANOS[IdPlano] = \"C\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões canceladas"
+          },
+          {
+            "name": "Canceladas Padrão",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\",",
+              "    PLANOS[IdPlano] = \"P\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões canceladas"
+          },
+          {
+            "name": "Clientes",
+            "expression": " COUNTROWS ( CLIENTES )",
+            "formatString": "#,0",
+            "displayFolder": "Clientes"
+          },
+          {
+            "name": "Concluídas",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "Concluídas Coalesce",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "Concluídas Master A",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\",",
+              "    PLANOS[IDPLANO] = \"A\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "Concluídas Master B",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\",",
+              "    PLANOS[IDPLANO] = \"B\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "Concluídas Master C",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\",",
+              "    PLANOS[IdPlano] = \"C\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "Concluídas Padrão",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\",",
+              "    PLANOS[IdPlano] = \"P\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "Contratos Assinados",
+            "expression": [
+              " ",
+              "var cont_assin = COUNTROWS ( ASSINATURAS )",
+              "return",
+              "IF(cont_assin, cont_assin, 0)"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Assinaturas"
+          },
+          {
+            "name": "Em Andamento Card",
+            "expression": [
+              " ",
+              "var em_andamento = ",
+              "CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\"",
+              ")",
+              "return",
+              "IF(em_andamento, em_andamento, 0)",
+              "",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões em andamento"
+          },
+          {
+            "name": "Em Andamento Master A",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\",",
+              "    PLANOS[IdPlano] = \"A\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões em andamento"
+          },
+          {
+            "name": "Em Andamento Master B",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\",",
+              "    PLANOS[IdPlano] = \"B\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões em andamento"
+          },
+          {
+            "name": "Em Andamento Master C",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\",",
+              "    PLANOS[IdPlano] = \"C\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões em andamento"
+          },
+          {
+            "name": "Em Andamento Padrão",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Card],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\",",
+              "    PLANOS[IdPlano] = \"P\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões em andamento"
+          },
+          {
+            "name": "Maior Tempo Proc",
+            "expression": [
+              " ",
+              "",
+              "var maior_tempo = MAX ( ASSINATURAS[Duracao_Process] )",
+              "return",
+              "IF(maior_tempo, maior_tempo, 0)"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Tempo processamento"
+          },
+          {
+            "name": "Menor Tempo Proc",
+            "expression": [
+              " ",
+              "var menor_tempo = MIN ( ASSINATURAS[Duracao_Process] )",
+              "return",
+              "IF(menor_tempo, menor_tempo, 0)"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Tempo processamento"
+          },
+          {
+            "name": "Não Concluídas",
+            "expression": [
+              " ",
+              "CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\"",
+              ")",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões não concluídas"
+          },
+          {
+            "name": "Não Concluídas Card",
+            "expression": [
+              " ",
+              "var nao_conc = ",
+              "CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\"",
+              ")",
+              "return",
+              "IF(nao_conc, nao_conc, 0)",
+              "",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões não concluídas"
+          },
+          {
+            "name": "Não Concluídas Master A",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\",",
+              "    PLANOS[IdPlano] = \"A\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões não concluídas"
+          },
+          {
+            "name": "Não Concluídas Master B",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\",",
+              "    PLANOS[IdPlano] = \"B\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões não concluídas"
+          },
+          {
+            "name": "Não Concluídas Master C",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\",",
+              "    PLANOS[IdPlano] = \"C\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões não concluídas"
+          },
+          {
+            "name": "Não Concluídas Padrão",
+            "expression": [
+              " CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Não concluída\",",
+              "    PLANOS[IdPlano] = \"P\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões não concluídas"
+          },
+          {
+            "name": "Pagamentos",
+            "expression": " SUM(PAGTOS[Valor])",
+            "formatString": "\"R$\"#,0.00;-\"R$\"#,0.00;\"R$\"#,0.00",
+            "displayFolder": "Pagamentos",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Tempo Medio Proc",
+            "expression": " AVERAGE ( ASSINATURAS[Duracao_Process] )",
+            "formatString": "#,0",
+            "displayFolder": "Tempo processamento"
+          },
+          {
+            "name": "Var % $ Adesões Acum",
+            "expression": " DIVIDE([$ Adesões Acum],[$ Adesões Acum MPAA]) -1",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Variações Percentuais"
+          },
+          {
+            "name": "Var % $ Adesões MPAA",
+            "expression": " DIVIDE([$ Adesões], [$ Adesões MPAA]) -1",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Variações Percentuais"
+          },
+          {
+            "name": "Var % Adesões Acum",
+            "expression": " DIVIDE([Adesões Acum],[Adesões Acum MPAA]) -1",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Variações Percentuais"
+          },
+          {
+            "name": "Var % Adesões MPAA",
+            "expression": " DIVIDE([Adesões Por Data de Produção], [Adesões MPAA]) -1",
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Variações Percentuais"
+          },
+          {
+            "name": "Adesões MPAA",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "    [Adesões Por Data de Produção],",
+              "    CALCULATETABLE(",
+              "        SAMEPERIODLASTYEAR(CALENDARIO[DataId]),",
+              "        CALENDARIO[Data Acum] = TRUE()",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "$ Adesões Card",
+            "expression": [
+              " ",
+              "var adesoes_valor = SUM ( ADESOES[Valor] )",
+              "return",
+              "IF(adesoes_valor, adesoes_valor, 0)",
+              ""
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Adesões Card",
+            "expression": [
+              " ",
+              "",
+              "var qtd_adesoes = COUNTROWS ( ADESOES)",
+              "return",
+              "IF(qtd_adesoes, qtd_adesoes, 0)"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "% Andamento Card",
+            "expression": [
+              " ",
+              "var perc_and = DIVIDE([Em Andamento], [Adesões Por Data de Produção])",
+              "return",
+              "IF(perc_and, perc_and, 0)"
+            ],
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "% Cancelamento Card",
+            "expression": [
+              " ",
+              "var perc_canc = DIVIDE([Canceladas],[Adesões Por Data de Produção])",
+              "return",
+              "IF(perc_canc, perc_canc, 0)"
+            ],
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "% Conclusão Card",
+            "expression": [
+              " ",
+              "var perc_conc = DIVIDE([Concluídas], [Adesões Por Data de Produção])",
+              "return",
+              "IF(perc_conc, perc_conc, 0)"
+            ],
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "% Não Concluídas Card",
+            "expression": [
+              " ",
+              "var perc_nao_conc = DIVIDE([Não Concluídas],[Adesões Por Data de Produção])",
+              "return",
+              "IF(perc_nao_conc, perc_nao_conc, 0)"
+            ],
+            "formatString": "#,0.00 %;-#,0.00 %;#,0.00 %",
+            "displayFolder": "Percentuais"
+          },
+          {
+            "name": "$ Em Andamento Card",
+            "expression": [
+              " ",
+              "var valor_em_andamento = ",
+              "CALCULATE (",
+              "    [$ Adesões],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Em andamento\"",
+              ")",
+              "",
+              "return",
+              "IF(valor_em_andamento, valor_em_andamento, 0)",
+              "",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões em andamento",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Canceladas Card",
+            "expression": [
+              " ",
+              "var canc = ",
+              "CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Cancelada\"",
+              ")",
+              "return",
+              "IF(canc, canc, 0)",
+              "",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões canceladas"
+          },
+          {
+            "name": "Concluídas Card",
+            "expression": [
+              " ",
+              "var concluidas = ",
+              "CALCULATE (",
+              "    [Adesões Por Data de Produção],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\"",
+              ")",
+              "return",
+              "IF(concluidas, concluidas, 0)",
+              "",
+              "// Não concluída",
+              "// Em andamento",
+              "// Cancelada",
+              "// Em andamento",
+              "// Concluída"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões concluídas"
+          },
+          {
+            "name": "$ Concluídas Card",
+            "expression": [
+              " ",
+              "var concluidas_card = ",
+              "CALCULATE (",
+              "    [$ Adesões],",
+              "    'STATUS ADESAO'[STATUS ADESAO] = \"Concluída\"",
+              ")",
+              "return",
+              "IF(concluidas_card,concluidas_card,0)",
+              ""
+            ],
+            "formatString": "\"R$\"#,0;-\"R$\"#,0;\"R$\"#,0",
+            "displayFolder": "Adesões concluídas",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Adesões Ativas Card",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "[Adesões Card],",
+              "ADESOES[ATIVA] = \"ATIVA\"",
+              ")",
+              ""
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "Adesões Ativas",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "[Adesões Por Data de Produção],",
+              "ADESOES[ATIVA] = \"ATIVA\"",
+              ")",
+              ""
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "Ticket Médio Card",
+            "expression": " DIVIDE([$ Adesões Card],[Adesões Card])",
+            "formatString": "\"R$\"#,0.00;-\"R$\"#,0.00;\"R$\"#,0.00",
+            "displayFolder": "Ticket Médio",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Adesões Card (Data Quitação)",
+            "expression": [
+              " ",
+              "",
+              "var qtd_adesoes = ",
+              "CALCULATE(",
+              "COUNTROWS ( ADESOES),",
+              "USERELATIONSHIP(ADESOES[SK_DATA_QUIT],CALENDARIO[SKData])",
+              ")",
+              "return",
+              "IF(qtd_adesoes, qtd_adesoes, 0)"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          },
+          {
+            "name": "$ Adesões Card (Data Quitação)",
+            "expression": [
+              " ",
+              "var adesoes_valor = ",
+              "CALCULATE(SUM ( ADESOES[Valor]),",
+              "USERELATIONSHIP(ADESOES[SK_DATA_QUIT],CALENDARIO[SKData])",
+              ")",
+              "return",
+              "IF(adesoes_valor, adesoes_valor, 0)",
+              ""
+            ],
+            "formatString": "\"R$\"#,0.00;-\"R$\"#,0.00;\"R$\"#,0.00",
+            "displayFolder": "Adesões Valor",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Ticket Médio Card (Data Quitação)",
+            "expression": [
+              " ",
+              "DIVIDE([$ Adesões Card (Data Quitação)],[Adesões Card (Data Quitação)])"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Ticket Médio"
+          },
+          {
+            "name": "Ticket Médio",
+            "expression": " DIVIDE([$ Adesões],[Adesões Por Data de Produção])",
+            "formatString": "\"R$\"#,0.00;-\"R$\"#,0.00;\"R$\"#,0.00",
+            "displayFolder": "Ticket Médio",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1046\" DisplayName=\"R$ Portuguese (Brazil)\" Symbol=\"R$\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Adesões Por Data de Quitação",
+            "expression": [
+              " ",
+              "CALCULATE(",
+              "COUNTROWS ( ADESOES ),",
+              "USERELATIONSHIP(ADESOES[SK_DATA_QUIT],CALENDARIO[SKData])",
+              ")"
+            ],
+            "formatString": "#,0",
+            "displayFolder": "Adesões Qtde."
+          }
+        ]
+      },
+      {
+        "name": "PRAZOS",
+        "columns": [
+          {
+            "name": "SK_PRAZO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_PRAZO",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COD_PRAZO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "COD_PRAZO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "FAIXA_PRAZO",
+            "dataType": "string",
+            "sourceColumn": "FAIXA_PRAZO",
+            "sortByColumn": "CLASSIF_PRAZO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CLASSIF_PRAZO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CLASSIF_PRAZO"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PRAZOS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_PRAZOS].* FROM [dbo].[DIM_PRAZOS] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>82</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>92</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FAIXA_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>100</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>111</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>SK_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>COD_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>FAIXA_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CLASSIF_PRAZO</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_PRAZOS].* FROM [dbo].[DIM_PRAZOS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_PRAZOS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>82</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>92</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FAIXA_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>100</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>111</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>SK_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>COD_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>FAIXA_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>CLASSIF_PRAZO</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ADESOES",
+        "columns": [
+          {
+            "name": "SK_DATA_PROD",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_DATA_PROD",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_DATA_QUIT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_DATA_QUIT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_DATA_CONT",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_DATA_CONT",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_FILIAL",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_FILIAL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_CLIENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_CLIENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_TIPO_BEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_TIPO_BEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_VENDEDOR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_VENDEDOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_STATUS_ADESAO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_STATUS_ADESAO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_STATUS_PEDIDO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_STATUS_PEDIDO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_BEM",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_BEM",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_PLANO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_PLANO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_PRAZO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_PRAZO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_EQUIPE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_EQUIPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_GERENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_GERENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SK_SUPERVISOR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_SUPERVISOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VALOR",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "VALOR",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "PRAZO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "PRAZO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TIPO_CLIENTE",
+            "dataType": "string",
+            "sourceColumn": "TIPO_CLIENTE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ATIVA",
+            "dataType": "string",
+            "sourceColumn": "ATIVA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CONTEMPLACAO",
+            "dataType": "string",
+            "sourceColumn": "CONTEMPLACAO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CANALVENDA",
+            "dataType": "string",
+            "sourceColumn": "CANALVENDA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "GRUPO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "GRUPO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "COTA",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "COTA",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ADESOES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FT_ADESOES].* FROM [dbo].[FT_ADESOES] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FT_ADESOES].* FROM [dbo].[FT_ADESOES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FT_ADESOES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "EQUIPES",
+        "columns": [
+          {
+            "name": "SK_EQUIPE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_EQUIPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "COD_EQUIPE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "COD_EQUIPE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EQUIPE",
+            "dataType": "string",
+            "sourceColumn": "EQUIPE",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "EQUIPES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_EQUIPES].* FROM [dbo].[DIM_EQUIPES] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_EQUIPES].* FROM [dbo].[DIM_EQUIPES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_EQUIPES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "GERENTES",
+        "columns": [
+          {
+            "name": "SK_GERENTE",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_GERENTE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDGERENTE",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IDGERENTE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "GERENTE",
+            "dataType": "string",
+            "sourceColumn": "GERENTE",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "GERENTES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_GERENTES].* FROM [dbo].[DIM_GERENTES] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_GERENTES].* FROM [dbo].[DIM_GERENTES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_GERENTES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "SUPERVISORES",
+        "columns": [
+          {
+            "name": "SK_SUPERVISOR",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SK_SUPERVISOR",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDSUPERVISOR",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "IDSUPERVISOR",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "SUPERVISOR",
+            "dataType": "string",
+            "sourceColumn": "SUPERVISOR",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "SUPERVISORES",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DIM_SUPERVISORES].* FROM [dbo].[DIM_SUPERVISORES] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DIM_SUPERVISORES].* FROM [dbo].[DIM_SUPERVISORES] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DIM_SUPERVISORES"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PERIODOS_PROD",
+        "isHidden": true,
+        "columns": [
+          {
+            "name": "MESPROD",
+            "dataType": "string",
+            "sourceColumn": "MESPROD",
+            "sortByColumn": "MESPROD_NUM",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DT_INI_PROD",
+            "dataType": "dateTime",
+            "sourceColumn": "DT_INI_PROD",
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "DT_FIM_PROD",
+            "dataType": "dateTime",
+            "sourceColumn": "DT_FIM_PROD",
+            "formatString": "Short Date",
+            "sourceProviderType": "DBDate",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeShortDatePattern\" />"
+              }
+            ]
+          },
+          {
+            "name": "ANOPROD",
+            "dataType": "int64",
+            "sourceColumn": "ANOPROD",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MESPROD_NUM",
+            "dataType": "int64",
+            "sourceColumn": "MESPROD_NUM",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "KEY_ANOMES",
+            "dataType": "string",
+            "sourceColumn": "KEY_ANOMES"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PERIODOS_PROD",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[PERIODOS_PROD_DW].* FROM [dbo].[PERIODOS_PROD_DW] ",
+              "dataSource": "Conexao_Adesao_DW_SSAS"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MESPROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>78</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DT_INI_PROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>98</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DT_FIM_PROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>101</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ANOPROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>80</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MESPROD_NUM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>106</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>KEY_ANOMES</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MESPROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DT_INI_PROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DT_FIM_PROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ANOPROD</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>MESPROD_NUM</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>KEY_ANOMES</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>KEY_ANOMES</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[PERIODOS_PROD_DW].* FROM [dbo].[PERIODOS_PROD_DW] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "PERIODOS_PROD_DW"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>MESPROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>78</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DT_INI_PROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>98</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DT_FIM_PROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>101</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ANOPROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>80</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MESPROD_NUM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>106</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>KEY_ANOMES</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>MESPROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DT_INI_PROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DT_FIM_PROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ANOPROD</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>MESPROD_NUM</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>KEY_ANOMES</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>KEY_ANOMES</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "32f1383e-da66-48b2-a3b0-5be1f115442c",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_BEM",
+        "toTable": "BEM",
+        "toColumn": "SK_BEM"
+      },
+      {
+        "name": "fea232f4-36c5-4251-9327-e95bf0309836",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_FILIAL",
+        "toTable": "FILIAL",
+        "toColumn": "SK_FILIAL"
+      },
+      {
+        "name": "0b839c62-3f06-4446-ac72-a0c5ebe5791c",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_FORMAS_PAGTO",
+        "toTable": "FORMAS PAGTO",
+        "toColumn": "SK_FORMAS_PAGTO"
+      },
+      {
+        "name": "cebc4893-3a6e-45c0-b246-05bd13056efa",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_PLANO",
+        "toTable": "PLANOS",
+        "toColumn": "SK_PLANO"
+      },
+      {
+        "name": "a9849e23-1b0d-48f6-adab-00509bbf52d3",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_STATUS_ADESAO",
+        "toTable": "STATUS ADESAO",
+        "toColumn": "SK_STATUS_ADESAO"
+      },
+      {
+        "name": "2cd9a5ff-87e9-44a4-9755-eb8f688df819",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_DATA_PAGTO",
+        "toTable": "CALENDARIO",
+        "toColumn": "SKData"
+      },
+      {
+        "name": "beac7bea-4ee5-4bd4-882a-b4bba051397d",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_TIPO_BEM",
+        "toTable": "TIPO DE BEM",
+        "toColumn": "SK_TIPO_BEM"
+      },
+      {
+        "name": "234b384c-fa7c-4539-a53a-5af98f04ae8c",
+        "fromTable": "PAGTOS",
+        "fromColumn": "SK_VENDEDOR",
+        "toTable": "VENDEDORES",
+        "toColumn": "SK_VENDEDOR"
+      },
+      {
+        "name": "a948bb13-54e8-41b2-87ad-87468cae9bd7",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_FILIAL",
+        "toTable": "FILIAL",
+        "toColumn": "SK_FILIAL"
+      },
+      {
+        "name": "7385d116-d8f3-43d2-b5b8-725cc9be9b35",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_CLIENTE",
+        "toTable": "CLIENTES",
+        "toColumn": "SK_CLIENTE"
+      },
+      {
+        "name": "c685f5d7-ca8d-4497-a8d5-8de27d4f4cef",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_TIPO_BEM",
+        "toTable": "TIPO DE BEM",
+        "toColumn": "SK_TIPO_BEM"
+      },
+      {
+        "name": "ffcd1555-4e90-498d-a965-90e80c8023e9",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_VENDEDOR",
+        "toTable": "VENDEDORES",
+        "toColumn": "SK_VENDEDOR"
+      },
+      {
+        "name": "1b509ae1-48d1-4951-80b2-033dc4c54f3d",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_STATUS_ADESAO",
+        "toTable": "STATUS ADESAO",
+        "toColumn": "SK_STATUS_ADESAO"
+      },
+      {
+        "name": "93c5a4b3-406a-48cc-8dcb-ba3f92b938ce",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_STATUS_PEDIDO",
+        "toTable": "STATUS PEDIDO",
+        "toColumn": "ID_STATUS_PEDIDO"
+      },
+      {
+        "name": "dd38cff4-4492-4c38-be43-b60c4df06727",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_BEM",
+        "toTable": "BEM",
+        "toColumn": "SK_BEM"
+      },
+      {
+        "name": "5ed93909-cd14-493c-a90a-d4f86cff2191",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_PLANO",
+        "toTable": "PLANOS",
+        "toColumn": "SK_PLANO"
+      },
+      {
+        "name": "d80d7324-073a-45a2-9c39-e63f8c522d7c",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_PRAZO",
+        "toTable": "PRAZOS",
+        "toColumn": "SK_PRAZO"
+      },
+      {
+        "name": "030d3319-46af-4e7b-9dd0-f6d34e95fb18",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_EQUIPE",
+        "toTable": "EQUIPES",
+        "toColumn": "SK_EQUIPE"
+      },
+      {
+        "name": "7668324b-eee3-44e9-98a9-6eb883809e50",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_GERENTE",
+        "toTable": "GERENTES",
+        "toColumn": "SK_GERENTE"
+      },
+      {
+        "name": "606822a5-5361-44ec-8d51-c605db2627fb",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_SUPERVISOR",
+        "toTable": "SUPERVISORES",
+        "toColumn": "SK_SUPERVISOR"
+      },
+      {
+        "name": "5fa3b01b-b32d-4e2b-9fb6-8f07e932331a",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_DATA_PROD",
+        "toTable": "CALENDARIO",
+        "toColumn": "SKData"
+      },
+      {
+        "name": "f46cb2d5-d054-43c8-9c46-54d96be30c1f",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_DATA_QUIT",
+        "toTable": "CALENDARIO",
+        "toColumn": "SKData",
+        "isActive": false
+      },
+      {
+        "name": "df02c3a4-1a3a-4318-a41c-e6b209c7a760",
+        "fromTable": "ADESOES",
+        "fromColumn": "SK_DATA_CONT",
+        "toTable": "CALENDARIO",
+        "toColumn": "SKData",
+        "isActive": false
+      },
+      {
+        "name": "90f06675-c788-4ab3-9678-8f0930613a5b",
+        "fromTable": "CALENDARIO",
+        "fromColumn": "ClassifMesAno",
+        "toTable": "PERIODOS_PROD",
+        "toColumn": "KEY_ANOMES"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

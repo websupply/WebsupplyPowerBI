@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2020 9:36:52 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{5E14B66A-CDE9-42A0-B3ED-5D271AD02940}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="dim_categorias_new"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{C89D184B-2E87-45FF-A2BC-B1A3839B343A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CATEGORIA DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{54296E5E-E650-47D1-9380-E3E580228D09}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CATEGORIA DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C6DF311C-2A0C-4B4D-B208-9DB42B5D4FF6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT CATEGORIA DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVA CATEGORIAS DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_Categorias]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].Columns[Id_Produto]"
+                          cachedDataType="i4"
+                          cachedName="Id_Produto"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Produto]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Id_Produto]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].Columns[Categoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Categoria"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Categoria]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].Columns[Subcategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Subcategoria"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Subcategoria]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Produto]"
+                          dataType="i4"
+                          name="Id_Produto" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Categoria" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Subcategoria" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER CATEGORIAS STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Categorias]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+*
+from [egbportal_stage_new].[dbo].[st_gb_categorias] st</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Id_Produto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Produto]"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Id_Produto]"
+                          name="Id_Produto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          name="Categoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          name="Subcategoria"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Produto]"
+                          dataType="i4"
+                          name="Id_Produto" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Categoria" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Subcategoria" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Produto]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Produto]"
+                          name="Id_Produto" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          name="Categoria" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          name="Subcategoria" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CATEGORIA DW\LIMPA CATEGORIAS DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{209548AF-34A9-4523-9EC1-476C5B3E12B4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA CATEGORIAS DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{71BCF780-29E0-4304-A1EA-7FE1C3785788}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_CATEGORIAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CATEGORIA DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4F78F722-1B22-41BB-AFBA-CCE3475DB923}"
+          DTS:From="Package\CARGA CATEGORIA DW\LIMPA CATEGORIAS DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CATEGORIA STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{50A9BAF5-5104-46A6-BF8D-C7B9FFB4C649}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CATEGORIA STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1D3F1C78-C294-4521-862D-D3651853B0AA}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT CATEGORIAS STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVAR CATEGORIAS STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Categorias]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].Columns[Categoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Categoria"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[Categoria]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].Columns[Subcategoria]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Subcategoria"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[Subcategoria]" />
+                        <inputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].Columns[IdProduto]"
+                          cachedDataType="i4"
+                          cachedName="IdProduto"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Produto]"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[IdProduto]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Produto]"
+                          dataType="i4"
+                          name="Id_Produto" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Categoria" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Subcategoria" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER CATEGORIAS OLTP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Select
+
+a.IdProduto,
+coalesce(upper(d.Nome), 'NÃO INFORMADO') as Categoria,
+coalesce(upper(c.nome), 'NÃO INFORMADO') as Subcategoria 
+
+From Produtos a 
+inner join ProdutosCategorias b 
+on a.IdProduto = b.IdProduto 
+inner join Categorias c
+on b.IdCategoria = c.IdCategorias
+left join Categorias d
+on c.IdCategoria = d.IdCategorias
+where 
+
+b.Principal = 1 and 
+b.status=1 and 
+c.Status=1</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Connections[OleDbConnection]"
+                      connectionManagerID="{907EDACB-5D52-4703-8CF0-1B43EA34500B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[IdProduto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdProduto]"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[IdProduto]"
+                          name="IdProduto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[Categoria]"
+                          name="Categoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].Columns[Subcategoria]"
+                          name="Subcategoria"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdProduto]"
+                          dataType="i4"
+                          name="IdProduto" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Categoria" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Subcategoria" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[IdProduto]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[IdProduto]"
+                          name="IdProduto" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[Categoria]"
+                          name="Categoria" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[Subcategoria]"
+                          name="Subcategoria" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CATEGORIA STAGE\LIMPA CATEGORIAS STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{57823CCF-B762-4EA4-B0EB-D8928F813C8B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA CATEGORIAS STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{10779405-461C-43D3-8D02-4C534A8750E2}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_GB_CATEGORIAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CATEGORIA STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{644D528F-5E74-4AA2-B241-69ED7B59E221}"
+          DTS:From="Package\CARGA CATEGORIA STAGE\LIMPA CATEGORIAS STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{20141045-B855-41A7-A4C3-97F840A906CB}"
+      DTS:From="Package\CARGA CATEGORIA STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA CATEGORIA DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW"
+          TopLeft="45.5,132.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\CARGA CATEGORIA DW\LIMPA CATEGORIAS DW"
+          TopLeft="40,23" />
+        <EdgeLayout
+          Id="Package\CARGA CATEGORIA DW.PrecedenceConstraints[Constraint]"
+          TopLeft="136,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.5"
+              Start="0,0"
+              End="0,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="270,230"
+          Size="270,272"
+          Id="Package\CARGA CATEGORIA DW"
+          TopLeft="391.5,25.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE"
+          TopLeft="29.5,106.5" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\CARGA CATEGORIA STAGE\LIMPA CATEGORIAS STAGE"
+          TopLeft="22,11" />
+        <EdgeLayout
+          Id="Package\CARGA CATEGORIA STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="128,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.5"
+              Start="0,0"
+              End="0,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="262,204"
+          Size="262,247"
+          Id="Package\CARGA CATEGORIA STAGE"
+          TopLeft="39.5,32.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="301.5,158.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90,0"
+              Start="0,0"
+              End="82.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="82.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="198,42"
+          Id="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE"
+          TopLeft="266,68.4999999999999" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW"
+          TopLeft="313,199" />
+        <EdgeLayout
+          Id="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW.Paths[OLE DB Source Output]"
+          TopLeft="365,110.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47,88.5000000000001"
+              Start="0,0"
+              End="47,81.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.2500000000001"
+                    Point2="0,44.2500000000001"
+                    Point3="4,44.2500000000001" />
+                  <mssgle:LineSegment
+                    End="43,44.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,44.2500000000001"
+                    Point2="47,44.2500000000001"
+                    Point3="47,48.2500000000001" />
+                  <mssgle:LineSegment
+                    End="47,81.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\GRAVA CATEGORIAS DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CATEGORIA DW\DFT CATEGORIA DW\LER CATEGORIAS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP"
+          TopLeft="141.5,44.5" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE"
+          TopLeft="185.5,184.5" />
+        <EdgeLayout
+          Id="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE.Paths[OLE DB Source Output]"
+          TopLeft="237,86.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58,98"
+              Start="0,0"
+              End="58,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="4,49" />
+                  <mssgle:LineSegment
+                    End="54,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54,49"
+                    Point2="58,49"
+                    Point3="58,53" />
+                  <mssgle:LineSegment
+                    End="58,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\GRAVAR CATEGORIAS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CATEGORIA STAGE\DFT CATEGORIAS STAGE\LER CATEGORIAS OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

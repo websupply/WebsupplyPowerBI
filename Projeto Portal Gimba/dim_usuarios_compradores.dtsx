@@ -1,0 +1,1232 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2022 4:45:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{B954D725-350C-4F1E-8720-CF6A5EE2BB28}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="dim_usuarios_compradores"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{7DF4FAE7-2B5E-4A03-97D9-30107E8EF918}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA USUARIOS COMP DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4bbccccf-f99e-40f5-9531-c8f5f7a05577}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA USUARIOS COMP DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{9f7f37fc-3278-4a8e-89ce-03ffbad6637c}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT USUARIOS DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Dim_Usuarios_Comp"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Dim_Usuarios_Comp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].Columns[Nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="Nome"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Nome]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].Columns[Ativo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Ativo"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[Ativo]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Ativo]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[IdLogin]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdLogin]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].Columns[Email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Email"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Email]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdCliente]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].Columns[IdContrato]"
+                          cachedDataType="i4"
+                          cachedName="IdContrato"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[IdContrato]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdContrato]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Ativo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input].ExternalColumns[IdContrato]"
+                          dataType="i4"
+                          name="IdContrato" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER USUARIOS STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Usuarios_Comp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+*
+from [egbportal_stage_new].[dbo].[st_gb_usuarios] st
+where not exists 
+(select 
+id_cliente
+from [egbportal_dw_new].[dbo].[dim_usuarios] dw with (nolock)
+where dw.id_cliente = st.id_cliente
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Nome]"
+                          length="45"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Nome]"
+                          name="Nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Ativo]"
+                          length="1"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Ativo]"
+                          name="Ativo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          name="IdLogin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                          length="60"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[Email]"
+                          name="Email"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          name="IdCliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdContrato]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IdContrato]"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].Columns[IdContrato]"
+                          name="IdContrato"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Ativo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output].ExternalColumns[IdContrato]"
+                          dataType="i4"
+                          name="IdContrato" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          name="IdLogin" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[Email]"
+                          name="Email" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          name="IdCliente" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[Nome]"
+                          name="Nome" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[Ativo]"
+                          name="Ativo" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[IdContrato]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[IdContrato]"
+                          name="IdContrato" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA USUARIOS COMP DW\LIMPAR USUARIOS DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8df79f36-ac1a-41a8-9fc6-cf54f38d6b4c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPAR USUARIOS DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{71BCF780-29E0-4304-A1EA-7FE1C3785788}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_USUARIOS_COMP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA USUARIOS COMP DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{046c11d6-be2d-460e-bcfe-6177152fbc54}"
+          DTS:From="Package\CARGA USUARIOS COMP DW\LIMPAR USUARIOS DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA USUARIOS COMP STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BC2700E3-8C1B-4763-AE80-2133721F8E09}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA USUARIOS COMP STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B075819E-DB5E-46C0-9A6D-1A7D71643D7B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT USUARIOS COMPRADORES"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVAR USUARIOS STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[St_Gb_Usuarios_Comp]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].Columns[IdLogin]"
+                          cachedDataType="i4"
+                          cachedName="IdLogin"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IdLogin]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdLogin]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].Columns[Email]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="Email"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Email]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].Columns[IdCliente]"
+                          cachedDataType="i4"
+                          cachedName="IdCliente"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdCliente]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].Columns[Nome]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="45"
+                          cachedName="Nome"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Nome]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].Columns[Ativo]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="Ativo"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Ativo]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Ativo]" />
+                        <inputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].Columns[IdContrato]"
+                          cachedDataType="i4"
+                          cachedName="IdContrato"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IdContrato]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdContrato]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Ativo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[IdContrato]"
+                          dataType="i4"
+                          name="IdContrato" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER USUARIOS OLTP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">-- Selecionar Compradores
+select
+u.IdLogin,
+u.Email,
+uc.IdCliente,
+upper(u.Nome) as Nome,
+u.Ativo,
+cc.IdContrato
+from
+Usuarios u
+join UsuarioCliente uc on
+u.IdLogin = uc.IdLogin
+join Clientes c on
+uc.IdCliente = c.IdCliente
+join ContratoCliente cc on
+u.IdClienteResponsavel = cc.IdCliente
+where cc.Ativo = 'S' and u.IdPerfilUsuario =4</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Connections[OleDbConnection]"
+                      connectionManagerID="{907EDACB-5D52-4703-8CF0-1B43EA34500B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdLogin]"
+                          name="IdLogin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                          length="60"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Email]"
+                          name="Email"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                          name="IdCliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Nome]"
+                          length="45"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Nome]"
+                          name="Nome"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Ativo]"
+                          length="1"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[Ativo]"
+                          name="Ativo"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdContrato]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdContrato]"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].Columns[IdContrato]"
+                          name="IdContrato"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdLogin]"
+                          dataType="i4"
+                          name="IdLogin" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                          dataType="i4"
+                          name="IdCliente" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          name="Nome" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="Ativo" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output].ExternalColumns[IdContrato]"
+                          dataType="i4"
+                          name="IdContrato" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[IdLogin]"
+                          name="IdLogin" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[Email]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[Email]"
+                          name="Email" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                          name="IdCliente" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[Nome]"
+                          codePage="1252"
+                          dataType="str"
+                          length="45"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[Nome]"
+                          name="Nome" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[Ativo]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[Ativo]"
+                          name="Ativo" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[IdContrato]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[IdContrato]"
+                          name="IdContrato" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA USUARIOS COMP STAGE\LIMPAR USUARIOS STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{d1483c37-c517-4aa2-ad3a-a562514fab3a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPAR USUARIOS STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{10779405-461C-43D3-8D02-4C534A8750E2}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_GB_USUARIOS_COMP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA USUARIOS COMP STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{FAD04EE6-9389-4ADB-A1B6-35DD8D9A1A58}"
+          DTS:From="Package\CARGA USUARIOS COMP STAGE\LIMPAR USUARIOS STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{92AC61F3-FAD1-4E3B-BE3B-15227CAAD4EF}"
+      DTS:From="Package\CARGA USUARIOS COMP STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA USUARIOS COMP DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES"
+          TopLeft="16.5,82.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\CARGA USUARIOS COMP STAGE\LIMPAR USUARIOS STAGE"
+          TopLeft="32,9" />
+        <EdgeLayout
+          Id="Package\CARGA USUARIOS COMP STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="132.75,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.5"
+              Start="0,0"
+              End="0,24">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="255,180"
+          Size="255,222"
+          Id="Package\CARGA USUARIOS COMP STAGE"
+          TopLeft="199,71" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW"
+          TopLeft="44.5,120.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\CARGA USUARIOS COMP DW\LIMPAR USUARIOS DW"
+          TopLeft="22,10" />
+        <EdgeLayout
+          Id="Package\CARGA USUARIOS COMP DW.PrecedenceConstraints[Constraint]"
+          TopLeft="116.5,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,68.5"
+              Start="0,0"
+              End="14,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.25"
+                    Point2="0,34.25"
+                    Point3="4,34.25" />
+                  <mssgle:LineSegment
+                    End="10,34.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,34.25"
+                    Point2="14,34.25"
+                    Point3="14,38.25" />
+                  <mssgle:LineSegment
+                    End="14,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="268,186"
+          Size="268,229"
+          Id="Package\CARGA USUARIOS COMP DW"
+          TopLeft="543,69" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="454,182.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89,0"
+              Start="0,0"
+              End="81.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="81.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP"
+          TopLeft="220.5,86.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE"
+          TopLeft="197.5,215.5" />
+        <EdgeLayout
+          Id="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES.Paths[OLE DB Source Output]"
+          TopLeft="310,128.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9,87"
+              Start="0,0"
+              End="-9,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.5"
+                    Point2="0,43.5"
+                    Point3="-4,43.5" />
+                  <mssgle:LineSegment
+                    End="-5,43.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5,43.5"
+                    Point2="-9,43.5"
+                    Point3="-9,47.5" />
+                  <mssgle:LineSegment
+                    End="-9,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\LER USUARIOS OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA USUARIOS COMP STAGE\DFT USUARIOS COMPRADORES\GRAVAR USUARIOS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE"
+          TopLeft="165.5,37.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp"
+          TopLeft="184.5,183.5" />
+        <EdgeLayout
+          Id="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW.Paths[OLE DB Source Output]"
+          TopLeft="258.5,79.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,104"
+              Start="0,0"
+              End="14,96.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48"
+                    Point2="0,52"
+                    Point3="4,52" />
+                  <mssgle:LineSegment
+                    End="10,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,52"
+                    Point2="14,52"
+                    Point3="14,56" />
+                  <mssgle:LineSegment
+                    End="14,96.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\LER USUARIOS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA USUARIOS COMP DW\DFT USUARIOS DW\Dim_Usuarios_Comp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1197 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/5/2021 9:25:50 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{51AA8517-4D4E-4D88-8480-97F086FB554F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{3B8FFE43-FB1C-455F-A16B-A5887E44156C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CL_PROCESSOF_STATUS DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{06FDEE0C-88C3-4481-A902-CF7C6B7A478E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CL_PROCESSOF_STATUS DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{17AD8F22-AC53-43D7-8E74-CE932A7CA0FF}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT CL_PROCESSOF_STATUS DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CL_PROCESSOF_STATUS DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[DIM_CL_PROCESSOF_STATUS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                        <inputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].Columns[STATUS]"
+                          cachedDataType="i4"
+                          cachedName="STATUS"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[IDSTATUS]"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[STATUS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[SK_PROCESSOF_STATUS]"
+                          dataType="i4"
+                          name="SK_PROCESSOF_STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[IDSTATUS]"
+                          dataType="i4"
+                          name="IDSTATUS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CL_PROCESSOF_STATUS ST"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_CL_PROCESSOF_STATUS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+STATUS,
+DESCRICAO
+FROM WEBSUPPLY_STAGE.DBO.ST_WS_CL_PROCESSOF_STATUS ST WITH (NOLOCK)
+WHERE NOT EXISTS
+(SELECT
+STATUS
+FROM WEBSUPPLY_DW.DBO.DIM_CL_PROCESSOF_STATUS DW WITH (NOLOCK)
+WHERE DW.STATUS = ST.STATUS
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[STATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[STATUS]"
+                          name="STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="30"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                          dataType="i4"
+                          name="STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                          name="STATUS" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="PESQUISA ID CL_PROCESSOF_STATUS"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DIM_CL_PROCESSOF_STATUS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DIM_CL_PROCESSOF_STATUS]) [refTable]
+where [refTable].[IDSTATUS] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_PROCESSOF_STATUS" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDSTATUS" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRICAO" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[STATUS]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Inputs[Lookup Input].Columns[STATUS]"
+                          cachedDataType="i4"
+                          cachedName="STATUS"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output].Columns[STATUS]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">IDSTATUS</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Match Output].Columns[SK_PROCESSOF_STATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Match Output].Columns[SK_PROCESSOF_STATUS]"
+                          name="SK_PROCESSOF_STATUS"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SK_PROCESSOF_STATUS</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW.Paths[Lookup No Match Output]"
+                  endId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CL_PROCESSOF_STATUS DW\TRUNCATE DIM_CL_PROCESSOF_STATUS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{70AED85B-5FF9-42BE-ABED-742A9C6000AB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE DIM_CL_PROCESSOF_STATUS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_CL_PROCESSOF_STATUS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CL_PROCESSOF_STATUS DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D758C619-67C3-4EC2-9BAA-F764962BA991}"
+          DTS:From="Package\CARGA CL_PROCESSOF_STATUS DW\TRUNCATE DIM_CL_PROCESSOF_STATUS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CL_PROCESSOF_STATUS STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2E087B72-349F-44DF-B2C0-151BB6EB98AA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CL_PROCESSOF_STATUS STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6FC7E1A8-8563-4721-8258-96C2A1D35557}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST CL_PROCESSOF_STATUS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CONEXÃO OLTP CL_PROCESSOF_STATUS"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+STATUS,
+UPPER(DESCRICAO) AS DESCRICAO
+FROM CL_PROCESSOF_STATUS</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].Columns[STATUS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].Columns[STATUS]"
+                          name="STATUS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="30"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                          dataType="i4"
+                          name="STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                          name="STATUS" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CONEXÃO ST CL_PROCESSOF_STATUS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ST_WS_CL_PROCESSOF_STATUS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input].Columns[STATUS]"
+                          cachedDataType="i4"
+                          cachedName="STATUS"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].Columns[STATUS]" />
+                        <inputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="30"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                          dataType="i4"
+                          name="STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="30"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CL_PROCESSOF_STATUS STAGE\TRUNCATE CL_PROCESSOF_STATUS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4146183C-D617-4772-8376-89D283FEE2A8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE CL_PROCESSOF_STATUS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_CL_PROCESSOF_STATUS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CL_PROCESSOF_STATUS STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{934E81E6-7363-451E-A9B9-93A92888DBCF}"
+          DTS:From="Package\CARGA CL_PROCESSOF_STATUS STAGE\TRUNCATE CL_PROCESSOF_STATUS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CE0AA06F-AAE0-4207-94A1-9E261004CC97}"
+      DTS:From="Package\CARGA CL_PROCESSOF_STATUS STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA CL_PROCESSOF_STATUS DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="240,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW"
+          TopLeft="32.5,108.5" />
+        <NodeLayout
+          Size="278,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\TRUNCATE DIM_CL_PROCESSOF_STATUS"
+          TopLeft="39,11" />
+        <EdgeLayout
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW.PrecedenceConstraints[Constraint]"
+          TopLeft="178,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25.5,55.5"
+              Start="0,0"
+              End="-25.5,48">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.75"
+                    Point2="0,27.75"
+                    Point3="-4,27.75" />
+                  <mssgle:LineSegment
+                    End="-21.5,27.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21.5,27.75"
+                    Point2="-25.5,27.75"
+                    Point3="-25.5,31.75" />
+                  <mssgle:LineSegment
+                    End="-25.5,48" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="322,206"
+          Size="322,248"
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW"
+          TopLeft="487,85" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS"
+          TopLeft="5.5,150.5" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE\TRUNCATE CL_PROCESSOF_STATUS"
+          TopLeft="6.5,5.5" />
+        <EdgeLayout
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="133,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,103"
+              Start="0,0"
+              End="-10,95.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.5"
+                    Point2="0,51.5"
+                    Point3="-4,51.5" />
+                  <mssgle:LineSegment
+                    End="-6,51.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,51.5"
+                    Point2="-10,51.5"
+                    Point3="-10,55.5" />
+                  <mssgle:LineSegment
+                    End="-10,95.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="292,248"
+          Size="292,291"
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE"
+          TopLeft="65.5,65.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="357.5,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.5,0"
+              Start="0,0"
+              End="122,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST"
+          TopLeft="212.5,62.5" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW"
+          TopLeft="215.5,272.5" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS"
+          TopLeft="403,171" />
+        <EdgeLayout
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW.Paths[OLE DB Source Output]"
+          TopLeft="319,104.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="216,66.5"
+              Start="0,0"
+              End="216,59">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.25"
+                    Point2="0,33.25"
+                    Point3="4,33.25" />
+                  <mssgle:LineSegment
+                    End="212,33.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="212,33.25"
+                    Point2="216,33.25"
+                    Point3="216,37.25" />
+                  <mssgle:LineSegment
+                    End="216,59" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW.Paths[Lookup No Match Output]"
+          TopLeft="535,213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-210.5,59.5"
+              Start="0,0"
+              End="-210.5,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.75"
+                    Point2="0,29.75"
+                    Point3="-4,29.75" />
+                  <mssgle:LineSegment
+                    End="-206.5,29.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-206.5,29.75"
+                    Point2="-210.5,29.75"
+                    Point3="-210.5,33.75" />
+                  <mssgle:LineSegment
+                    End="-210.5,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-161.05638671875,34.75,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS ST">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\CL_PROCESSOF_STATUS DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS DW\DFT CL_PROCESSOF_STATUS DW\PESQUISA ID CL_PROCESSOF_STATUS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DIM_CL_PROCESSOF_STATUS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="264,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS"
+          TopLeft="151.5,214.5" />
+        <NodeLayout
+          Size="276,42"
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS"
+          TopLeft="169.5,62.5" />
+        <EdgeLayout
+          Id="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS.Paths[OLE DB Source Output]"
+          TopLeft="307.5,104.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24,110"
+              Start="0,0"
+              End="-24,102.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51"
+                    Point2="0,55"
+                    Point3="-4,55" />
+                  <mssgle:LineSegment
+                    End="-20,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20,55"
+                    Point2="-24,55"
+                    Point3="-24,59" />
+                  <mssgle:LineSegment
+                    End="-24,102.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO OLTP CL_PROCESSOF_STATUS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PROCESSOF_STATUS STAGE\DFT ST CL_PROCESSOF_STATUS\CONEXÃO ST CL_PROCESSOF_STATUS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

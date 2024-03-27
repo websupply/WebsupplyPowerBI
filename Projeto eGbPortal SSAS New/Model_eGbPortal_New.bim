@@ -1,0 +1,2997 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "eGbPortal_DW_New",
+        "connectionString": "Provider=SQLNCLI11;Data Source=WEBSQLHOM01\\SGISQL01;Initial Catalog=eGbPortal_DW_New;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateServiceAccount",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Calendario",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "TMPO_ID_TEMPO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_ID_TEMPO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DATA",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "TMPO_DT_DATA",
+            "formatString": "MM/dd/yyyy",
+            "sourceProviderType": "DBTimeStamp",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"MM/dd/yyyy\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "DATA_TEXT",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_DATA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_DIA_SEMANA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_DIA_SEMANA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DS_DIA_SEMANA",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_DIA_SEMANA",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_NR_DIA_SEMANA",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_NR_DIA_SEMANA",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_CD_DIA_UTIL",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_DIA_UTIL",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DS_DIA_UTIL",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_DIA_UTIL",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_FERIADO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_FERIADO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TMPO_DS_FERIADO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_FERIADO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_MES_CALENDARIO",
+            "dataType": "int64",
+            "sourceColumn": "TMPO_CD_MES_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MMM/AAAA",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_MES_CALENDARIO",
+            "sortByColumn": "TMPO_CD_MES_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_MESNUM_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_MESNUM_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MM/AAAA",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_MESNUM_CALENDARIO",
+            "sortByColumn": "TMPO_CD_MESNUM_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_BIMESTRE_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_BIMESTRE_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "BIMESTRE",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_BIMESTRE_CALENDARIO",
+            "sortByColumn": "TMPO_CD_BIMESTRE_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_TRIMESTRE_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_TRIMESTRE_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TRIMESTRE",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_TRIMESTRE_CALENDARIO",
+            "sortByColumn": "TMPO_CD_TRIMESTRE_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TMPO_CD_SEMESTRE_CALENDARIO",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "TMPO_CD_SEMESTRE_CALENDARIO",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SEMESTRE",
+            "dataType": "string",
+            "sourceColumn": "TMPO_DS_SEMESTRE_CALENDARIO",
+            "sortByColumn": "TMPO_CD_SEMESTRE_CALENDARIO",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ANO",
+            "dataType": "int64",
+            "sourceColumn": "TMPO_CD_ANO_CALENDARIO",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TMPO_DS_ANO_CALENDARIO",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "TMPO_DS_ANO_CALENDARIO",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Calendario",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Calendario].* FROM [dbo].[Dim_Calendario] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Calendario].* FROM [dbo].[Dim_Calendario] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Calendario"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Categorias",
+        "columns": [
+          {
+            "name": "Id_Produto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Produto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Categoria",
+            "dataType": "string",
+            "sourceColumn": "Categoria",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Subcategoria",
+            "dataType": "string",
+            "sourceColumn": "Subcategoria",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Categorias",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Categorias].* FROM [dbo].[Dim_Categorias] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Categorias].* FROM [dbo].[Dim_Categorias] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Categorias"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Clientes",
+        "columns": [
+          {
+            "name": "Id_Sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Sk",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Id_Cliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Cliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Nome",
+            "dataType": "string",
+            "sourceColumn": "Nome",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CNPJ_CPF",
+            "dataType": "string",
+            "sourceColumn": "CNPJ_CPF",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tipo",
+            "dataType": "string",
+            "sourceColumn": "Tipo",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Clientes",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Clientes].* FROM [dbo].[Dim_Clientes] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Clientes].* FROM [dbo].[Dim_Clientes] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Clientes"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Deptos",
+        "columns": [
+          {
+            "name": "Id_Sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Sk",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Id_Login",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Login",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Depto",
+            "dataType": "string",
+            "sourceColumn": "Depto",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Deptos",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Deptos].* FROM [dbo].[Dim_Deptos] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Deptos].* FROM [dbo].[Dim_Deptos] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Deptos"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Grupos",
+        "columns": [
+          {
+            "name": "Id_Cliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Cliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Nome_Grupo",
+            "dataType": "string",
+            "sourceColumn": "Nome_Grupo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Nome_Subgrupo",
+            "dataType": "string",
+            "sourceColumn": "Nome_Subgrupo",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Grupos",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Grupos].* FROM [dbo].[Dim_Grupos] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Grupos].* FROM [dbo].[Dim_Grupos] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Grupos"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "PedidosStatus",
+        "columns": [
+          {
+            "name": "Id_Sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Sk",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Id_Pedidos_Status",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Pedidos_Status",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Descricao",
+            "dataType": "string",
+            "sourceColumn": "Descricao",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PedidosStatus",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_PedidosStatus].* FROM [dbo].[Dim_PedidosStatus] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_PedidosStatus].* FROM [dbo].[Dim_PedidosStatus] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_PedidosStatus"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Produtos",
+        "columns": [
+          {
+            "name": "Id_Sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Sk",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Id_Produto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Produto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Descricao",
+            "dataType": "string",
+            "sourceColumn": "Descricao",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Fabricante",
+            "dataType": "string",
+            "sourceColumn": "Fabricante",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Produtos",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Produtos].* FROM [dbo].[Dim_Produtos] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Produtos].* FROM [dbo].[Dim_Produtos] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Produtos"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Usuarios_cnpj",
+        "columns": [
+          {
+            "name": "Id_Cliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Cliente",
+            "sourceProviderType": "Integer",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Email_Usuario",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "nome",
+            "dataType": "string",
+            "sourceColumn": "nome",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ativo",
+            "dataType": "string",
+            "sourceColumn": "ativo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Id_Login",
+            "dataType": "string",
+            "sourceColumn": "Id_Login",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Usuarios",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Usuarios].[Id_Cliente],[dbo].[Dim_Usuarios].[email],[dbo].[Dim_Usuarios].[Nome],[dbo].[Dim_Usuarios].[Ativo],[dbo].[Dim_Usuarios].[Id_Login] FROM [dbo].[Dim_Usuarios] ",
+              "dataSource": "eGbPortal_DW_New"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Cliente</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>79</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>email</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>54</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Nome</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>115</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Ativo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>55</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Contrato</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Login</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>71</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Cliente</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>email</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Nome</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Ativo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Contrato</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Login</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Contrato</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>false</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Login</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Usuarios].[Id_Cliente],[dbo].[Dim_Usuarios].[email],[dbo].[Dim_Usuarios].[Nome],[dbo].[Dim_Usuarios].[Ativo],[dbo].[Dim_Usuarios].[Id_Login] FROM [dbo].[Dim_Usuarios] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Usuarios"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Cliente</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>79</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>email</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>54</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Nome</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>115</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Ativo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>55</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Contrato</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Login</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>71</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Cliente</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>email</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Nome</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Ativo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Contrato</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Login</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Contrato</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>false</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Login</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Limites",
+        "columns": [
+          {
+            "name": "Sk_Id_Cliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_Cliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_Data",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_Data",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DataInclusao",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DataInclusao",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "ValorLimiteCompra",
+            "dataType": "decimal",
+            "sourceColumn": "ValorLimiteCompra",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "ValorLimiteUtilizado",
+            "dataType": "decimal",
+            "sourceColumn": "ValorLimiteUtilizado",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Limites",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Ft_Limites].* FROM [dbo].[Ft_Limites] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Ft_Limites].* FROM [dbo].[Ft_Limites] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Ft_Limites"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Pedidos",
+        "columns": [
+          {
+            "name": "Id_PedidoItem",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_PedidoItem",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Id_Pedido",
+            "dataType": "string",
+            "sourceColumn": "Id_Pedido",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_Data",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_Data",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_Cliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_Cliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_Login",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_Login",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_PedidoStatus",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_PedidoStatus",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_Produto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Sk_Id_Produto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CodigoBuscaProduto",
+            "dataType": "string",
+            "sourceColumn": "CodigoBuscaProduto",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BuscaProduto",
+            "dataType": "string",
+            "sourceColumn": "BuscaProduto",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Id_Contrato",
+            "dataType": "int64",
+            "sourceColumn": "Id_Contrato",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TipoCatalogo",
+            "dataType": "string",
+            "sourceColumn": "TipoCatalogo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Cidade",
+            "dataType": "string",
+            "sourceColumn": "Cidade",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Estado",
+            "dataType": "string",
+            "sourceColumn": "Estado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "UF",
+            "dataType": "string",
+            "sourceColumn": "UF",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Localizacao",
+            "dataType": "string",
+            "sourceColumn": "Localizacao",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DataPedido",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DataPedido",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Qtde",
+            "dataType": "int64",
+            "sourceColumn": "Qtde",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PrecoUnitario",
+            "dataType": "decimal",
+            "sourceColumn": "PrecoUnitario",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total_Itens",
+            "dataType": "decimal",
+            "sourceColumn": "Total_Itens",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total_Custo",
+            "dataType": "decimal",
+            "sourceColumn": "Total_Custo",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Sk_Id_CentroCusto",
+            "dataType": "int64",
+            "sourceColumn": "Sk_Id_CentroCusto"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Pedidos",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Ft_Pedidos].* FROM [dbo].[Ft_Pedidos] ",
+              "dataSource": "eGbPortal_DW_New"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_PedidoItem</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>100</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Pedido</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>78</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Data</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>86</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>124</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Cliente</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Login</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_PedidoStatus</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>126</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Produto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>101</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CodigoBuscaProduto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>129</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>BuscaProduto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Contrato</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>89</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TipoCatalogo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>93</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Cidade</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Estado</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>63</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UF</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>43</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Localizacao</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>84</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DataPedido</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>85</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Qtde</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>54</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>PrecoUnitario</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>94</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Total_Itens</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>85</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Total_Custo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_PedidoItem</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Pedido</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Data</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Cliente</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Login</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_PedidoStatus</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Produto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CodigoBuscaProduto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>BuscaProduto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Contrato</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>10</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>TipoCatalogo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>11</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Cidade</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>12</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Estado</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>13</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>UF</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>14</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Localizacao</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>15</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>DataPedido</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>16</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Qtde</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>17</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>PrecoUnitario</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>18</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Total_Itens</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>19</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Total_Custo</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>20</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Ft_Pedidos].* FROM [dbo].[Ft_Pedidos] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Ft_Pedidos"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_PedidoItem</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>100</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Pedido</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>78</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Data</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>86</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>124</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Cliente</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Login</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_PedidoStatus</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>126</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Produto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>101</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CodigoBuscaProduto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>129</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>BuscaProduto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Contrato</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>89</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TipoCatalogo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>93</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Cidade</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Estado</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>63</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>UF</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>43</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Localizacao</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>84</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DataPedido</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>85</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Qtde</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>54</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>PrecoUnitario</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>94</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Total_Itens</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>85</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Total_Custo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>88</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_PedidoItem</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Pedido</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Data</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Cliente</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Login</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_PedidoStatus</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>6</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Produto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>7</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CodigoBuscaProduto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>8</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>BuscaProduto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>9</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Contrato</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>10</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>TipoCatalogo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>11</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Cidade</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>12</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Estado</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>13</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>UF</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>14</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Localizacao</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>15</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>DataPedido</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>16</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Qtde</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>17</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>PrecoUnitario</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>18</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Total_Itens</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>19</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Total_Custo</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>20</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Medidas",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "Medidas",
+            "dataType": "string",
+            "isNameInferred": true,
+            "isDataTypeInferred": true,
+            "sourceColumn": "[Medidas]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": [
+                "",
+                "DATATABLE(",
+                "\"Medidas\", STRING,{",
+                "\t\t{\"a\"}",
+                "\t}",
+                ")"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Usuarios_login_pedido",
+        "columns": [
+          {
+            "name": "Nome",
+            "dataType": "string",
+            "sourceColumn": "Nome",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Ativo",
+            "dataType": "string",
+            "sourceColumn": "Ativo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Email_Login_Pedido",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IdCliente",
+            "dataType": "int64",
+            "sourceColumn": "IdCliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IdContrato",
+            "dataType": "int64",
+            "sourceColumn": "IdContrato",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IdLogin",
+            "dataType": "int64",
+            "sourceColumn": "IdLogin",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "LoginPedido",
+            "dataType": "int64",
+            "sourceColumn": "LoginPedido",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Usuarios_New",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Usuarios_New].* FROM [dbo].[Dim_Usuarios_New] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Usuarios_New].* FROM [dbo].[Dim_Usuarios_New] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Usuarios_New"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "CentrosCusto",
+        "columns": [
+          {
+            "name": "Id_Sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Id_Sk",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IdContratoClienteCentroCusto",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IdContratoClienteCentroCusto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CentroCusto",
+            "dataType": "string",
+            "sourceColumn": "CentroCusto",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Descricao",
+            "dataType": "string",
+            "sourceColumn": "Descricao",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CNPJ",
+            "dataType": "string",
+            "sourceColumn": "CNPJ"
+          },
+          {
+            "name": "RazaoSocial",
+            "dataType": "string",
+            "sourceColumn": "RazaoSocial"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CentrosCusto",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Centros_Custo].* FROM [dbo].[Dim_Centros_Custo] ",
+              "dataSource": "eGbPortal_DW_New"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>57</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdContratoClienteCentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>177</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>91</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Descricao</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>157</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CNPJ</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>55</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RazaoSocial</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>87</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Id_Sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdContratoClienteCentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Descricao</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CNPJ</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RazaoSocial</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>CNPJ</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>RazaoSocial</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Centros_Custo].* FROM [dbo].[Dim_Centros_Custo] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Centros_Custo"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Sk</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>57</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdContratoClienteCentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>177</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>91</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Descricao</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>157</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CNPJ</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>55</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RazaoSocial</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>87</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>Id_Sk</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdContratoClienteCentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Descricao</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>CNPJ</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RazaoSocial</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>CNPJ</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>RazaoSocial</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "usuarios_bridge",
+        "columns": [
+          {
+            "name": "IdLogin",
+            "dataType": "string",
+            "sourceColumn": "IdLogin",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Nome",
+            "dataType": "string",
+            "sourceColumn": "Nome",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "usuarios_bridge",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[usuarios_bridge].* FROM [dbo].[usuarios_bridge] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[usuarios_bridge].* FROM [dbo].[usuarios_bridge] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "usuarios_bridge"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "LimitesConsolidados",
+        "columns": [
+          {
+            "name": "IdLogin",
+            "dataType": "string",
+            "sourceColumn": "IdLogin",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_Cliente",
+            "dataType": "int64",
+            "sourceColumn": "Sk_Id_Cliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Sk_Id_CentroCusto",
+            "dataType": "int64",
+            "sourceColumn": "Sk_Id_CentroCusto",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ValorLimiteCompra",
+            "dataType": "decimal",
+            "sourceColumn": "ValorLimiteCompra",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "ValorLimiteUtilizado",
+            "dataType": "decimal",
+            "sourceColumn": "ValorLimiteUtilizado",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "sourceProviderType": "Currency",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Sk_Id_Data_Limite",
+            "dataType": "int64",
+            "sourceColumn": "Sk_Id_Data_Limite"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "LimitesConsolidados",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Ft_LimitesConsolidados].* FROM [dbo].[Ft_LimitesConsolidados] ",
+              "dataSource": "eGbPortal_DW_New"
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdLogin</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>65</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Cliente</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>96</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>124</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Data_Limite</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>119</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ValorLimiteCompra</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>118</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ValorLimiteUtilizado</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>121</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>IdLogin</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Cliente</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_CentroCusto</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Data_Limite</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ValorLimiteCompra</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>ValorLimiteUtilizado</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>Sk_Id_Data_Limite</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <boolean>true</boolean>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnChecked>",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Ft_LimitesConsolidados].* FROM [dbo].[Ft_LimitesConsolidados] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Ft_LimitesConsolidados"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          },
+          {
+            "name": "TableWidgetSerialization",
+            "value": [
+              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+              "<TableWidgetGridSerialization xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
+              "  <ColumnSuggestedType />",
+              "  <ColumnFormat />",
+              "  <ColumnAccuracy />",
+              "  <ColumnCurrencySymbol />",
+              "  <ColumnPositivePattern />",
+              "  <ColumnNegativePattern />",
+              "  <ColumnWidths>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdLogin</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>65</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Cliente</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>96</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>124</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Data_Limite</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>119</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ValorLimiteCompra</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>118</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ValorLimiteUtilizado</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>121</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnWidths>",
+              "  <ColumnDisplayIndex>",
+              "    <item>",
+              "      <key>",
+              "        <string>IdLogin</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>0</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Cliente</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>1</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_CentroCusto</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>2</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Data_Limite</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>3</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ValorLimiteCompra</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>4</int>",
+              "      </value>",
+              "    </item>",
+              "    <item>",
+              "      <key>",
+              "        <string>ValorLimiteUtilizado</string>",
+              "      </key>",
+              "      <value>",
+              "        <int>5</int>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnDisplayIndex>",
+              "  <ColumnFrozen />",
+              "  <ColumnChecked>",
+              "    <item>",
+              "      <key>",
+              "        <string>Sk_Id_Data_Limite</string>",
+              "      </key>",
+              "      <value>",
+              "        <boolean>true</boolean>",
+              "      </value>",
+              "    </item>",
+              "  </ColumnChecked>",
+              "  <ColumnFilter />",
+              "  <SelectionFilter />",
+              "  <FilterParameters />",
+              "  <IsSortDescending>false</IsSortDescending>",
+              "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Usuarios_Comp",
+        "columns": [
+          {
+            "name": "Nome",
+            "dataType": "string",
+            "sourceColumn": "Nome",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Ativo",
+            "dataType": "string",
+            "sourceColumn": "Ativo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IdLogin",
+            "dataType": "string",
+            "sourceColumn": "IdLogin",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IdCliente",
+            "dataType": "string",
+            "sourceColumn": "IdCliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IdContrato",
+            "dataType": "string",
+            "sourceColumn": "IdContrato",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Usuarios_Comp",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Usuarios_Comp].* FROM [dbo].[Dim_Usuarios_Comp] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Usuarios_Comp].* FROM [dbo].[Dim_Usuarios_Comp] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Usuarios_Comp"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Usuarios_Master",
+        "columns": [
+          {
+            "name": "Nome",
+            "dataType": "string",
+            "sourceColumn": "Nome",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Ativo",
+            "dataType": "string",
+            "sourceColumn": "Ativo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IdLogin",
+            "dataType": "string",
+            "sourceColumn": "IdLogin",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "IdCliente",
+            "dataType": "string",
+            "sourceColumn": "IdCliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IdContrato",
+            "dataType": "string",
+            "sourceColumn": "IdContrato",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Usuarios_Master",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Usuarios_Master].* FROM [dbo].[Dim_Usuarios_Master] ",
+              "dataSource": "eGbPortal_DW_New"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Usuarios_Master].* FROM [dbo].[Dim_Usuarios_Master] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Usuarios_Master"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "fcf92ad9-fc21-4129-b6a3-326ee12d40df",
+        "fromTable": "Limites",
+        "fromColumn": "Sk_Id_Cliente",
+        "toTable": "Clientes",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "a4bd6ba2-5ed6-46e7-8fd3-c2c58d1fbbe1",
+        "fromTable": "Pedidos",
+        "fromColumn": "Sk_Id_Data",
+        "toTable": "Calendario",
+        "toColumn": "TMPO_ID_TEMPO"
+      },
+      {
+        "name": "758fe4d0-bf4d-47ec-b51c-989fe944d556",
+        "fromTable": "Limites",
+        "fromColumn": "Sk_Id_Data",
+        "toTable": "Calendario",
+        "toColumn": "TMPO_ID_TEMPO"
+      },
+      {
+        "name": "9950a379-20f6-4de9-9b8c-320739b405b8",
+        "fromTable": "Pedidos",
+        "fromColumn": "Sk_Id_Cliente",
+        "toTable": "Clientes",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "00d6e68e-1d4c-4bec-9768-84219dd372d9",
+        "fromTable": "Pedidos",
+        "fromColumn": "Sk_Id_Login",
+        "toTable": "Deptos",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "a030dc80-934d-40b0-b6d9-a26b066c09ab",
+        "fromTable": "Pedidos",
+        "fromColumn": "Sk_Id_PedidoStatus",
+        "toTable": "PedidosStatus",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "4b4abe38-e547-4354-9632-2a1f77d10a49",
+        "fromTable": "Pedidos",
+        "fromColumn": "Sk_Id_Produto",
+        "toTable": "Produtos",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "f2d30fca-3d9f-409a-a7ca-b4e93427bf38",
+        "fromTable": "Grupos",
+        "fromColumn": "Id_Cliente",
+        "toTable": "Clientes",
+        "toColumn": "Id_Cliente",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "1384e124-e09f-4e74-b7b0-7e00089f1413",
+        "fromTable": "Categorias",
+        "fromColumn": "Id_Produto",
+        "toTable": "Produtos",
+        "toColumn": "Id_Produto",
+        "crossFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "4a340363-071c-42c7-ad65-88082f15e0f7",
+        "fromTable": "Usuarios_login_pedido",
+        "fromColumn": "LoginPedido",
+        "toTable": "Deptos",
+        "toColumn": "Id_Login",
+        "crossFilteringBehavior": "bothDirections",
+        "securityFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "ab0ecf05-698c-41f1-bdf4-e4a144825e31",
+        "fromTable": "Pedidos",
+        "fromColumn": "Sk_Id_CentroCusto",
+        "toTable": "CentrosCusto",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "5dac959e-3e2a-47cb-a3c0-d3cc60f36c07",
+        "fromTable": "LimitesConsolidados",
+        "fromColumn": "Sk_Id_Cliente",
+        "toTable": "Clientes",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "b1ce2c0d-64b6-4a2a-ba17-c2d305a4d435",
+        "fromTable": "LimitesConsolidados",
+        "fromColumn": "Sk_Id_CentroCusto",
+        "toTable": "CentrosCusto",
+        "toColumn": "Id_Sk"
+      },
+      {
+        "name": "542ea161-32d6-4624-b2a8-8bab250cfae7",
+        "fromTable": "LimitesConsolidados",
+        "fromColumn": "Sk_Id_Data_Limite",
+        "toTable": "Calendario",
+        "toColumn": "TMPO_ID_TEMPO"
+      },
+      {
+        "name": "7fc9bec0-9378-4bcf-85e0-51b751230a68",
+        "fromTable": "LimitesConsolidados",
+        "fromColumn": "IdLogin",
+        "toTable": "usuarios_bridge",
+        "toColumn": "IdLogin"
+      },
+      {
+        "name": "238b2483-703d-42c4-b116-49b13859c555",
+        "fromTable": "Usuarios_Master",
+        "fromColumn": "IdCliente",
+        "toTable": "Clientes",
+        "toColumn": "Id_Cliente",
+        "crossFilteringBehavior": "bothDirections",
+        "securityFilteringBehavior": "bothDirections"
+      },
+      {
+        "name": "e76ebfd0-655c-40f6-a313-025ec811817d",
+        "fromTable": "Usuarios_Comp",
+        "fromColumn": "IdLogin",
+        "toTable": "usuarios_bridge",
+        "toColumn": "IdLogin",
+        "crossFilteringBehavior": "bothDirections",
+        "securityFilteringBehavior": "bothDirections"
+      }
+    ],
+    "roles": [
+      {
+        "name": "RLS_LOGIN",
+        "modelPermission": "readRefresh",
+        "members": [
+          {
+            "memberName": "REMAZAWEB\\administrator",
+            "memberId": "S-1-5-21-4153046137-595686557-258077127-500"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "Usuarios_login_pedido",
+            "filterExpression": "Usuarios_login_pedido[Email_Login_Pedido] = CUSTOMDATA()"
+          },
+          {
+            "name": "Usuarios_cnpj",
+            "filterExpression": "Usuarios_cnpj[Email_Usuario] = CUSTOMDATA()"
+          },
+          {
+            "name": "Usuarios_Comp",
+            "filterExpression": "Usuarios_Comp[Email] = CUSTOMDATA()"
+          },
+          {
+            "name": "Usuarios_Master",
+            "filterExpression": "Usuarios_Master[Email] = CUSTOMDATA()"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}

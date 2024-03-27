@@ -1,0 +1,1154 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2022 10:26:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{615334A5-91F2-481E-86AB-C3DD5EB29DA4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FT_ASSINATURAS"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{AC1B6BCC-DAB0-4B3E-824F-54691E034477}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FT_ASSINATURAS_DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3527CE56-14CA-4924-B588-7B7968840D45}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FT_ASSINATURAS_DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7df3d9de-669a-495f-85e0-2a39f4a758a8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FT_ASSINATURAS_DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="FT_ASSINATURAS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[FT_ASSINATURAS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Connections[OleDbConnection]"
+                      connectionManagerID="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_DW.websupply3]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].Columns[CONTRADO_UUID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="CONTRADO_UUID"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[CONTRADO_UUID]"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[CONTRADO_UUID]" />
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]" />
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].Columns[DURACAO_PROCESS]"
+                          cachedDataType="i4"
+                          cachedName="DURACAO_PROCESS"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[DURACAO_PROCESS]"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[DURACAO_PROCESS]" />
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].Columns[DATA_BASE]"
+                          cachedDataType="dbDate"
+                          cachedName="DATA_BASE"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[DATA_BASE]"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[DATA_BASE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="CONTRADO_UUID" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          name="DURACAO_PROCESS" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input].ExternalColumns[DATA_BASE]"
+                          dataType="dbDate"
+                          name="DATA_BASE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="FT_ASSINATURAS_STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[FT_ASSINATURAS_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CONTRADO_UUID]"
+                          length="40"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[CONTRADO_UUID]"
+                          name="CONTRADO_UUID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DURACAO_PROCESS]"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[DURACAO_PROCESS]"
+                          name="DURACAO_PROCESS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[DATA_BASE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DATA_BASE]"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].Columns[DATA_BASE]"
+                          name="DATA_BASE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="CONTRADO_UUID" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          name="DURACAO_PROCESS" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output].ExternalColumns[DATA_BASE]"
+                          dataType="dbDate"
+                          name="DATA_BASE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[CONTRADO_UUID]"
+                          name="CONTRADO_UUID" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[DURACAO_PROCESS]"
+                          name="DURACAO_PROCESS" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[DATA_BASE]"
+                          dataType="dbDate"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[DATA_BASE]"
+                          name="DATA_BASE" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW.Paths[OLE DB Source Output]"
+                  endId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FT_ASSINATURAS_DW\TRUNCATE FT_ASSINATURAS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c27e3977-c9d5-48d0-960f-9dbadb3c5f95}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE FT_ASSINATURAS"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{4DB45440-7343-4DA1-8788-3DD6FB2587A0}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE FT_ASSINATURAS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FT_ASSINATURAS_DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4e980a96-b4d7-4ed5-8b1f-a861c9a5cf70}"
+          DTS:From="Package\FT_ASSINATURAS_DW\TRUNCATE FT_ASSINATURAS"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FT_ASSINATURAS_STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{621F1F4A-FD5F-40C9-B41E-C9C7F855A7C1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FT_ASSINATURAS_STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6f3c83be-5855-498d-80bd-3b66621d49c5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="CARGA_ASSINATURAS_SQL_STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="ASSINATURAS_SQL"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">--Tempo de assinatura:
+
+Select A.CONTRADO_UUID,
+       Case
+           When C.ESPECIE Is Null Then 'NI'
+           Else C.ESPECIE
+       End As COD_ESPECIE,
+       C.DATA_PRODUCAO, --min(a.data) as assinatura_cliente,
+ -- max(a.data) as assinatura_diretor,
+ DATEDIFF(D, MIN(A.DATA), MAX(A.DATA)) As DURACAO_PROCESS
+From ASSINATURA_RETORNO A
+Inner join ASSINATURA B On A.ASSINATURAID = B.ID
+Inner join PEDIDO C On B.PEDIDOID = C.ID
+Where A.TYPE_POST = 4
+ And C.STATUS_PEDIDO = 21 --AND c.Data_Producao &gt;= '2021-09-01 00:00:00'
+ --AND c.Data_Producao &lt;= '2021-09-30 23:59:59'
+Group by A.CONTRADO_UUID,
+         C.ESPECIE,
+         C.DATA_PRODUCAO</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Connections[OleDbConnection]"
+                      connectionManagerID="{b713392e-6b85-45bf-aa3f-c181e65606a8}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLPROD02_SGISQL02,1433.RemazaAdesao]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[CONTRADO_UUID]"
+                          length="40"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[CONTRADO_UUID]"
+                          name="CONTRADO_UUID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          length="2"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DATA_PRODUCAO]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[DATA_PRODUCAO]"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DATA_PRODUCAO]"
+                          name="DATA_PRODUCAO"
+                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[DURACAO_PROCESS]"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DURACAO_PROCESS]"
+                          name="DURACAO_PROCESS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="CONTRADO_UUID" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[DATA_PRODUCAO]"
+                          dataType="dbTimeStamp2"
+                          name="DATA_PRODUCAO"
+                          scale="7" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].ExternalColumns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          name="DURACAO_PROCESS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[CONTRADO_UUID]"
+                          name="CONTRADO_UUID" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[COD_ESPECIE]"
+                          name="COD_ESPECIE" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[DATA_PRODUCAO]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[DATA_PRODUCAO]"
+                          name="DATA_PRODUCAO"
+                          scale="7" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[DURACAO_PROCESS]"
+                          name="DURACAO_PROCESS" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Inputs[Data Conversion Input].Columns[DATA_PRODUCAO]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="DATA_PRODUCAO"
+                          cachedScale="7"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DATA_PRODUCAO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[DATA_BASE]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[DATA_BASE]"
+                          name="DATA_BASE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DATA_PRODUCAO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="FT_ASSINATURAS_STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[FT_ASSINATURAS_STAGE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{640DC794-5173-47C0-AEF0-4D4C02D86F14}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSQLHOM01_SGISQL01.Adesao_Stage]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].Columns[CONTRADO_UUID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="CONTRADO_UUID"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CONTRADO_UUID]"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[CONTRADO_UUID]" />
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].Columns[COD_ESPECIE]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="COD_ESPECIE"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[COD_ESPECIE]" />
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].Columns[DURACAO_PROCESS]"
+                          cachedDataType="i4"
+                          cachedName="DURACAO_PROCESS"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DURACAO_PROCESS]"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output].Columns[DURACAO_PROCESS]" />
+                        <inputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].Columns[DATA_BASE]"
+                          cachedDataType="dbDate"
+                          cachedName="DATA_BASE"
+                          externalMetadataColumnId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DATA_BASE]"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Output].Columns[DATA_BASE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[CONTRADO_UUID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="CONTRADO_UUID" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[COD_ESPECIE]"
+                          dataType="wstr"
+                          length="2"
+                          name="COD_ESPECIE" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DURACAO_PROCESS]"
+                          dataType="i4"
+                          name="DURACAO_PROCESS" />
+                        <externalMetadataColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input].ExternalColumns[DATA_BASE]"
+                          dataType="dbDate"
+                          name="DATA_BASE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE.Paths[Data Conversion Output]"
+                  endId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\FT_ASSINATURAS_STAGE\TRUNCATE FT_ASSINATURAS_STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b57a58da-eec3-43ce-a139-a0df6ecc3f80}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE FT_ASSINATURAS_STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{640DC794-5173-47C0-AEF0-4D4C02D86F14}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE FT_ASSINATURAS_STAGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\FT_ASSINATURAS_STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8d88890d-bcb7-4548-b5fc-121d0df21e77}"
+          DTS:From="Package\FT_ASSINATURAS_STAGE\TRUNCATE FT_ASSINATURAS_STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{518C9BDE-EF0B-4A95-B29E-8C0342AC0026}"
+      DTS:From="Package\FT_ASSINATURAS_STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FT_ASSINATURAS_DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW"
+          TopLeft="57,104" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\FT_ASSINATURAS_DW\TRUNCATE FT_ASSINATURAS"
+          TopLeft="40,25" />
+        <EdgeLayout
+          Id="Package\FT_ASSINATURAS_DW.PrecedenceConstraints[Constraint]"
+          TopLeft="150.25,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="287,201"
+          Size="287,244"
+          Id="Package\FT_ASSINATURAS_DW"
+          TopLeft="459.5,66.5" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE"
+          TopLeft="31,105" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\FT_ASSINATURAS_STAGE\TRUNCATE FT_ASSINATURAS_STAGE"
+          TopLeft="22,13" />
+        <EdgeLayout
+          Id="Package\FT_ASSINATURAS_STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="152.75,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,200"
+          Size="300,243"
+          Id="Package\FT_ASSINATURAS_STAGE"
+          TopLeft="31.5,66.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="331.5,188.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128,0"
+              Start="0,0"
+              End="120.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="120.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS_STAGE"
+          TopLeft="361.5,159.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW\FT_ASSINATURAS"
+          TopLeft="402.5,331.5" />
+        <EdgeLayout
+          Id="Package\FT_ASSINATURAS_DW\FT_ASSINATURAS_DW.Paths[OLE DB Source Output]"
+          TopLeft="462.5,201.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5,130"
+              Start="0,0"
+              End="22.5,122.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61"
+                    Point2="0,65"
+                    Point3="4,65" />
+                  <mssgle:LineSegment
+                    End="18.5,65" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,65"
+                    Point2="22.5,65"
+                    Point3="22.5,69" />
+                  <mssgle:LineSegment
+                    End="22.5,122.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\FT_ASSINATURAS_STAGE"
+          TopLeft="218,307" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\ASSINATURAS_SQL"
+          TopLeft="159.5,73.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE\Data Conversion"
+          TopLeft="202,183" />
+        <EdgeLayout
+          Id="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE.Paths[OLE DB Source Output]"
+          TopLeft="245.5,115.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.5,67.5"
+              Start="0,0"
+              End="34.5,60">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.75"
+                    Point2="0,33.75"
+                    Point3="4,33.75" />
+                  <mssgle:LineSegment
+                    End="30.5,33.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,33.75"
+                    Point2="34.5,33.75"
+                    Point3="34.5,37.75" />
+                  <mssgle:LineSegment
+                    End="34.5,60" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FT_ASSINATURAS_STAGE\CARGA_ASSINATURAS_SQL_STAGE.Paths[Data Conversion Output]"
+          TopLeft="280,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,82"
+              Start="0,0"
+              End="39,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="4,41" />
+                  <mssgle:LineSegment
+                    End="35,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,41"
+                    Point2="39,41"
+                    Point3="39,45" />
+                  <mssgle:LineSegment
+                    End="39,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

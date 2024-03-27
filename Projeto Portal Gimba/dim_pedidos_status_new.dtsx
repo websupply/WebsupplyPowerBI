@@ -1,0 +1,974 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/20/2020 9:33:59 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{22443B60-ECD6-4949-AFC8-B25AC46ACC68}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="dim_pedidos_status_new"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{CC33563E-C1CA-42E9-953F-02FBFE6B13AB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA PEDIDOS STATUS DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{207C5BCA-9A3C-4F0D-9488-0D9CC1138AB6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA PEDIDOS STATUS DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{98D12D08-B7DD-4FD4-83F0-78CB06A1106E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT STATUS PEDIDOS DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVA PEDIDOS STATUS DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Dim_PedidosStatus]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Connections[OleDbConnection]"
+                      connectionManagerID="{71BCF780-29E0-4304-A1EA-7FE1C3785788}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_DW_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].Columns[Id_Pedidos_Status]"
+                          cachedDataType="i4"
+                          cachedName="Id_Pedidos_Status"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Pedidos_Status]"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].Columns[Id_Pedidos_Status]" />
+                        <inputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].Columns[Descricao]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Descricao"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[Descricao]"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].Columns[Descricao]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Sk]"
+                          dataType="i4"
+                          name="Id_Sk" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[Id_Pedidos_Status]"
+                          dataType="i4"
+                          name="Id_Pedidos_Status" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input].ExternalColumns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Descricao" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER PEDIDOS STATUS STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Pedidos_Status]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+*
+from [egbportal_stage_new].[dbo].[st_gb_pedidos_status] st
+where not exists 
+(select 
+id_pedidos_status
+from [egbportal_dw_new].[dbo].[dim_pedidosstatus] dw with (nolock)
+where dw.id_pedidos_status = st.id_pedidos_status
+)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].Columns[Id_Pedidos_Status]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Pedidos_Status]"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].Columns[Id_Pedidos_Status]"
+                          name="Id_Pedidos_Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].Columns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Descricao]"
+                          length="50"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].Columns[Descricao]"
+                          name="Descricao"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Id_Pedidos_Status]"
+                          dataType="i4"
+                          name="Id_Pedidos_Status" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output].ExternalColumns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Descricao" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Pedidos_Status]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[Id_Pedidos_Status]"
+                          name="Id_Pedidos_Status" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[Descricao]"
+                          name="Descricao" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA PEDIDOS STATUS DW\LIMPA STATUS PEDIDOS DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{24E03074-8650-47A3-8B9E-52C204C8D712}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="LIMPA STATUS PEDIDOS DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{71BCF780-29E0-4304-A1EA-7FE1C3785788}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_PEDIDOSSTATUS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA PEDIDOS STATUS DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{EE2B793D-8A51-4091-88BB-772A2CD5D38C}"
+          DTS:From="Package\CARGA PEDIDOS STATUS DW\LIMPA STATUS PEDIDOS DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA PEDIDOS STATUS STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{97ED4964-4A6A-468A-A83A-5E56D3225670}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA PEDIDOS STATUS STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{70ECEA26-C97A-46C8-87FA-66E584510FEB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT PEDIDOS STATUS STAGE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="GRAVAR PEDIDOS STATUS STAGE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[St_Gb_Pedidos_Status]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{10779405-461C-43D3-8D02-4C534A8750E2}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal_Stage_New]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input].Columns[Descricao]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Descricao"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Descricao]"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].Columns[Descricao]" />
+                        <inputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input].Columns[IdPedidoStatus]"
+                          cachedDataType="i4"
+                          cachedName="IdPedidoStatus"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Pedidos_Status]"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].Columns[IdPedidoStatus]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Id_Pedidos_Status]"
+                          dataType="i4"
+                          name="Id_Pedidos_Status" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input].ExternalColumns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Descricao" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="LER PEDIDOS STATUS OLAP"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+
+IdPedidoStatus,
+upper(Descricao) as Descricao
+
+from PedidoStatus
+where ConsideraPowerBI = 1</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Connections[OleDbConnection]"
+                      connectionManagerID="{907EDACB-5D52-4703-8CF0-1B43EA34500B}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[eGbPortal OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].Columns[IdPedidoStatus]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].ExternalColumns[IdPedidoStatus]"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].Columns[IdPedidoStatus]"
+                          name="IdPedidoStatus"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].Columns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].ExternalColumns[Descricao]"
+                          length="50"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].Columns[Descricao]"
+                          name="Descricao"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].ExternalColumns[IdPedidoStatus]"
+                          dataType="i4"
+                          name="IdPedidoStatus" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output].ExternalColumns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Descricao" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[IdPedidoStatus]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[IdPedidoStatus]"
+                          name="IdPedidoStatus" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[Descricao]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[Descricao]"
+                          name="Descricao" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA PEDIDOS STATUS STAGE\TRUNCATE PEDIDOS STATUS STAGE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9EB08523-4CD3-4DD7-ADC9-5261250C0A32}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE PEDIDOS STATUS STAGE"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{10779405-461C-43D3-8D02-4C534A8750E2}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_GB_PEDIDOS_STATUS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA PEDIDOS STATUS STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{77F801A8-4C32-4525-B4F6-354EEB883023}"
+          DTS:From="Package\CARGA PEDIDOS STATUS STAGE\TRUNCATE PEDIDOS STATUS STAGE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D385FBF-C3A8-4406-B405-858958505FB0}"
+      DTS:From="Package\CARGA PEDIDOS STATUS STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA PEDIDOS STATUS DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW"
+          TopLeft="46.5,87.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\CARGA PEDIDOS STATUS DW\LIMPA STATUS PEDIDOS DW"
+          TopLeft="25,7" />
+        <EdgeLayout
+          Id="Package\CARGA PEDIDOS STATUS DW.PrecedenceConstraints[Constraint]"
+          TopLeft="133.5,49">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16,38.5"
+              Start="0,0"
+              End="16,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.25"
+                    Point2="0,19.25"
+                    Point3="4,19.25" />
+                  <mssgle:LineSegment
+                    End="12,19.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12,19.25"
+                    Point2="16,19.25"
+                    Point3="16,23.25" />
+                  <mssgle:LineSegment
+                    End="16,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="314,184"
+          Size="314,228"
+          Id="Package\CARGA PEDIDOS STATUS DW"
+          TopLeft="425.5,80.5" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE"
+          TopLeft="14.5,124.5" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\CARGA PEDIDOS STATUS STAGE\TRUNCATE PEDIDOS STATUS STAGE"
+          TopLeft="5.5,2.5" />
+        <EdgeLayout
+          Id="Package\CARGA PEDIDOS STATUS STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="128.75,44.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80"
+              Start="0,0"
+              End="0,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="264,221"
+          Size="264,264"
+          Id="Package\CARGA PEDIDOS STATUS STAGE"
+          TopLeft="47.5,36.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="311.5,168.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,26"
+              Start="0,0"
+              End="106.5,26">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53,0"
+                    Point2="57,0"
+                    Point3="57,4" />
+                  <mssgle:LineSegment
+                    End="57,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57,22"
+                    Point2="57,26"
+                    Point3="61,26" />
+                  <mssgle:LineSegment
+                    End="106.5,26" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE"
+          TopLeft="209,46.4999999999999" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW"
+          TopLeft="221,211" />
+        <EdgeLayout
+          Id="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW.Paths[OLE DB Source Output]"
+          TopLeft="319,88.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12,122.5"
+              Start="0,0"
+              End="12,115">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.2500000000001"
+                    Point2="0,61.2500000000001"
+                    Point3="4,61.2500000000001" />
+                  <mssgle:LineSegment
+                    End="8,61.2500000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8,61.2500000000001"
+                    Point2="12,61.2500000000001"
+                    Point3="12,65.2500000000001" />
+                  <mssgle:LineSegment
+                    End="12,115" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\LER PEDIDOS STATUS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="214,42"
+          Id="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP"
+          TopLeft="180.5,64.5" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE"
+          TopLeft="156.5,219.5" />
+        <EdgeLayout
+          Id="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE.Paths[OLE DB Source Output]"
+          TopLeft="287.5,106.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,113"
+              Start="0,0"
+              End="-10,105.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.5"
+                    Point2="0,56.5"
+                    Point3="-4,56.5" />
+                  <mssgle:LineSegment
+                    End="-6,56.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,56.5"
+                    Point2="-10,56.5"
+                    Point3="-10,60.5" />
+                  <mssgle:LineSegment
+                    End="-10,105.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\GRAVAR PEDIDOS STATUS STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA PEDIDOS STATUS STAGE\DFT PEDIDOS STATUS STAGE\LER PEDIDOS STATUS OLAP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA PEDIDOS STATUS DW\DFT STATUS PEDIDOS DW\GRAVA PEDIDOS STATUS DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

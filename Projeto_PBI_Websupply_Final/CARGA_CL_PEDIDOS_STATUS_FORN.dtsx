@@ -1,0 +1,1180 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/5/2021 9:13:55 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRVSQLN1"
+  DTS:CreatorName="REMAZAWEB\Administrator"
+  DTS:DTSID="{7E05587D-9B5D-4930-9E91-D127561F6C81}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CARGA_CL_PEDIDOS_STATUS_FORN"
+  DTS:PackageType="5"
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{B15E48F2-798D-4181-B47D-C8041D1A9BBC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9EF03D2C-A54F-4871-BC8D-3112A9D62BE4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA CL_PEDIDOS_STATUS_FORN DW">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{E689CCC8-35AD-4CA4-B163-CDDDD80FA3C9}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT CL_PEDIDOS_STATUS_FORN DW"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CL_PEDIDOS_STATUS_FORN DW"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DIM_CL_PEDIDOS_STATUS_FORN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          cachedDataType="i4"
+                          cachedName="IDCLPEDIDOS_STATUS_FORN"
+                          externalMetadataColumnId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].ExternalColumns[IDCLPEDIDOS_STATUS_FORN]"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]" />
+                        <inputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].ExternalColumns[IDCLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          name="IDCLPEDIDOS_STATUS_FORN" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input].ExternalColumns[SK_CLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          name="SK_CLPEDIDOS_STATUS_FORN" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CL_PEDIDOS_STATUS_FORN STAGE"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[ST_WS_CLPEDIDOS_STATUS_FORN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="40"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDCLPEDIDOS_STATUS_FORN]"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          name="IDCLPEDIDOS_STATUS_FORN"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].ExternalColumns[IDCLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          name="IDCLPEDIDOS_STATUS_FORN" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          name="IDCLPEDIDOS_STATUS_FORN" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [DIM_CL_PEDIDOS_STATUS_FORN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [DIM_CL_PEDIDOS_STATUS_FORN]) [refTable]
+where [refTable].[IDCLPEDIDOS_STATUS_FORN] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SK_CLPEDIDOS_STATUS_FORN" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDCLPEDIDOS_STATUS_FORN" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DESCRICAO" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Connections[OleDbConnection]"
+                      connectionManagerID="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_DW]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Inputs[Lookup Input].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          cachedDataType="i4"
+                          cachedName="IDCLPEDIDOS_STATUS_FORN"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">IDCLPEDIDOS_STATUS_FORN</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Match Output].Columns[SK_CLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Match Output].Columns[SK_CLPEDIDOS_STATUS_FORN]"
+                          name="SK_CLPEDIDOS_STATUS_FORN"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SK_CLPEDIDOS_STATUS_FORN</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW.Paths[Lookup No Match Output]"
+                  endId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW.Inputs[OLE DB Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\TRUNCATE CL_PEDIDOS_STATUS_FORN DW"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3E520B89-43B8-4698-9ED0-4233DCE84235}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE CL_PEDIDOS_STATUS_FORN DW"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5F66D732-7ED0-4D65-9BCF-FC2688E351A7}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE DIM_CL_PEDIDOS_STATUS_FORN" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA CL_PEDIDOS_STATUS_FORN DW.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CC6ED685-4D84-4977-8DA4-4EC4E28E1B54}"
+          DTS:From="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\TRUNCATE CL_PEDIDOS_STATUS_FORN DW"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{4B636E26-B998-4B29-9AC1-93B489CA9790}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CARGA_CL_PEDIDOS_STATUS FORN STAGE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{3DDC8E67-209B-43EA-994C-54E0BB15438B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT ST CL PEDIDOS STATUS FORN"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="CONEXÃO OLTP CL PEDIDOS_STATUS_FORN"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+
+STATUS,
+UPPER(DESCRICAO) AS DESCRICAO
+
+FROM CL_PEDIDOS_STATUS 
+WHERE 
+STATUS NOT IN (0,3,4,7,10,11,13,14,16,17,18,19,20,21,22,23,24,25,27,35,42,43,44,61)</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Connections[OleDbConnection]"
+                      connectionManagerID="{173BDFB0-1402-4719-826A-7E07CC9DE3A5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_OLTP]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          name="IDCLPEDIDOS_STATUS_FORN"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          length="40"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].Columns[DESCRICAO]"
+                          name="DESCRICAO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                          dataType="i4"
+                          name="STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="DESCRICAO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                          name="STATUS" />
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[DESCRICAO]"
+                          name="DESCRICAO" />
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="CONEXÃO ST CL PEDIDOS_STATUS_FORN"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ST_WS_CLPEDIDOS_STATUS_FORN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Connections[OleDbConnection]"
+                      connectionManagerID="{5AB096C6-E412-4795-A92A-216027C71C07}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[WEBSUPPLY_STAGE]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input].Columns[DESCRICAO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="40"
+                          cachedName="DESCRICAO"
+                          externalMetadataColumnId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].Columns[DESCRICAO]" />
+                        <inputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input].Columns[IDCLPEDIDOS_STATUS_FORN]"
+                          cachedDataType="i4"
+                          cachedName="IDCLPEDIDOS_STATUS_FORN"
+                          externalMetadataColumnId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input].ExternalColumns[IDCLPEDIDOS_STATUS_FORN]"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output].Columns[IDCLPEDIDOS_STATUS_FORN]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input].ExternalColumns[DESCRICAO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="40"
+                          name="DESCRICAO" />
+                        <externalMetadataColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input].ExternalColumns[IDCLPEDIDOS_STATUS_FORN]"
+                          dataType="i4"
+                          name="IDCLPEDIDOS_STATUS_FORN" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN.Paths[OLE DB Source Output]"
+                  endId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\TRUNCATE ST_CL_PEDIDOS_STATUS_FORN"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CE6DC6CA-1C06-45C8-B712-E77430C61E40}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE ST_CL_PEDIDOS_STATUS_FORN"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5AB096C6-E412-4795-A92A-216027C71C07}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE ST_WS_CLPEDIDOS_STATUS_FORN" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A43453CF-6EF3-4417-A9CC-C1C6B1AE20DF}"
+          DTS:From="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\TRUNCATE ST_CL_PEDIDOS_STATUS_FORN"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{68B8E456-85ED-4FB7-BBDD-AC3D08090C95}"
+      DTS:From="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\CARGA CL_PEDIDOS_STATUS_FORN DW" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="259,42"
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW"
+          TopLeft="30.5,140.5" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\TRUNCATE CL_PEDIDOS_STATUS_FORN DW"
+          TopLeft="25,27" />
+        <EdgeLayout
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW.PrecedenceConstraints[Constraint]"
+          TopLeft="171,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11,71.5"
+              Start="0,0"
+              End="-11,64">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.75"
+                    Point2="0,35.75"
+                    Point3="-4,35.75" />
+                  <mssgle:LineSegment
+                    End="-7,35.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7,35.75"
+                    Point2="-11,35.75"
+                    Point3="-11,39.75" />
+                  <mssgle:LineSegment
+                    End="-11,64" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="339,238"
+          Size="339,281"
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW"
+          TopLeft="571.5,38.5" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN"
+          TopLeft="25.5,107.5" />
+        <NodeLayout
+          Size="290,42"
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\TRUNCATE ST_CL_PEDIDOS_STATUS_FORN"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE.PrecedenceConstraints[Constraint]"
+          TopLeft="149.75,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="300,204"
+          Size="300,247"
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE"
+          TopLeft="133.5,52.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="433.5,177.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138,0"
+              Start="0,0"
+              End="130.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="130.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE"
+          TopLeft="234.5,44.5" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW"
+          TopLeft="249.5,240.5" />
+        <NodeLayout
+          Size="306,42"
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW"
+          TopLeft="422,141" />
+        <EdgeLayout
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW.Paths[OLE DB Source Output]"
+          TopLeft="360.5,86.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="214.5,54.5"
+              Start="0,0"
+              End="214.5,47">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.25"
+                    Point2="0,27.25"
+                    Point3="4,27.25" />
+                  <mssgle:LineSegment
+                    End="210.5,27.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="210.5,27.25"
+                    Point2="214.5,27.25"
+                    Point3="214.5,31.25" />
+                  <mssgle:LineSegment
+                    End="214.5,47" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW.Paths[Lookup No Match Output]"
+          TopLeft="575,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-207,57.5"
+              Start="0,0"
+              End="-207,50">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.75"
+                    Point2="0,28.75"
+                    Point3="-4,28.75" />
+                  <mssgle:LineSegment
+                    End="-203,28.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203,28.75"
+                    Point2="-207,28.75"
+                    Point3="-207,32.75" />
+                  <mssgle:LineSegment
+                    End="-207,50" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-159.30638671875,33.75,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN STAGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\CL_PEDIDOS_STATUS_FORN DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA CL_PEDIDOS_STATUS_FORN DW\DFT CL_PEDIDOS_STATUS_FORN DW\PESQUISA ID_CL_PEDIDOS_STATUS_FORN DW">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DIM_CL_PEDIDOS_STATUS_FORN]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="280,42"
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN"
+          TopLeft="197.5,190.5" />
+        <NodeLayout
+          Size="293,42"
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN"
+          TopLeft="203.5,88.5" />
+        <EdgeLayout
+          Id="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN.Paths[OLE DB Source Output]"
+          TopLeft="350,130.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.5,60"
+              Start="0,0"
+              End="-12.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-8.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,30"
+                    Point2="-12.5,30"
+                    Point3="-12.5,34" />
+                  <mssgle:LineSegment
+                    End="-12.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO OLTP CL PEDIDOS_STATUS_FORN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CARGA_CL_PEDIDOS_STATUS FORN STAGE\DFT ST CL PEDIDOS STATUS FORN\CONEXÃO ST CL PEDIDOS_STATUS_FORN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
