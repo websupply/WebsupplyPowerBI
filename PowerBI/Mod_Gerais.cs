@@ -17,13 +17,13 @@ namespace PowerBI
         public static string ConnectionString()
         {
             AssemblySettings settings = new AssemblySettings();
-            //#if DEBUG
+#if DEBUG
             //return settings["appConexaoRelat"].ToString();
             //return "Data Source=WEBSQLPROD02\\SGISQL02,1433;Initial Catalog=WEBSUPPLY3;User ID=bcpweb;Password=bcp2web;";
             return "Data Source=WEBSQLHOM02\\SGISQL02,1433;Initial Catalog=websupply3;User ID=websupply3;Password=Treina&Homologa@2017;";
-            //#else
-            //            return settings["appConexaoRelat"].ToString();
-            //#endif
+#else
+            return settings["appConexaoRelat"].ToString();
+#endif
         }
 
         public static string retornaConteudoSoap(object objSerializer)
